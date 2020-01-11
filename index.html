@@ -1,0 +1,15 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href=".\styles.css">
+<div id="app">	
+<div v-for="(post, index) in posts" id="content-grid">
+	<div class="door-div" v-bind:style="{'background-image': 'url(' + (post.content_link) + ')'}"><img v-if="Math.random() > .6" class="door door2" v-bind:src="post.door_image"><img v-else class="door" v-bind:src="post.door_image"></div>
+</div>
+</div>
+<script>
+var app = new Vue({
+		el: '#app',
+		data: {
+			posts: [{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door1.jpg", door_size: "a", content_tank: "a"},{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door3.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"},{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door1.jpg", door_size: "a", content_tank: "a"},{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door3.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"},{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door1.jpg", door_size: "a", content_tank: "a"},{content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door3.png", door_size: "a", content_tank: "a"}, {content_type: "image", content_link: "content/miranda.jpg", door_image: "doors/door2.png", door_size: "a", content_tank: "a"}]
+		}
+	});
+</script>
