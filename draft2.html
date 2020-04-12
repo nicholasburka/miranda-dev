@@ -5,10 +5,10 @@
 </div>
 <div id="AboutContact-div">
 	<img class="door" src="doors/door1.jpg">
-	<h1 id="bio">Bio</h1>
+	<h1 id="bio-header">Bio</h1>
 </div>
 <div id="Contents">
-	<div class="content" id="Film">
+	<div class="content" id="Film" onclick="displayDoor('Film')">
 		<img class="small-door" src="doors/door1.jpg">
 		<h1 id="film-text">Film</h1>
 	</div>
@@ -21,3 +21,9 @@
 		<h1 id="comedy-text">Comedy</h1>
 	</div>
 </div>
+<script>
+
+	function displayDoor(name) {
+		document.getElementById(name).style = "";
+	};
+</script>
