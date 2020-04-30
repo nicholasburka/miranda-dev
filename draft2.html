@@ -1,29 +1,45 @@
 <link rel="stylesheet" href=".\draft2.css">
 <div id="Miranda-div">
-	<img class="door" src="doors/door1.jpg">
+	<img class="door" src="doors/IMG_5244.PNG">
 	<h1 id="miranda">Miranda</h1>
 </div>
 <div id="AboutContact-div">
-	<img class="door" src="doors/door1.jpg">
+	<img class="door" src="doors/IMG_5245.PNG">
 	<h1 id="bio-header">Bio</h1>
 </div>
 <div id="Contents">
-	<div class="content" id="Film" onclick="displayDoor('Film')">
-		<img class="small-door" src="doors/door1.jpg">
+	<div class="content filmclosed" id="film" onclick="switchDoor('film')">
+		<img id="film-door" class="small-door" src="doors/IMG_5242.PNG">
 		<h1 id="film-text">Film</h1>
 	</div>
-	<div class="content" id="Art">
-		<img class="small-door" src="doors/door1.jpg">
+	<div class="content artclosed" id="art" onclick="switchDoor('art')">
+		<img id="art-door" class="small-door" src="doors/IMG_5241.PNG">
 		<h1 id="art-text">Art</h1>
 	</div>
-	<div class="content" id="Comedy">
-		<img class="small-door" src="doors/door1.jpg">
+	<div class="content comedyclosed" id="comedy" onclick="switchDoor('comedy')">
+		<img id="comedy-door" class="small-door" src="doors/IMG_5243.PNG">
 		<h1 id="comedy-text">Comedy</h1>
 	</div>
 </div>
 <script>
+	var divs = {
+		'Miranda-div': document.getElementById('Miranda-div'),
+		'AboutContact-div': document.getElementById('AboutContact-div'),
+		'film': document.getElementById('film'),
+		'art': document.getElementById('art'),
+		'comedy': document.getElementById('comedy'),
+	};
 
-	function displayDoor(name) {
-		document.getElementById(name).style = "";
+	function switchDoor(name) {
+		var open_class = name + "open";
+		var closed = name + "closed"
+		var divy = document.getElementById(name);
+		if (divy.className.indexOf(open_class) >= 0) {
+			console.log("a" + divy.className.indexOf(open_class));
+			divy.className = divy.className.replace(open_class, closed);
+		} else {
+			console.log(divy.className.indexOf(closed));
+			divy.className = divy.className.replace(closed, open_class);
+		}
 	};
 </script>
