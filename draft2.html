@@ -1,27 +1,48 @@
 <link rel="stylesheet" href=".\draft2.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div id="Miranda-div">
 	<img class="door" src="doors/IMG_5244.PNG">
-	<h1 id="miranda">Miranda</h1>
+	<div id="portrait-wrapper"><img id="portrait" src="content/self-portrait-cropped.PNG"></div>
 </div>
 <div id="AboutContact-div">
 	<img class="door" src="doors/IMG_5245.PNG">
 	<h1 id="bio-header">Bio</h1>
 </div>
 <div id="Contents">
-	<div class="content filmclosed" id="film" onclick="switchDoor('film')">
+	<div class="content filmclosed" id="film" onclick="switchClassTwo('film', 'filmopen', 'filmclosed')">
 		<img id="film-door" class="small-door" src="doors/IMG_5242.PNG">
 		<h1 id="film-text">Film</h1>
 	</div>
-	<div class="content artclosed" id="art" onclick="switchDoor('art')">
+	<div class="content artclosed" id="art" onclick="switchClassTwo('art', 'artopen', 'artclosed')">
 		<img id="art-door" class="small-door" src="doors/IMG_5241.PNG">
 		<h1 id="art-text">Art</h1>
 	</div>
-	<div class="content comedyclosed" id="comedy" onclick="switchDoor('comedy')">
+	<div class="content comedyclosed" id="comedy" onclick="switchClassTwo('comedy', 'comedyopen', 'comedyclosed')">
 		<img id="comedy-door" class="small-door" src="doors/IMG_5243.PNG">
 		<h1 id="comedy-text">Comedy</h1>
 	</div>
 </div>
 <script>
+	window.onload = function() {
+	  //miranda peekout
+	  setTimeout(() => {switchClass('portrait-wrapper', 'peek')}, 300);
+	  setTimeout(() => {switchClass('Miranda-div', 'peek')}, 300);
+	  setTimeout(() => {switchClassTwo('portrait-wrapper', 'peek', 'depeek')}, 1200);
+	  setTimeout(() => {switchClassTwo('Miranda-div', 'peek', 'depeek')}, 1200);
+	  setTimeout(() => {switchClass('portrait-wrapper', 'depeek')}, 1600);
+	  setTimeout(() => {switchClassTwo('Miranda-div', 'depeek')}, 1600);
+
+	};
+
+	let resizeTimer;
+	window.addEventListener("resize", () => {
+	  document.body.classList.add("resize-animation-stopper");
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(() => {
+	    document.body.classList.remove("resize-animation-stopper");
+	  }, 400);
+	});
+
 	var divs = {
 		'Miranda-div': document.getElementById('Miranda-div'),
 		'AboutContact-div': document.getElementById('AboutContact-div'),
@@ -30,16 +51,22 @@
 		'comedy': document.getElementById('comedy'),
 	};
 
-	function switchDoor(name) {
-		var open_class = name + "open";
-		var closed = name + "closed"
-		var divy = document.getElementById(name);
-		if (divy.className.indexOf(open_class) >= 0) {
-			console.log("a" + divy.className.indexOf(open_class));
-			divy.className = divy.className.replace(open_class, closed);
+	function switchClass(element, classAdd) {
+		var el = document.getElementById(element);
+		console.log(el);
+		if (el.className.indexOf(classAdd) >= 0) {
+			el.className = el.className.replace(classAdd, '');
 		} else {
-			console.log(divy.className.indexOf(closed));
-			divy.className = divy.className.replace(closed, open_class);
+			el.className = el.className + classAdd;
+		}
+	};
+
+	function switchClassTwo(element, classRegName, classActivatedName) {
+		var el = document.getElementById(element);
+		if (el.className.indexOf(classRegName) >= 0) {
+			el.className = el.className.replace(classRegName, classActivatedName);
+		} else {
+			el.className = el.className.replace(classActivatedName, classRegName);
 		}
 	};
 </script>
