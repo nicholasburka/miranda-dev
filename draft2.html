@@ -9,17 +9,29 @@
 	<h1 id="bio-header">Bio</h1>
 </div>
 <div id="Contents">
-	<div class="content filmclosed" id="film" onclick="switchClassTwo('film', 'filmopen', 'filmclosed')">
+	<div class="content filmclosed" id="film" onclick="switchClassTwo(['film', 'filmoverlay'], 'filmopen', 'filmclosed')">
 		<img id="film-door" class="small-door" src="doors/IMG_5242.PNG">
-		<h1 id="film-text">Film</h1>
+		<h1 class="behind-text">Film</h1>
+		<div id="filmoverlay" class="overlay filmclosed">
+		</div>
 	</div>
-	<div class="content artclosed" id="art" onclick="switchClassTwo('art', 'artopen', 'artclosed')">
+	<div class="content artclosed" id="art" onclick="switchClassTwo(['art', 'artoverlay'], 'artopen', 'artclosed')">
 		<img id="art-door" class="small-door" src="doors/IMG_5241.PNG">
-		<h1 id="art-text">Art</h1>
+		<h1 class="behind-text">Art</h1>
+		<div id="artoverlay" class="overlay artclosed">
+		</div>
 	</div>
-	<div class="content comedyclosed" id="comedy" onclick="switchClassTwo('comedy', 'comedyopen', 'comedyclosed')">
+	<div class="content comedyclosed" id="comedy" onclick="switchClassTwo(['comedy', 'comedyoverlay'], 'comedyopen', 'comedyclosed')">
 		<img id="comedy-door" class="small-door" src="doors/IMG_5243.PNG">
-		<h1 id="comedy-text">Comedy</h1>
+		<h1 class="behind-text">Comedy</h1>
+		<div id="comedyoverlay" class="overlay comedyclosed">
+		</div>
+	</div>
+	<div class="content mediaclosed" id="media" onclick="switchClassTwo(['media', 'mediaoverlay'], 'mediaopen', 'mediaclosed')">
+		<img id="media-door" class="small-door" src="doors/IMG_5246.PNG">
+		<h1 class="behind-text">Media</h1>
+		<div id="mediaoverlay" class="overlay mediaclosed">
+		</div>
 	</div>
 </div>
 <script>
@@ -62,11 +74,19 @@
 	};
 
 	function switchClassTwo(element, classRegName, classActivatedName) {
-		var el = document.getElementById(element);
-		if (el.className.indexOf(classRegName) >= 0) {
-			el.className = el.className.replace(classRegName, classActivatedName);
+		function internal(element, classRegName, classActivatedName) {
+			var el = document.getElementById(element);
+			if (el.className.indexOf(classRegName) >= 0) {
+				el.className = el.className.replace(classRegName, classActivatedName);
+			} else {
+				el.className = el.className.replace(classActivatedName, classRegName);
+			}
+		};
+
+		if (element.forEach !== undefined) {
+			element.forEach((el) => {internal(el, classRegName, classActivatedName);});
 		} else {
-			el.className = el.className.replace(classActivatedName, classRegName);
+			internal(element, classRegName, classActivatedName);
 		}
 	};
 </script>

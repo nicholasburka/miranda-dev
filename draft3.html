@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Miranda Amey</title>
+  <style>
+  	body {
+  		margin:0;
+  	}
+  	canvas {
+  		display: block;
+  		background: white;
+  	}
+  </style>
+</head>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		(function() {
+		    var canvas = document.getElementById('canvas'),
+		            context = canvas.getContext('2d');
+
+		    // resize the canvas to fill browser window dynamically
+		    window.addEventListener('resize', resizeCanvas, false);
+
+		    function resizeCanvas() {
+		            canvas.width = window.innerWidth;
+		            canvas.height = window.innerHeight;
+
+		            /**
+		             * Your drawings need to be inside this function otherwise they will be reset when 
+		             * you resize the browser window and the canvas goes will be cleared.
+		             */
+		            drawStuff(); 
+		    }
+		    resizeCanvas();
+
+		    function drawStuff() {
+		        var stage = new createjs.Stage("canvas");
+		        var instance = new createjs.Sprite("doors/IMG_5244.PNG");
+		        var width = window.innerWidth;
+		        var height = window.innerHeight;
+		        
+		        //var midDoorX = width / 2 - .5 * doorWidth * .5
+
+		        stage.update();
+		    }
+		})();
+		const canvas = document.getElementById('mycanvas');
+
+	</script>
+
+
+</body>
