@@ -55,6 +55,7 @@ $text-height-offset: 5vh;
 .toprow {
 	width: 33%;
 	height: 50vh;
+	height: calc(var(--vh, 1vh) * 50);
 	float: left;
 	position: absolute;
 	top: 0vh;
