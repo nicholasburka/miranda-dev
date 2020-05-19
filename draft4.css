@@ -1,0 +1,431 @@
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+body {
+	margin: 0;
+}
+
+#overlay {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0;
+	transition: all ease-in-out 2s;
+}
+
+#media.mediaopen > #overlay {
+	position: absolute;
+	z-index: 10;
+	opacity: 100;
+	transition: all ease-in-out 2s;
+}
+
+.door {
+	max-width: 100%;
+	max-height: 100%;
+	float: inherit;
+	transition: all ease-in-out .2s;
+	position: inherit;
+	z-index: 1;
+	float: left;
+	image-orientation: from-image;
+	left: 40vw;
+}
+
+#portrait {
+	max-width: 48%;
+	max-height: 48%;
+	float: inherit;
+	transition: all ease-in-out .2s;
+	position: relative;
+	z-index: 0;
+	float: left;
+}
+
+#portrait.peek {
+	transform: rotate(5deg);
+}
+
+#portrait-wrapper {
+	left: 41vw;
+	width: 30vw;
+	height: 33.3vh;
+	position: absolute;
+	top: 1vh;
+	transition: all ease-in-out .6s;
+}
+
+/*MIRANDA DIV*/
+
+/* make these into classes, then javascript to get it to open on page open and close */
+
+#Miranda-div {
+	width: 100vw;
+	height: 33.3vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#Miranda-div:hover > .door {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 1, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+	z-index: 1;
+}
+
+#Miranda-div:hover > #portrait-wrapper {
+	left: 45vw;
+	transition: all ease-in-out .6s;
+}
+
+#Miranda-div.peek > .door {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 1, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+	z-index: 1;
+}
+#Miranda-div.depeek > .door {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 0, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+	z-index: 1;
+}
+
+#portrait-wrapper.peek {
+	left: 45vw;
+	transition: all ease-in-out .6s;
+}
+
+#portrait-wrapper.depeek {
+	left: 40vw;
+	transition: all ease-in-out .6s;
+}
+
+/*ABOUT/CONTACT DIV*/
+
+#AboutContact-div {
+	width: 20vw;
+	height: 33.3vh;
+	position: absolute;
+	top: 33.3vh;
+	left: 40vw;
+}
+#AboutContact-div .door {
+	left: 0vw;
+}
+
+
+#AboutContact-div:hover > .door {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 30deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+	z-index: 1;
+}
+
+#Bio-header {
+	position: absolute;
+	z-index: 0;
+	top: 8vh;
+	left: .5vw;
+	transition: all ease-in-out .6s;
+	color: #a025cc;
+}
+
+#AboutContact-div:hover > #Bio-header {
+	-moz-transform: translate(12vw, 0px);
+	-webkit-transform: translate(12vw, 0px);
+	-o-transform: translate(12vw, 0px);
+	-ms-transform: translate(12vw, 0px);
+	transform: translate(12vw, 0px);
+	transition: all ease-in-out .6s;
+}
+
+/*BOTTOM ROW: CONTENTS*/
+
+#contents {
+	height: 33.4vh;
+	width: 80vw;
+	left: 10vw;
+	position: absolute;
+}
+
+.content {
+	width: 25%;
+	height: 33.4vh;
+	float: left;
+	position: absolute;
+	top: 66.6vh;
+}
+
+.behind-text {
+	position: absolute;
+	z-index: 3;
+	margin-top: 0;
+	top: 8vh;
+	left: .5vw;
+	transition: all ease-in-out .6s;
+	opacity: 0;
+	color: #a025cc;
+}
+
+.small-door {
+	max-height: 100%;
+	max-width: 100%;
+	float: inherit;
+	transition: all ease-in-out .3s;
+	z-index: 1;
+	float: left;
+	left: 0%;
+	position: inherit;
+	image-orientation: from-image;
+}
+
+.overlay {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: #a025cc;
+	opacity: 0;
+}
+
+/*need to fix up the positioning, each content div needs to */
+#film {
+	position: absolute;
+}
+#film .small-door {
+	z-index: 8;
+}
+#film:hover.filmclosed > .small-door {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 30deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+}
+#film .behind-text {
+	z-index: 7;
+}
+#film:hover > .behind-text {
+	-moz-transform: translate(12vw, 0px);
+	-webkit-transform: translate(12vw, 0px);
+	-o-transform: translate(12vw, 0px);
+	-ms-transform: translate(12vw, 0px);
+	transform: translate(12vw, 0px);
+	transition: all ease-in-out .6s;
+	opacity: 100;
+}
+#film.filmopen > .small-door {
+	width: auto;
+	height: 100vh;
+	top: 0;
+	left: -10vw;
+	transition: all ease-out 2s;
+	z-index: 10;
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, -90deg);
+}
+#film.filmopen {
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transition: all ease-in-out 2s;
+	z-index: 10;
+}
+#filmoverlay.filmopen  {
+	opacity: 100;
+	left: -10vw;
+	transition: opacity ease-out 1.5s, left ease-in-out 2s;
+	z-index: 7;
+}
+#film.filmopen > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+
+#art {
+	top: 66.6vh;
+	left: 20vw;
+}
+#art .small-door {
+	z-index: 6;
+}
+#art:hover.artclosed > .small-door {
+ 	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+}
+#art .behind-text {
+	z-index: 5;
+}
+#art:hover > .behind-text {
+	-moz-transform: translate(10vw, 0px);
+	-webkit-transform: translate(10vw, 0px);
+	-o-transform: translate(10vw, 0px);
+	-ms-transform: translate(10vw, 0px);
+	transform: translate(10vw, 0px);
+	transition: all ease-in-out .6s;
+	opacity: 100;
+}
+
+
+#art.artopen > .small-door {
+	width: auto;
+	height: 100vh;
+	top: 0;
+	left: -30vw;
+	transition: all ease-out 3s;
+	z-index: 10;
+	transform-origin: 1% center;
+	transform: rotate3d(.01, 1, .01, -90deg);
+}
+#art.artopen {
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	transition: all ease-in-out 2s;
+	z-index: 10;
+}
+#artoverlay.artopen  {
+	opacity: 100;
+	left: -30vw;
+	transition: opacity ease-out 1.5s, left ease-in-out 3s;
+	z-index: 5;
+}
+#art.artopen > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+
+
+#comedy {
+	top: 66.6vh;
+	left: 40vw;
+	width: 33.4vw;
+}
+#comedy .small-door {
+	z-index: 4;
+}
+#comedy:hover.comedyclosed > .small-door {
+ 	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+ }
+#comedy .behind-text{
+	z-index: 3;
+}
+#comedy:hover > .behind-text {
+	-moz-transform: translate(10vw, 0px);
+	-webkit-transform: translate(10vw, 0px);
+	-o-transform: translate(10vw, 0px);
+	-ms-transform: translate(10vw, 0px);
+	transform: translate(10vw, 0px);
+	transition: all ease-in-out .6s;
+	opacity: 100;
+}
+
+
+#comedy.comedyopen > .small-door {
+	width: auto;
+	height: 100vh;
+	top: 0;
+	left: -10vw;
+	transition: all ease-out 3s;
+	z-index: 10;
+	transform-origin: 1% center;
+	transform: rotate3d(.01, 1, .01, -90deg);
+}
+#comedy.comedyopen {
+	width: 100vw;
+	height: 100vh;
+	top: 0vh;
+	left: 0vw;
+	transition: all ease-in-out 2s;
+	z-index: 10;
+}
+#comedy.comedyopen > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+#comedyoverlay.comedyopen  {
+	opacity: 100;
+	left: -10vw;
+	transition: opacity ease-out 1.5s, left ease-in-out 3s;
+}
+#comedyx {
+	position: absolute;
+	font-style: sans-serif;
+	font-family: Arial;
+}
+#comedyx.comedyclosed {
+	opacity: 0;
+}
+#comedyx.comedyopen {
+	opacity: 100;
+	transition: all ease-out 2s;
+}
+
+#media {
+	top: 66.6vh;
+	left: 60vw;
+	width: 33.4vw;
+}
+#media .small-door {
+	z-index: 2;
+}
+#media:hover.mediaclosed > .small-door {
+ 	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 45deg);/*rotateY(45deg);*/
+	transition: all ease-in-out .3s;
+ }
+ #media .behind-text {
+	z-index: 1;
+}
+#media:hover > .behind-text {
+	-moz-transform: translate(10vw, 0px);
+	-webkit-transform: translate(10vw, 0px);
+	-o-transform: translate(10vw, 0px);
+	-ms-transform: translate(10vw, 0px);
+	transform: translate(10vw, 0px);
+	opacity: 100;
+	transition: all ease-in-out .6s;
+}
+
+
+#media.mediaopen > .small-door {
+	width: auto;
+	height: 100vh;
+	top: 0;
+	left: -10vw;
+	transition: all ease-out 3s;
+	z-index: 10;
+	transform-origin: 1% center;
+	transform: rotate3d(.01, 1, .01, -90deg);
+}
+#media.mediaopen {
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transition: all ease-in-out 2s;
+	z-index: 10;
+}
+#media.mediaopen > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+#mediaoverlay.mediaopen  {
+	opacity: 100;
+	left: -10vw;
+	transition: opacity ease-out 1.5s, left ease-in-out 3s;
+}
+
+
+
