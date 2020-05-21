@@ -22,7 +22,9 @@ $portrait-peek: 12vh;
 
 $first: 9vw;
 $second: 42vw;
+$second-small: 35vw;
 $third: 73vw;
+$third-small: 67vw;
 
 $text-height-offset: 5vh;
 
@@ -44,6 +46,9 @@ $overlay-opacity-time: 2s;
 	left: 0 - $left;
 	width: 100vw;
 	height: 100vh;
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
 	transition: opacity ease-out $overlay-opacity-time, left ease-out 3s;
 }
 
@@ -63,8 +68,8 @@ $overlay-opacity-time: 2s;
 
 .overlay {
 	position: absolute;
-	width: 100vw;
-	height: 100vh;
+	height: 10vh;
+	width: 10vw;
 	top: 0;
 	left: 0;
 	background-color: #a025cc;
@@ -100,7 +105,7 @@ $overlay-opacity-time: 2s;
 	top: 0;
 	left: 0;
 	transition: all ease-out 3s;
-	z-index: 10;
+	z-index: 12;
 	transform-origin: 1% center;
 	transform: rotate3d(.01, 1, .01, -90deg);
 }
@@ -112,6 +117,17 @@ $overlay-opacity-time: 2s;
 	transition: all ease-in-out 2s;
 	z-index: 10;
 }
+@mixin doordiv {
+	width: (30vw);
+	height: 50vh;
+	float: left;
+	position: absolute;
+}
+
+.bottomrow {
+	@include doordiv;
+	top: 50vh;
+}
 
 
 #toprow-div {
@@ -122,11 +138,37 @@ $overlay-opacity-time: 2s;
 }
 
 .toprow {
-	width: 33%;
-	height: 50vh;
-	float: left;
-	position: absolute;
+	@include doordiv;
 	top: 0vh;
+}
+
+$small-screen: 720px;
+
+.col1 {
+	@media (max-width: $small-screen) {
+		left: 0px;
+    }
+    @media (min-width: $small-screen) {
+    	left: $first;
+    }
+}
+
+.col2 {
+	@media (max-width: $small-screen) {
+		left: $second-small;
+    }
+    @media (min-width: $small-screen) {
+    	left: $second;
+    }
+}
+
+.col3 {
+	@media (max-width: $small-screen) {
+		left: $third-small;
+    }
+    @media (min-width: $small-screen) {
+    	left: $third;
+    }
 }
 
 .door {
@@ -170,7 +212,6 @@ $overlay-opacity-time: 2s;
 #Miranda-div {
 	position: absolute;
 	top: 0;
-	left: $second;
 }
 
 #Miranda-div:hover > .door {
@@ -206,7 +247,6 @@ $overlay-opacity-time: 2s;
 
 #AboutContact-div {
 	position: absolute;
-	left: $first;
 }
 #AboutContact-div .door {
 	left: 0vw;
@@ -236,12 +276,11 @@ $overlay-opacity-time: 2s;
 
 
 #media {
-	left: $third
 }
-#media .small-door {
+#media .door {
 	z-index: 2;
 }
-#media:hover.mediaclosed > .small-door {
+#media:hover.mediaclosed > .door {
  	@include door-open-less;
  }
  #media .behind-text {
@@ -254,13 +293,13 @@ $overlay-opacity-time: 2s;
 }
 
 
-#media.mediaopen > .small-door {
+#media.mediaopen > .door {
 	@include enterdoor;
 }
 #media.mediaopen {
 	@include enterdiv;
-}
 #media.mediaopen > .behind-text {
+}
 	opacity: 0;
 	transition: all ease-out .4s;
 }
@@ -272,20 +311,6 @@ $overlay-opacity-time: 2s;
 
 /*BOTTOM ROW: CONTENTS*/
 
-#bottomrow-div {
-	height: 50vh;
-	width: 100vw;
-	left: 0vw;
-	position: absolute;
-}
-
-.bottomrow {
-	width: 33%;
-	height: 50vh;
-	float: left;
-	position: absolute;
-	top: 50vh;
-}
 
 .behind-text {
 	position: absolute;
@@ -298,27 +323,14 @@ $overlay-opacity-time: 2s;
 	color: #a025cc;
 }
 
-.small-door {
-	max-height: 100%;
-	max-width: 100%;
-	float: inherit;
-	transition: all ease-in-out .3s;
-	z-index: 1;
-	float: left;
-	left: 0%;
-	position: inherit;
-	image-orientation: from-image;
-}
 
-/*need to fix up the positioning, each content div needs to */
 #film {
 	position: absolute;
-	left: $first;
 }
-#film .small-door {
+#film .door {
 	z-index: 8;
 }
-#film:hover.filmclosed > .small-door {
+#film:hover.filmclosed > .door {
 	@include door-open-less;
 }
 #film .behind-text {
@@ -333,7 +345,7 @@ $overlay-opacity-time: 2s;
 /* when the filmopen class is triggered,
 the door moves to the top left and opens all the way
  */
-#film.filmopen > .small-door {
+#film.filmopen > .door {
 	@include enterdoor;
 }
 #film.filmopen {
@@ -342,6 +354,8 @@ the door moves to the top left and opens all the way
 #filmoverlay.filmopen  {
 	opacity: 100;
 	left: 0vw;
+	height: 100vh;
+	width: 100vw;
 	transition: opacity ease-out 1.5s, left ease-out 2s;
 	z-index: 7;
 }
@@ -352,12 +366,11 @@ the door moves to the top left and opens all the way
 
 
 #comedy {
-	left: $second;
 }
-#comedy .small-door {
+#comedy .door {
 	z-index: 6;
 }
-#comedy:hover.comedyclosed > .small-door {
+#comedy:hover.comedyclosed > .door {
  	@include door-open-less;
  }
 #comedy .behind-text{
@@ -368,7 +381,7 @@ the door moves to the top left and opens all the way
 	transition: all ease-in-out .6s;
 	opacity: 100;
 }
-#comedy.comedyopen > .small-door {
+#comedy.comedyopen > .door {
 	@include enterdoor;
 }
 #comedy.comedyopen {
@@ -396,12 +409,11 @@ the door moves to the top left and opens all the way
 
 
 #art {
-	left: $third;
 }
-#art .small-door {
+#art .door {
 	z-index: 4;
 }
-#art:hover.artclosed > .small-door {
+#art:hover.artclosed > .door {
  	@include door-open-less;
 }
 #art .behind-text {
@@ -412,7 +424,7 @@ the door moves to the top left and opens all the way
 	transition: all ease-in-out .6s;
 	opacity: 100;
 }
-#art.artopen > .small-door {
+#art.artopen > .door {
 	@include enterdoor;
 }
 #art.artopen {
@@ -421,6 +433,8 @@ the door moves to the top left and opens all the way
 #artoverlay.artopen  {
 	opacity: 100;
 	left: 0vw;
+	height: 100vh;
+	width: 100vw;
 	transition: opacity ease-out 1.5s, left ease-in-out 3s;
 	z-index: 3;
 }
