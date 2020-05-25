@@ -29,6 +29,10 @@ $third-small: 67vw;
 $text-height-offset: 5vh;
 
 
+$small-screen: 720px;
+$very-small: 600px;
+
+
 /* All overlay stuff */
 
 $overlay-opacity-time: 2s;
@@ -129,20 +133,31 @@ $overlay-opacity-time: 2s;
 	top: 50vh;
 }
 
+$top-pad: 5vh;
 
 #toprow-div {
 	height: 50vh;
 	width: 100vw;
 	left: 0vw;
 	position: absolute;
+	@media (max-width: $very-small) {
+		top: $top-pad;
+    }
+    @media (min-width: $very-small) {
+    	top: 0px;
+    }
 }
 
 .toprow {
 	@include doordiv;
 	top: 0vh;
+	@media (max-width: $small-screen) and (min-height: $small-screen) {
+		top: $top-pad;
+    }
+    @media (min-width: $small-screen) {
+    	top: 0px;
+    }
 }
-
-$small-screen: 720px;
 
 .col1 {
 	@media (max-width: $small-screen) {
@@ -211,7 +226,6 @@ $small-screen: 720px;
 
 #Miranda-div {
 	position: absolute;
-	top: 0;
 }
 
 #Miranda-div:hover > .door {
