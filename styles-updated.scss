@@ -43,13 +43,10 @@ $overlay-opacity-time: 2s;
 	opacity: 100;
 	transition: all ease-in-out 2s;
 }
-
-
 @mixin overlayopen {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	z-index: 5;
 	opacity: 100;
 	transition: opacity ease-out $overlay-opacity-time, left ease-out 3s;
 }
@@ -62,11 +59,11 @@ $overlay-opacity-time: 2s;
 	background-color: black;
 	opacity: 0;
 	transition: all ease-in-out 2s;
-}*/
-
-#media.mediaopen > #overlay {
-	@include overlay;
 }
+
+#media.open > #overlay {
+	@include overlay;
+}*/
 
 .overlay {
 	position: absolute;
@@ -78,6 +75,8 @@ $overlay-opacity-time: 2s;
 	opacity: 0;
 	z-index: -1;
 }
+
+/* mixins */
 
 @mixin door-open {
 	transform-origin: 12% center;
@@ -126,13 +125,9 @@ $overlay-opacity-time: 2s;
 	position: absolute;
 }
 
-.bottomrow {
-	@include doordiv;
-	top: 50vh;
-}
+/* layout */
 
 $top-pad: 5vh;
-
 #toprow-div {
 	height: 50vh;
 	width: 100vw;
@@ -145,8 +140,6 @@ $top-pad: 5vh;
     	top: 0px;
     }
 }
-
-
 .toprow {
 	@include doordiv;
 	top: 0vh;
@@ -157,6 +150,17 @@ $top-pad: 5vh;
     	top: 0px;
     }
 }
+.bottomrow {
+	@include doordiv;
+	top: 50vh;
+}
+
+$zindex-col1: 7;
+$zindex-col1-behind: 6;
+$zindex-col2: 5;
+$zindex-col2-behind: 4;
+$zindex-col3: 3;
+$zindex-col3-behind: 2;
 
 .col1 {
 	@media (max-width: $small-screen) {
@@ -185,13 +189,6 @@ $top-pad: 5vh;
     }
 }
 
-$zindex-col1: 7;
-$zindex-col1-behind: 6;
-$zindex-col2: 5;
-$zindex-col2-behind: 4;
-$zindex-col3: 3;
-$zindex-col3-behind: 2;
-
 .door {
 	max-width: 100%;
 	max-height: 100%;
@@ -202,6 +199,59 @@ $zindex-col3-behind: 2;
 	float: left;
 	image-orientation: from-image;
 }
+
+$old-text-color: #ao25cc;
+$text-color: #d45eff;
+
+.behind-text {
+	position: absolute;
+	margin-top: 0;
+	top: 5%;
+	left: 25%;
+	transition: all ease-in-out .6s;
+	opacity: 0;
+	color: $text-color;
+}
+
+@mixin reveal-text {
+	z-index: 10;
+	opacity: 100;
+	color: $text-color;
+	transition: opacity ease-in-out .6s;
+}
+@mixin hidden-text {
+	position: absolute;
+	text-align: center;
+	opacity: 0;
+	z-index: 10;
+	color: $text-color;
+	transition: opacity ease-in-out .6s;
+}
+/* */
+$bio-translatex: 280%;
+$media-translatex: 140%;
+$comedy-translatex: 110%;
+$art-translatex: 250%;
+@mixin old-hidden-text {
+	top: 8vh;
+}
+@mixin old-reveal-text($translatex) {
+	@include transform(translate($translatex, 0px));
+	opacity: 100;
+	transition: all ease-in-out .6s;
+}
+
+.category-text {
+	@include hidden-text;
+}
+.category-text.reveal {
+	@include reveal-text;
+}
+
+
+/*MIRANDA DIV*/
+
+/* make these into classes, then javascript to get it to open on page open and close */
 
 #portrait {
 	max-width: 60%;
@@ -226,10 +276,6 @@ $zindex-col3-behind: 2;
 	transition: all ease-in-out .6s;
 }
 
-/*MIRANDA DIV*/
-
-/* make these into classes, then javascript to get it to open on page open and close */
-
 #Miranda-div {
 	position: absolute;
 }
@@ -238,11 +284,11 @@ $zindex-col3-behind: 2;
 	z-index: $zindex-col2;
 }
 
-#Miranda-div:hover > .door {
+#Miranda-div.hover:hover > .door {
 	@include door-open;
 }
 
-#Miranda-div:hover > #portrait-wrapper {
+#Miranda-div.hover:hover > #portrait-wrapper {
 	left: $portrait-peek;
 	transition: all ease-in-out .6s;
 }
@@ -274,23 +320,23 @@ $zindex-col3-behind: 2;
 	z-index: $zindex-col1;
 }
 
-#AboutContact-div:hover > .door {
+#AboutContact-div.hover:hover > .door {
 	@include door-open-less;
 }
 
 #Bio-header {
-	position: absolute;
+	/*position: absolute;
 	z-index: 0;
 	top: 8vh;
 	left: .5vw;
 	transition: all ease-in-out .6s;
 	color: #a025cc;
-	z-index: $zindex-col1-behind;
+	z-index: $zindex-col1-behind;*/
+	@include hidden-text;
 }
 
-#AboutContact-div:hover > #Bio-header {
-	@include transform(translate(280%, 0px));
-	transition: all ease-in-out .6s;
+#AboutContact-div.hover:hover > #Bio-header {
+	@include reveal-text;
 }
 
 
@@ -302,45 +348,30 @@ $zindex-col3-behind: 2;
 #media .door {
 	z-index: $zindex-col3;
 }
-#media:hover.mediaclosed > .door {
+#media.hover:hover.closed > .door {
  	@include door-open-less;
  }
- #media .behind-text {
-	z-index: $zindex-col3-behind;
+#media .behind-text {
+	@include hidden-text;
 }
-#media:hover > .behind-text {
-	@include transform(translate(140%, 0px));
-	opacity: 100;
-	transition: all ease-in-out .6s;
+#media.hover.closed:hover > .behind-text {
+	@include reveal-text;
 }
-#media.mediaopen > .door {
-	@include enterdoor;
-}
-#media.mediaopen {
+#media.open {
 	@include enterdiv;
 }
-#mediaoverlay.mediaopen  {
+#media.open > .door {
+	@include enterdoor;
+}
+#media.open > .overlay {
 	@include overlayopen;
 }
-#media.mediaopen > .behind-text {
+#media.open > .behind-text {
 	opacity: 0;
 	transition: all ease-out .4s;
 }
 
-/*BOTTOM ROW: CONTENTS*/
-
-
-.behind-text {
-	position: absolute;
-	z-index: 3;
-	margin-top: 0;
-	top: 8vh;
-	left: .5vw;
-	transition: all ease-in-out .6s;
-	opacity: 0;
-	color: #a025cc;
-}
-
+/* BOTTOM ROW */
 
 #film {
 	position: absolute;
@@ -348,31 +379,29 @@ $zindex-col3-behind: 2;
 #film .door {
 	z-index: 8;
 }
-#film:hover.filmclosed > .door {
+#film.hover:hover.closed > .door {
 	@include door-open-less;
 }
 #film .behind-text {
-	z-index: 7;
+	@include hidden-text;
 }
-#film:hover > .behind-text {
-	@include transform(translate(230%, 0px));
-	transition: all ease-in-out .6s;
-	opacity: 100;
+#film.hover.closed:hover > .behind-text {
+	@include reveal-text;
 }
 
-/* when the filmopen class is triggered,
+/* when the open class is triggered,
 the door moves to the top left and opens all the way
  */
-#film.filmopen > .door {
-	@include enterdoor;
-}
-#film.filmopen {
+#film.open {
 	@include enterdiv;
 }
-#filmoverlay.filmopen  {
+#film.open > .door {
+	@include enterdoor;
+}
+#film.open > .overlay {
 	@include overlayopen;
 }
-#film.filmopen > .behind-text {
+#film.open > .behind-text {
 	opacity: 0;
 	transition: all ease-out .4s;
 }
@@ -383,41 +412,27 @@ the door moves to the top left and opens all the way
 #comedy .door {
 	z-index: 6;
 }
-#comedy:hover.comedyclosed > .door {
+#comedy.hover:hover.closed > .door {
  	@include door-open-less;
  }
 #comedy .behind-text{
-	z-index: 5;
+	@include hidden-text;
 }
-#comedy:hover > .behind-text {
-	@include transform(translate(110%, 0px));
-	transition: all ease-in-out .6s;
-	opacity: 100;
+#comedy.hover.closed:hover > .behind-text {
+	@include reveal-text;
 }
-#comedy.comedyopen > .door {
-	@include enterdoor;
-}
-#comedy.comedyopen {
+#comedy.open {
 	@include enterdiv;
 }
-#comedy.comedyopen > .behind-text {
-	opacity: 0;
-	transition: all ease-out .4s;
+#comedy.open > .door {
+	@include enterdoor;
 }
-#comedyoverlay.comedyopen  {
+#comedy.open > .overlay  {
 	@include overlayopen;
 }
-#comedyx {
-	position: absolute;
-	font-style: sans-serif;
-	font-family: Arial;
-}
-#comedyx.comedyclosed {
+#comedy.open > .behind-text {
 	opacity: 0;
-}
-#comedyx.comedyopen {
-	opacity: 100;
-	transition: all ease-out 2s;
+	transition: all ease-out .4s;
 }
 
 
@@ -426,27 +441,25 @@ the door moves to the top left and opens all the way
 #art .door {
 	z-index: 4;
 }
-#art:hover.artclosed > .door {
+#art.hover:hover.closed > .door {
  	@include door-open-less;
 }
 #art .behind-text {
-	z-index: 3;
+	@include hidden-text;
 }
-#art:hover > .behind-text {
-	@include transform(translate(250%, 0px));
-	transition: all ease-in-out .6s;
-	opacity: 100;
+#art.hover.closed:hover > .behind-text {
+	@include reveal-text;
 }
-#art.artopen > .door {
-	@include enterdoor;
-}
-#art.artopen {
+#art.open {
 	@include enterdiv;
 }
-#artoverlay.artopen  {
+#art.open > .door {
+	@include enterdoor;
+}
+#art.open > .overlay  {
 	@include overlayopen;
 }
-#art.artopen > .behind-text {
+#art.open > .behind-text {
 	opacity: 0;
 	transition: all ease-out .4s;
 }

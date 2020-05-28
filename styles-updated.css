@@ -16,14 +16,11 @@ body {
 	background-color: black;
 	opacity: 0;
 	transition: all ease-in-out 2s;
-}*/
-#media.mediaopen > #overlay {
-  position: absolute;
-  z-index: 10;
-  opacity: 100;
-  transition: all ease-in-out 2s;
 }
 
+#media.open > #overlay {
+	@include overlay;
+}*/
 .overlay {
   position: absolute;
   height: 10vh;
@@ -35,14 +32,8 @@ body {
   z-index: -1;
 }
 
-.bottomrow {
-  width: 30vw;
-  height: 50vh;
-  float: left;
-  position: absolute;
-  top: 50vh;
-}
-
+/* mixins */
+/* layout */
 #toprow-div {
   height: 50vh;
   width: 100vw;
@@ -76,6 +67,14 @@ body {
   .toprow {
     top: 0px;
   }
+}
+
+.bottomrow {
+  width: 30vw;
+  height: 50vh;
+  float: left;
+  position: absolute;
+  top: 50vh;
 }
 
 @media (max-width: 720px) {
@@ -122,6 +121,35 @@ body {
   image-orientation: from-image;
 }
 
+.behind-text {
+  position: absolute;
+  margin-top: 0;
+  top: 5%;
+  left: 25%;
+  transition: all ease-in-out 0.6s;
+  opacity: 0;
+  color: #d45eff;
+}
+
+/* */
+.category-text {
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
+}
+
+.category-text.reveal {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
+}
+
+/*MIRANDA DIV*/
+/* make these into classes, then javascript to get it to open on page open and close */
 #portrait {
   max-width: 60%;
   max-height: 60%;
@@ -145,8 +173,6 @@ body {
   transition: all ease-in-out 0.6s;
 }
 
-/*MIRANDA DIV*/
-/* make these into classes, then javascript to get it to open on page open and close */
 #Miranda-div {
   position: absolute;
 }
@@ -155,13 +181,13 @@ body {
   z-index: 5;
 }
 
-#Miranda-div:hover > .door {
+#Miranda-div.hover:hover > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
-#Miranda-div:hover > #portrait-wrapper {
+#Miranda-div.hover:hover > #portrait-wrapper {
   left: 12vh;
   transition: all ease-in-out 0.6s;
 }
@@ -198,56 +224,71 @@ body {
   z-index: 7;
 }
 
-#AboutContact-div:hover > .door {
+#AboutContact-div.hover:hover > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #Bio-header {
-  position: absolute;
+  /*position: absolute;
   z-index: 0;
   top: 8vh;
-  left: 0.5vw;
-  transition: all ease-in-out 0.6s;
+  left: .5vw;
+  transition: all ease-in-out .6s;
   color: #a025cc;
-  z-index: 6;
+  z-index: $zindex-col1-behind;*/
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#AboutContact-div:hover > #Bio-header {
-  -moz-transform: translate(280%, 0px);
-  -webkit-transform: translate(280%, 0px);
-  -o-transform: translate(280%, 0px);
-  -ms-transform: translate(280%, 0px);
-  transform: translate(280%, 0px);
-  transition: all ease-in-out 0.6s;
+#AboutContact-div.hover:hover > #Bio-header {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
 #media .door {
   z-index: 3;
 }
 
-#media:hover.mediaclosed > .door {
+#media.hover:hover.closed > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #media .behind-text {
-  z-index: 2;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#media:hover > .behind-text {
-  -moz-transform: translate(140%, 0px);
-  -webkit-transform: translate(140%, 0px);
-  -o-transform: translate(140%, 0px);
-  -ms-transform: translate(140%, 0px);
-  transform: translate(140%, 0px);
+#media.hover.closed:hover > .behind-text {
+  z-index: 10;
   opacity: 100;
-  transition: all ease-in-out 0.6s;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#media.mediaopen > .door {
+#media.open {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 2s;
+  z-index: 10;
+}
+
+#media.open > .door {
   width: auto;
   height: 100vh;
   top: 0;
@@ -258,41 +299,20 @@ body {
   transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
-#media.mediaopen {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transition: all ease-in-out 2s;
-  z-index: 10;
-}
-
-#mediaoverlay.mediaopen {
+#media.open > .overlay {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
   opacity: 100;
   transition: opacity ease-out 2s, left ease-out 3s;
 }
 
-#media.mediaopen > .behind-text {
+#media.open > .behind-text {
   opacity: 0;
   transition: all ease-out 0.4s;
 }
 
-/*BOTTOM ROW: CONTENTS*/
-.behind-text {
-  position: absolute;
-  z-index: 3;
-  margin-top: 0;
-  top: 8vh;
-  left: 0.5vw;
-  transition: all ease-in-out 0.6s;
-  opacity: 0;
-  color: #a025cc;
-}
-
+/* BOTTOM ROW */
 #film {
   position: absolute;
 }
@@ -301,30 +321,41 @@ body {
   z-index: 8;
 }
 
-#film:hover.filmclosed > .door {
+#film.hover:hover.closed > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #film .behind-text {
-  z-index: 7;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#film:hover > .behind-text {
-  -moz-transform: translate(230%, 0px);
-  -webkit-transform: translate(230%, 0px);
-  -o-transform: translate(230%, 0px);
-  -ms-transform: translate(230%, 0px);
-  transform: translate(230%, 0px);
-  transition: all ease-in-out 0.6s;
+#film.hover.closed:hover > .behind-text {
+  z-index: 10;
   opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-/* when the filmopen class is triggered,
+/* when the open class is triggered,
 the door moves to the top left and opens all the way
  */
-#film.filmopen > .door {
+#film.open {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 2s;
+  z-index: 10;
+}
+
+#film.open > .door {
   width: auto;
   height: 100vh;
   top: 0;
@@ -335,25 +366,15 @@ the door moves to the top left and opens all the way
   transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
-#film.filmopen {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transition: all ease-in-out 2s;
-  z-index: 10;
-}
-
-#filmoverlay.filmopen {
+#film.open > .overlay {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
   opacity: 100;
   transition: opacity ease-out 2s, left ease-out 3s;
 }
 
-#film.filmopen > .behind-text {
+#film.open > .behind-text {
   opacity: 0;
   transition: all ease-out 0.4s;
 }
@@ -362,27 +383,38 @@ the door moves to the top left and opens all the way
   z-index: 6;
 }
 
-#comedy:hover.comedyclosed > .door {
+#comedy.hover:hover.closed > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #comedy .behind-text {
-  z-index: 5;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#comedy:hover > .behind-text {
-  -moz-transform: translate(110%, 0px);
-  -webkit-transform: translate(110%, 0px);
-  -o-transform: translate(110%, 0px);
-  -ms-transform: translate(110%, 0px);
-  transform: translate(110%, 0px);
-  transition: all ease-in-out 0.6s;
+#comedy.hover.closed:hover > .behind-text {
+  z-index: 10;
   opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#comedy.comedyopen > .door {
+#comedy.open {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 2s;
+  z-index: 10;
+}
+
+#comedy.open > .door {
   width: auto;
   height: 100vh;
   top: 0;
@@ -393,69 +425,55 @@ the door moves to the top left and opens all the way
   transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
-#comedy.comedyopen {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transition: all ease-in-out 2s;
-  z-index: 10;
-}
-
-#comedy.comedyopen > .behind-text {
-  opacity: 0;
-  transition: all ease-out 0.4s;
-}
-
-#comedyoverlay.comedyopen {
+#comedy.open > .overlay {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
   opacity: 100;
   transition: opacity ease-out 2s, left ease-out 3s;
 }
 
-#comedyx {
-  position: absolute;
-  font-style: sans-serif;
-  font-family: Arial;
-}
-
-#comedyx.comedyclosed {
+#comedy.open > .behind-text {
   opacity: 0;
-}
-
-#comedyx.comedyopen {
-  opacity: 100;
-  transition: all ease-out 2s;
+  transition: all ease-out 0.4s;
 }
 
 #art .door {
   z-index: 4;
 }
 
-#art:hover.artclosed > .door {
+#art.hover:hover.closed > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #art .behind-text {
-  z-index: 3;
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  z-index: 10;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#art:hover > .behind-text {
-  -moz-transform: translate(250%, 0px);
-  -webkit-transform: translate(250%, 0px);
-  -o-transform: translate(250%, 0px);
-  -ms-transform: translate(250%, 0px);
-  transform: translate(250%, 0px);
-  transition: all ease-in-out 0.6s;
+#art.hover.closed:hover > .behind-text {
+  z-index: 10;
   opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
-#art.artopen > .door {
+#art.open {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 2s;
+  z-index: 10;
+}
+
+#art.open > .door {
   width: auto;
   height: 100vh;
   top: 0;
@@ -466,25 +484,15 @@ the door moves to the top left and opens all the way
   transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
-#art.artopen {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transition: all ease-in-out 2s;
-  z-index: 10;
-}
-
-#artoverlay.artopen {
+#art.open > .overlay {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
   opacity: 100;
   transition: opacity ease-out 2s, left ease-out 3s;
 }
 
-#art.artopen > .behind-text {
+#art.open > .behind-text {
   opacity: 0;
   transition: all ease-out 0.4s;
 }
