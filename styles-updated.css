@@ -27,7 +27,7 @@ body {
   width: 10vw;
   top: 0;
   left: 0;
-  background-color: #a025cc;
+  background-color: #d45eff;
   opacity: 0;
   z-index: -1;
 }
@@ -173,32 +173,43 @@ body {
   transition: all ease-in-out 0.6s;
 }
 
-#Miranda-div {
+#miranda {
   position: absolute;
 }
 
-#Miranda-div .door {
+#miranda .door {
   z-index: 5;
 }
 
-#Miranda-div.hover:hover > .door {
+#miranda.hover:hover > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
-#Miranda-div.hover:hover > #portrait-wrapper {
+#miranda.hover:hover > #portrait-wrapper {
   left: 12vh;
   transition: all ease-in-out 0.6s;
 }
 
-#Miranda-div.peek > .door {
+#miranda.ajar > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
-#Miranda-div.depeek > .door {
+#miranda.ajar > #portrait-wrapper {
+  left: 12vh;
+  transition: all ease-in-out 0.6s;
+}
+
+#miranda.peek > .door {
+  transform-origin: 12% center;
+  transform: rotate3d(0, 1, 0, 45deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#miranda.depeek > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 0, 0, 45deg);
   transition: all ease-in-out 0.3s;
@@ -215,19 +226,32 @@ body {
 }
 
 /*ABOUT/CONTACT DIV*/
-#AboutContact-div {
+#AboutContact {
   position: absolute;
 }
 
-#AboutContact-div .door {
+#AboutContact .door {
   left: 0vw;
   z-index: 7;
 }
 
-#AboutContact-div.hover:hover > .door {
+#AboutContact.hover.closed:hover > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+}
+
+#AboutContact.ajar > .door {
+  transform-origin: 1% center;
+  transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#AboutContact.ajar > #Bio-header {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
 #Bio-header {
@@ -246,11 +270,65 @@ body {
   transition: opacity ease-in-out 0.6s;
 }
 
-#AboutContact-div.hover:hover > #Bio-header {
+#AboutContact.hover.closed:hover > #Bio-header {
   z-index: 10;
   opacity: 100;
   color: #d45eff;
   transition: opacity ease-in-out 0.6s;
+}
+
+#AboutContact.open {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 2s;
+  z-index: 10;
+}
+
+#AboutContact.open > .door {
+  width: auto;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all ease-out 3s;
+  z-index: 12;
+  transform-origin: 1% center;
+  transform: rotate3d(0.01, 1, 0.01, -90deg);
+}
+
+#AboutContact.open > .overlay {
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 100;
+  transition: opacity ease-out 2s, left ease-out 3s;
+}
+
+#bio-text {
+  text-align: center;
+  top: 5%;
+  color: black;
+  font-size: 16pt;
+}
+
+#AboutContact.open > #bio-text {
+  opacity: 100;
+  transition: all ease-in 0.6s;
+}
+
+#contact {
+  text-align: center;
+  top: 20%;
+  color: black;
+  width: 50%;
+  margin: auto;
+  font-size: 16pt;
+}
+
+#AboutContact.open > #contact {
+  opacity: 100;
+  transition: all ease-in 0.6s;
 }
 
 #media .door {
@@ -261,6 +339,19 @@ body {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+}
+
+#media.ajar > .door {
+  transform-origin: 1% center;
+  transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#media.ajar > .behind-text {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
 #media .behind-text {
@@ -327,6 +418,19 @@ body {
   transition: all ease-in-out 0.3s;
 }
 
+#film.ajar > .door {
+  transform-origin: 1% center;
+  transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#film.ajar > .behind-text {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
+}
+
 #film .behind-text {
   position: absolute;
   text-align: center;
@@ -389,6 +493,19 @@ the door moves to the top left and opens all the way
   transition: all ease-in-out 0.3s;
 }
 
+#comedy.ajar > .door {
+  transform-origin: 1% center;
+  transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#comedy.ajar > .behind-text {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
+}
+
 #comedy .behind-text {
   position: absolute;
   text-align: center;
@@ -446,6 +563,19 @@ the door moves to the top left and opens all the way
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+}
+
+#art.ajar > .door {
+  transform-origin: 1% center;
+  transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
+}
+
+#art.ajar > .behind-text {
+  z-index: 10;
+  opacity: 100;
+  color: #d45eff;
+  transition: opacity ease-in-out 0.6s;
 }
 
 #art .behind-text {

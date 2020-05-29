@@ -1,14 +1,34 @@
 <link rel="stylesheet" href=".\styles-updated.css">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <div class="row" id="toprow">
-<div id="Miranda-div" class="toprow col2">
+<div id="miranda" class="toprow col2" onclick="changeDoorState('miranda')">
 	<img class="door" src="doors/IMG_5244.PNG">
 	<div id="portrait-wrapper"><img id="portrait" src="content/self-portrait-cropped.png"></div>
 </div>
-<div id="AboutContact-div" class="toprow col1">
+<div id="AboutContact" class="toprow col1 closed" onclick="changeDoorState('AboutContact')">
 	<img class="door" src="doors/IMG_5245.PNG">
 	<h1 id="bio-header" class="behind-text">Bio</h1>
 	<div id="biooverlay" class="overlay bioclosed">
+		<p id="bio-text">Miranda is an artist, thinker, with lots of experience.</p>
+		<form
+		  action="https://formspree.io/xdowevpw"
+		  method="POST"
+		  id="contact"
+		>
+		  <label>
+		    Your email:
+		    <input type="text" name="_replyto">
+		  </label>
+		  <br><br>
+		  <label>
+		    Your message:
+		    <textarea name="message"></textarea>
+		  </label>
+		  <br><br>
+		  <!-- your other form fields go here -->
+
+		  <button type="submit">Send</button>
+		</form>
 	</div>
 </div>
 <div class="toprow closed col3" id="media" onclick="changeDoorState('media')">
@@ -42,6 +62,14 @@
 </div>
 <script>
 	window.onload = function() {
+	var divs = {
+		'miranda': document.getElementById('miranda'),
+		'AboutContact': document.getElementById('AboutContact'),
+		'media': document.getElementById('media'),
+		'film': document.getElementById('film'),
+		'art': document.getElementById('art'),
+		'comedy': document.getElementById('comedy')
+	};
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 	//let vh = document.documentElement.clientHeight * 0.01;
 	// Then we set the value in the --vh custom property to the root of the document
@@ -53,14 +81,15 @@
 		addHover();
 	}
 
+
 	var depeek_time = 1400;
 	  //miranda peekout
 	  setTimeout(() => {switchClass('portrait-wrapper', 'peek')}, 300);
-	  setTimeout(() => {switchClass('Miranda-div', 'peek')}, 300);
+	  setTimeout(() => {switchClass('miranda', 'peek')}, 300);
 	  setTimeout(() => {switchClassTwo('portrait-wrapper', 'peek', 'depeek')}, depeek_time);
-	  setTimeout(() => {switchClassTwo('Miranda-div', 'peek', 'depeek')}, depeek_time);
+	  setTimeout(() => {switchClassTwo('miranda', 'peek', 'depeek')}, depeek_time);
 	  setTimeout(() => {switchClass('portrait-wrapper', 'depeek')}, 1600);
-	  setTimeout(() => {switchClass('Miranda-div', 'depeek')}, 1600);
+	  setTimeout(() => {switchClass('miranda', 'depeek')}, 1600);
 	};
 
 	let resizeTimer;
@@ -72,13 +101,23 @@
 	  }, 400);
 	});
 
+	/*for (div in divs) {
+		divs[div].addEventListener("click", function( e ) {
+    		e = window.event || e; 
+    		console.log(this);
+    		if (this === e.target || (!(this.className.indexOf('open') >= 0))) {
+       			changeDoorState(this.id);
+   			}
+		});
+	}*/
+
 	mobileStates = ["closed", "ajar", "open"];
 
 
 	function addHover() {
 		var divs = {
-			'Miranda-div': document.getElementById('Miranda-div'),
-			'AboutContact-div': document.getElementById('AboutContact-div'),
+			'miranda': document.getElementById('miranda'),
+			'AboutContact': document.getElementById('AboutContact'),
 			'media': document.getElementById('media'),
 			'film': document.getElementById('film'),
 			'art': document.getElementById('art'),
@@ -89,17 +128,33 @@
 		}
 	};
 
-	function changeDoorState(category) {
+	div_timers = {
+		'miranda': '',
+		'AboutContact': '',
+		'media': '',
+		'film': '',
+		'art': '',
+		'comedy': ''
+	};
+	function changeDoorState(category, reset) {
 		var cat_div = document.getElementById(category);
 
 		console.log(cat_div);
 		console.log(cat_div.className);
 
-		if (mobileBrowser) {
-			if (cat_div.className.indexOf("closed") >= 0) {
+		if (category === "miranda") {
+			cat_div.className = cat_div.className + " " + "ajar";
+			div_timers[category] = setTimeout(() => {cat_div.className = cat_div.className.replace('ajar', '');}, 1500);
+		}
+		else if (mobileBrowser) {
+			if (reset) {
+				cat_div.className = cat_div.className.replace("ajar", "closed");
+			} else if (cat_div.className.indexOf("closed") >= 0) {
 				cat_div.className = cat_div.className.replace("closed", "ajar");
+				div_timers[category] = setTimeout(() => {changeDoorState(category, true)}, 1500);
 			} else if (cat_div.className.indexOf("ajar") >= 0) {
 				cat_div.className = cat_div.className.replace("ajar", "open");
+				clearTimeout(div_timers[category]);
 			} else if (cat_div.className.indexOf("open") >= 0) {
 				cat_div.className = cat_div.className.replace("open", "closed");
 			}

@@ -32,6 +32,9 @@ $text-height-offset: 5vh;
 $small-screen: 720px;
 $very-small: 600px;
 
+$old-text-color: #ao25cc;
+$text-color: #d45eff;
+
 
 /* All overlay stuff */
 
@@ -71,7 +74,7 @@ $overlay-opacity-time: 2s;
 	width: 10vw;
 	top: 0;
 	left: 0;
-	background-color: #a025cc;
+	background-color: $text-color;
 	opacity: 0;
 	z-index: -1;
 }
@@ -200,9 +203,6 @@ $zindex-col3-behind: 2;
 	image-orientation: from-image;
 }
 
-$old-text-color: #ao25cc;
-$text-color: #d45eff;
-
 .behind-text {
 	position: absolute;
 	margin-top: 0;
@@ -276,27 +276,36 @@ $art-translatex: 250%;
 	transition: all ease-in-out .6s;
 }
 
-#Miranda-div {
+#miranda {
 	position: absolute;
 }
 
-#Miranda-div .door {
+#miranda .door {
 	z-index: $zindex-col2;
 }
 
-#Miranda-div.hover:hover > .door {
+#miranda.hover:hover > .door {
 	@include door-open;
 }
 
-#Miranda-div.hover:hover > #portrait-wrapper {
+#miranda.hover:hover > #portrait-wrapper {
 	left: $portrait-peek;
 	transition: all ease-in-out .6s;
 }
 
-#Miranda-div.peek > .door {
+#miranda.ajar > .door {
 	@include door-open;
 }
-#Miranda-div.depeek > .door {
+
+#miranda.ajar > #portrait-wrapper {
+	left: $portrait-peek;
+	transition: all ease-in-out .6s;
+}
+
+#miranda.peek > .door {
+	@include door-open;
+}
+#miranda.depeek > .door {
 	@include door-close;
 }
 
@@ -312,18 +321,24 @@ $art-translatex: 250%;
 
 /*ABOUT/CONTACT DIV*/
 
-#AboutContact-div {
+#AboutContact {
 	position: absolute;
 }
-#AboutContact-div .door {
+#AboutContact .door {
 	left: 0vw;
 	z-index: $zindex-col1;
 }
 
-#AboutContact-div.hover:hover > .door {
+#AboutContact.hover.closed:hover > .door {
 	@include door-open-less;
 }
 
+#AboutContact.ajar > .door {
+	@include door-open-less;
+}
+#AboutContact.ajar > #Bio-header {
+	@include reveal-text;
+}
 #Bio-header {
 	/*position: absolute;
 	z-index: 0;
@@ -334,9 +349,40 @@ $art-translatex: 250%;
 	z-index: $zindex-col1-behind;*/
 	@include hidden-text;
 }
-
-#AboutContact-div.hover:hover > #Bio-header {
+#AboutContact.hover.closed:hover > #Bio-header {
 	@include reveal-text;
+}
+#AboutContact.open {
+	@include enterdiv;
+}
+#AboutContact.open > .door {
+	@include enterdoor;
+}
+#AboutContact.open > .overlay {
+	@include overlayopen;
+}
+$bio-text-size: 16pt;
+#bio-text {
+	text-align: center;
+	top: 5%;
+	color: black;
+	font-size: $bio-text-size;
+}
+#AboutContact.open > #bio-text {
+	opacity: 100;
+	transition: all ease-in .6s;
+}
+#contact {
+	text-align: center;
+	top: 20%;
+	color: black;
+	width: 50%;
+	margin: auto;
+	font-size: $bio-text-size;
+}
+#AboutContact.open > #contact {
+	opacity: 100;
+	transition: all ease-in .6s;
 }
 
 
@@ -351,6 +397,12 @@ $art-translatex: 250%;
 #media.hover:hover.closed > .door {
  	@include door-open-less;
  }
+#media.ajar > .door {
+	@include door-open-less;
+}
+#media.ajar > .behind-text {
+	@include reveal-text;
+}
 #media .behind-text {
 	@include hidden-text;
 }
@@ -381,6 +433,12 @@ $art-translatex: 250%;
 }
 #film.hover:hover.closed > .door {
 	@include door-open-less;
+}
+#film.ajar > .door {
+	@include door-open-less;
+}
+#film.ajar > .behind-text {
+	@include reveal-text;
 }
 #film .behind-text {
 	@include hidden-text;
@@ -415,6 +473,12 @@ the door moves to the top left and opens all the way
 #comedy.hover:hover.closed > .door {
  	@include door-open-less;
  }
+#comedy.ajar > .door {
+ 	@include door-open-less;
+ }
+#comedy.ajar > .behind-text {
+	@include reveal-text;
+}
 #comedy .behind-text{
 	@include hidden-text;
 }
@@ -443,6 +507,12 @@ the door moves to the top left and opens all the way
 }
 #art.hover:hover.closed > .door {
  	@include door-open-less;
+}
+#art.ajar > .door {
+	@include door-open-less;
+}
+#art.ajar > .behind-text {
+	@include reveal-text;
 }
 #art .behind-text {
 	@include hidden-text;
