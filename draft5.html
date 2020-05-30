@@ -5,7 +5,7 @@
 	<img class="door" src="doors/IMG_5244.PNG">
 	<div id="portrait-wrapper"><img id="portrait" src="content/self-portrait-cropped.png"></div>
 </div>
-<div id="AboutContact" class="toprow col1 closed" onclick="changeDoorState('AboutContact')">
+<div id="AboutContact" class="toprow col1 closed">
 	<img class="door" src="doors/IMG_5245.PNG">
 	<h1 id="bio-header" class="behind-text">Bio</h1>
 	<div id="biooverlay" class="overlay bioclosed">
@@ -26,50 +26,48 @@
 		  </label>
 		  <br><br>
 		  <!-- your other form fields go here -->
+		  <input type="hidden" name="_next" value="/" />
 
 		  <button type="submit">Send</button>
 		</form>
+		<img class="x" src="content/x3.png" onclick="changeDoorState('AboutContact')">
 	</div>
 </div>
-<div class="toprow closed col3" id="media" onclick="changeDoorState('media')">
+<div class="toprow closed col3" id="media">
 	<img id="media-door" class="door" src="doors/IMG_5246.PNG">
 	<h1 class="behind-text">Media</h1>
 	<div id="mediaoverlay" class="overlay closed">
+		<img class="x" src="content/x3.png" onclick="changeDoorState('media')">
 	</div>
 </div>
 </div>
 <div class="row" id="bottomrow">
 <div id="bottomrow-div">
-	<div class="bottomrow closed col1" id="film" onclick="changeDoorState('film')">
+	<div class="bottomrow closed col1" id="film">
 		<img id="film-door" class="door" src="doors/IMG_5242.PNG">
 		<h1 class="behind-text">Film</h1>
 		<div id="filmoverlay" class="overlay closed">
+			<img class="x" src="content/x3.png" onclick="changeDoorState('film')">
 		</div>
 	</div>
-	<div class="bottomrow closed col3" id="art" onclick="changeDoorState('art')">
+	<div class="bottomrow closed col3" id="art">
 		<img id="art-door" class="door" src="doors/IMG_5241.PNG">
 		<h1 class="behind-text">Art</h1>
 		<div id="artoverlay" class="overlay closed">
+			<img class="x" src="content/x3.png" onclick="changeDoorState('art')">
 		</div>
 	</div>
-	<div class="bottomrow closed col2" id="comedy" onclick="changeDoorState('comedy')">
+	<div class="bottomrow closed col2" id="comedy">
 		<img id="comedy-door" class="door" src="doors/IMG_5243.PNG">
 		<h1 class="behind-text">Comedy</h1>
 		<div id="comedyoverlay" class="overlay closed">
+			<img class="x" src="content/x3.png" onclick="changeDoorState('comedy')">
 		</div>
 	</div>
 </div>
 </div>
 <script>
 	window.onload = function() {
-	var divs = {
-		'miranda': document.getElementById('miranda'),
-		'AboutContact': document.getElementById('AboutContact'),
-		'media': document.getElementById('media'),
-		'film': document.getElementById('film'),
-		'art': document.getElementById('art'),
-		'comedy': document.getElementById('comedy')
-	};
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 	//let vh = document.documentElement.clientHeight * 0.01;
 	// Then we set the value in the --vh custom property to the root of the document
@@ -101,15 +99,31 @@
 	  }, 400);
 	});
 
-	/*for (div in divs) {
+	var divs = {
+		'miranda': document.getElementById('miranda'),
+		'AboutContact': document.getElementById('AboutContact'),
+		'media': document.getElementById('media'),
+		'film': document.getElementById('film'),
+		'art': document.getElementById('art'),
+		'comedy': document.getElementById('comedy')
+	};
+	for (div in divs) {
+		console.log(divs[div]);
 		divs[div].addEventListener("click", function( e ) {
     		e = window.event || e; 
+    		console.log("this");
     		console.log(this);
-    		if (this === e.target || (!(this.className.indexOf('open') >= 0))) {
+    		console.log("e");
+    		console.log(e);
+    		console.log("e.target");
+    		console.log(e.target);
+    		//if the click is targeting the div, or if the div isn't open (and the x button isn't being clicked, which can close the div before this listener fires, thus reopening it)
+    		if (this === e.target || ((!(this.className.indexOf('open') >= 0)) && (!(e.target.className === "x")))) {
+    			console.log("passed");
        			changeDoorState(this.id);
    			}
 		});
-	}*/
+	}
 
 	mobileStates = ["closed", "ajar", "open"];
 

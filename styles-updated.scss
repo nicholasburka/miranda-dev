@@ -248,6 +248,14 @@ $art-translatex: 250%;
 	@include reveal-text;
 }
 
+.x {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	max-width: 5%;
+	height: auto;
+}
+
 
 /*MIRANDA DIV*/
 

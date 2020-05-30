@@ -148,6 +148,14 @@ body {
   transition: opacity ease-in-out 0.6s;
 }
 
+.x {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  max-width: 5%;
+  height: auto;
+}
+
 /*MIRANDA DIV*/
 /* make these into classes, then javascript to get it to open on page open and close */
 #portrait {
