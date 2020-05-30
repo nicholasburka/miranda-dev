@@ -177,7 +177,7 @@ body {
   width: 30vw;
   height: 33.3vh;
   position: absolute;
-  top: 1vh;
+  top: 5vh;
   transition: all ease-in-out 0.6s;
 }
 
