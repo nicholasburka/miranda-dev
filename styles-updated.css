@@ -290,7 +290,7 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s, z-index 0ms;
   z-index: 10;
 }
 
@@ -299,7 +299,7 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-out 3s;
+  transition: all ease-out 3s, z-index 0ms;
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
@@ -384,7 +384,7 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s, z-index 0ms;
   z-index: 10;
 }
 
@@ -393,7 +393,7 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-out 3s;
+  transition: all ease-out 3s, z-index 0ms;
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
@@ -464,7 +464,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s, z-index 0ms;
   z-index: 10;
 }
 
@@ -473,7 +473,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-out 3s;
+  transition: all ease-out 3s, z-index 0ms;
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
@@ -536,7 +536,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s, z-index 0ms;
   z-index: 10;
 }
 
@@ -545,7 +545,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-out 3s;
+  transition: all ease-out 3s, z-index 0ms;
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
@@ -608,7 +608,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s, z-index 0ms;
   z-index: 10;
 }
 
@@ -617,7 +617,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: all ease-out 3s;
+  transition: all ease-out 3s, z-index 0ms;
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
