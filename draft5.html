@@ -36,8 +36,27 @@
 <div class="toprow closed col3" id="media">
 	<img id="media-door" class="door" src="doors/IMG_5246.PNG">
 	<h1 class="behind-text">Media</h1>
+
+	<!---- MIRANDA: TO ADD A VIDEO, COPY AND PASTE FROM <video> to </video
+		ADD THE VIDEO URL TO src="" AND ADD THE DESCRIPTION TO <p class="video description"  ----->
+
 	<div id="mediaoverlay" class="overlay closed">
+		<div class="xcontainer">
 		<img class="x" src="content/x3.png" onclick="changeDoorState('media')">
+		</div>
+		<div class="video">
+		<!--<img class="frame" src="content/frame1.png">-->
+		<iframe class="player" src="https://player.vimeo.com/video/427136848" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>	
+		<p class="description">This is the description of the video.</p>
+	</div>
+	<div class="video">
+		<iframe class="player" src="https://player.vimeo.com/video/427136848" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>	
+		<p class="description">This is the description of the video.</p>
+	</div>
+	<div class="video">
+		<iframe class="player" src="https://player.vimeo.com/video/427136848" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>	
+		<p class="description">This is the description of the video.</p>
+	</div>
 	</div>
 </div>
 </div>
@@ -47,21 +66,27 @@
 		<img id="film-door" class="door" src="doors/IMG_5242.PNG">
 		<h1 class="behind-text">Film</h1>
 		<div id="filmoverlay" class="overlay closed">
+			<div class="xcontainer">
 			<img class="x" src="content/x3.png" onclick="changeDoorState('film')">
+		</div>
 		</div>
 	</div>
 	<div class="bottomrow closed col3" id="art">
 		<img id="art-door" class="door" src="doors/IMG_5241.PNG">
 		<h1 class="behind-text">Art</h1>
 		<div id="artoverlay" class="overlay closed">
+			<div class="xcontainer">
 			<img class="x" src="content/x3.png" onclick="changeDoorState('art')">
+		</div>
 		</div>
 	</div>
 	<div class="bottomrow closed col2" id="comedy">
 		<img id="comedy-door" class="door" src="doors/IMG_5243.PNG">
 		<h1 class="behind-text">Comedy</h1>
 		<div id="comedyoverlay" class="overlay closed">
+			<div class="xcontainer">
 			<img class="x" src="content/x3.png" onclick="changeDoorState('comedy')">
+		</div>
 		</div>
 	</div>
 </div>
