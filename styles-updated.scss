@@ -82,26 +82,59 @@ $overlay-opacity-time: 2s;
 	z-index: 1;
 }
 
-.video {
-	width: 100%;
-	max-height: 50%;
-	height: 40%;
-	min-height: 40vh;
+$video-div-size: 40vh;
+$player-size: 80%;
+$frame1-left: 732px;
+$frame1-right: 970px;
+$frame1-top: 1000px;
+$frame1-bottom: 930px;
+$frame1-width: 6119px;
+$frame1-height: 5331px;
+$frame2-left: 955px;
+$frame2-right: 953px;
+$frame2-top: 1346px;
+$frame2-bottom: 991px;
+$frame2-width: 5972px;
+$frame2-height: 5354px;
+$frame3-left: 981px;
+$frame3-right: 930px;
+$frame3-top: 1080px;
+$frame3-bottom: 940px;
+$frame3-width: 6263px;
+$frame3-height: 5261px;
+.video-container {
+	height: $video-div-size;
+	margin-top: 5%;
+	background-image: url(content/frame1.png);
+	background-repeat: no-repeat;
+	background-position: 15% center;
+	background-size: auto 100%;
 	position: relative;
 	display: block;
 	column-count: 2;
-	margin-top: 5%;
+}
+.video {
+	width: auto;
+	height: 80%;
 }
 .frame {
 	width: auto;
-	top: -15%;
+	/*max-width: 90%;*/
+	//max-height: 80%;
 	height: 130%;
 	left: 5%;
+	/*background-image: url(content/frame1.png);
+	background-position: center center;
+	background-size: 100%;*/ 
 	position: absolute;
 	display: inline;
 }
+/*.frame1 {
+	position: absolute;
+	display: inline;
+}*/
 .player {
-	width: auto;
+	/*width: auto;
 	max-width: 40%;
 	height: 100%;
 	left: 10%;
@@ -110,7 +143,19 @@ $overlay-opacity-time: 2s;
 	display: inline;
 	background-image: url(content/frame1.png);
 	background-position: center center;
-	background-size: cover;
+	background-size: cover;*/
+	text-align: center;
+	align: center;
+	max-height: 80%;
+	width: auto;
+	left: 15%;
+	position: relative;
+	/*position: absolute;
+	height: $player-size;
+	width: auto;
+	top: 2%;
+	width: auto;
+	left: 5%;*/
 }
 p.description {
 	left: 55%;
