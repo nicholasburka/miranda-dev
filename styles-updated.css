@@ -8,6 +8,22 @@ body {
   background-color: #02825F;
 }
 
+@font-face {
+  font-family: "PatchFun";
+  src: url("patchfun.ttf");
+}
+h1 {
+  font-family: "Patchfun";
+}
+
+#name {
+  text-align: center;
+  height: 10vh;
+  color: #fb0446;
+  z-index: 9;
+  position: relative;
+}
+
 /* All overlay stuff */
 .overlay {
   position: absolute;
@@ -43,98 +59,26 @@ body {
 }
 
 .video-col {
-  background-image: url(content/frame1.png);
+  background-image: url(content/frame3.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 100%;
   align-items: center;
 }
 
-@font-face {
-  font-family: "PatchFun";
-  src: url("patchfun.ttf");
-}
-h1 {
-  font-family: "Patchfun";
-}
-
-#name {
-  text-align: center;
-  height: 10vh;
-  color: #fb0446;
-  z-index: 9;
+.video-content {
+  height: 60%;
+  width: 40%;
+  top: 20%;
   position: relative;
 }
 
-.video-container2 {
-  display: flex;
-}
-
-.video-container {
-  height: 40vh;
-  margin-top: 5%;
-  background-image: url(content/frame1.png);
-  background-repeat: no-repeat;
-  background-position: 15vw center;
-  background-size: auto 100%;
+.im-content {
+  height: 60%;
+  max-height: 30vh;
+  width: auto;
+  top: 20%;
   position: relative;
-  display: block;
-  column-count: 2;
-}
-
-.video {
-  width: auto;
-  height: 80%;
-}
-
-.frame {
-  width: auto;
-  /*max-width: 90%;*/
-  height: 130%;
-  left: 5%;
-  /*background-image: url(content/frame1.png);
-  background-position: center center;
-  background-size: 100%;*/
-  position: absolute;
-  display: inline;
-}
-
-/*.frame1 {
-	position: absolute;
-	display: inline;
-}*/
-.player {
-  /*width: auto;
-  max-width: 40%;
-  height: 100%;
-  left: 10%;
-  position: absolute;
-  float: left;
-  display: inline;
-  background-image: url(content/frame1.png);
-  background-position: center center;
-  background-size: cover;*/
-  text-align: center;
-  align: center;
-  max-height: 80%;
-  width: auto;
-  left: 15%;
-  position: relative;
-  /*position: absolute;
-  height: $player-size;
-  width: auto;
-  top: 2%;
-  width: auto;
-  left: 5%;*/
-}
-
-p.description {
-  left: 55%;
-  top: 2%;
-  position: absolute;
-  float: left;
-  display: inline-block;
-  z-index: 12;
 }
 
 .x {
