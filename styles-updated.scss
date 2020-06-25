@@ -5,6 +5,7 @@
 
 body {
 	margin: 0;
+	background-color: #02825F;
 }
 
 
@@ -20,10 +21,10 @@ body {
 $portrait-behind-door: 3vh;
 $portrait-peek: 12vh;
 
-$first: 9vw;
+$first: 12vw;
 $second: 42vw;
 $second-small: 35vw;
-$third: 73vw;
+$third: 70vw;
 $third-small: 67vw;
 
 $text-height-offset: 5vh;
@@ -33,7 +34,9 @@ $small-screen: 720px;
 $very-small: 600px;
 
 $old-text-color: #ao25cc;
-$text-color: #d45eff;
+$old-old-text-color: #d45eff;
+//alt #fb0446 #820225;
+$text-color: #fb0446;
 
 
 /* All overlay stuff */
@@ -52,24 +55,11 @@ $overlay-opacity-time: 2s;
 	left: 0;
 	width: 100vw;
 	height: auto;
+	overflow-y: auto;
 	min-height: 100vh;
 	opacity: 100;
 	transition: opacity ease-out $overlay-opacity-time, left ease-out 3s;
 }
-
-/*#overlay {
-	position: absolute;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-	background-color: black;
-	opacity: 0;
-	transition: all ease-in-out 2s;
-}
-
-#media.open > #overlay {
-	@include overlay;
-}*/
 
 .overlay {
 	position: absolute;
@@ -77,9 +67,55 @@ $overlay-opacity-time: 2s;
 	width: 10vw;
 	top: 0;
 	left: 0;
-	background-color: $text-color;
+	background-color:#03c994;// #02825F; //
 	opacity: 0;
 	z-index: 1;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 30vh;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+}
+
+.desc-col {
+	align-items: center;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.video-col {
+	background-image: url(content/frame1.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 100%;
+	align-items: center;
+}
+
+@font-face {
+	font-family: "PatchFun";
+	src: url("patchfun.ttf");
+}
+
+h1 {
+	font-family: "Patchfun";
+}
+#name {
+	text-align:center;
+	height: 10vh;
+	color: $text-color;
+	z-index: 9;
+	position:relative;
 }
 
 $video-div-size: 40vh;
@@ -102,12 +138,16 @@ $frame3-top: 1080px;
 $frame3-bottom: 940px;
 $frame3-width: 6263px;
 $frame3-height: 5261px;
+.video-container2 {
+	display: flex;
+
+}
 .video-container {
 	height: $video-div-size;
 	margin-top: 5%;
 	background-image: url(content/frame1.png);
 	background-repeat: no-repeat;
-	background-position: 15% center;
+	background-position: 15vw center;
 	background-size: auto 100%;
 	position: relative;
 	display: block;
@@ -149,6 +189,8 @@ $frame3-height: 5261px;
 	max-height: 80%;
 	width: auto;
 	left: 15%;
+	//left: calc(15vw + 1vw*5px);
+	//margin: 10%10% 10% 10%;
 	position: relative;
 	/*position: absolute;
 	height: $player-size;
@@ -222,41 +264,29 @@ p.description {
 	transition: z-index 1ms, all ease-in-out 2s;
 	z-index: 10;
 }
+$door-width: 30vw;
 @mixin doordiv {
-	width: (30vw);
-	height: 50vh;
+	width: $door-width;
+	height: 45vh;
 	float: left;
 	position: absolute;
 }
 
 /* layout */
 
-$top-pad: 5vh;
-#toprow-div {
-	height: 50vh;
-	width: 100vw;
-	left: 0vw;
-	position: absolute;
-	@media (max-width: $very-small) {
-		top: $top-pad;
-    }
-    @media (min-width: $very-small) {
-    	top: 0px;
-    }
-}
+$top-pad: 15vh;
 .toprow {
 	@include doordiv;
-	top: 0vh;
 	@media (max-width: $very-small) and (min-height: $small-screen) {
 		top: $top-pad;
     }
     @media (min-width: $very-small) {
-    	top: 0px;
+    	top: 10vh;
     }
 }
 .bottomrow {
 	@include doordiv;
-	top: 50vh;
+	top: 55vh;
 }
 
 
@@ -316,7 +346,7 @@ $zindex-col3-behind: 2;
 }
 
 @mixin reveal-text {
-	z-index: 10;
+	z-index: 9;
 	opacity: 100;
 	color: $text-color;
 	transition: opacity ease-in-out .6s;
@@ -325,7 +355,7 @@ $zindex-col3-behind: 2;
 	position: absolute;
 	text-align: center;
 	opacity: 0;
-	z-index: 10;
+	z-index: 9;
 	color: $text-color;
 	transition: opacity ease-in-out .6s;
 }
@@ -371,7 +401,7 @@ $art-translatex: 250%;
 
 #portrait-wrapper {
 	left: $portrait-behind-door;
-	width: 30vw;
+	width: $door-width;
 	height: 33.3vh;
 	position: absolute;
 	top: 5vh;
@@ -482,6 +512,7 @@ $bio-text-size: 16pt;
 	width: 50%;
 	margin: auto;
 	font-size: $bio-text-size;
+	margin-bottom: 5vh;
 }
 #AboutContact.open > #contact {
 	opacity: 100;
