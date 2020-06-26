@@ -1,5 +1,6 @@
 <link rel="stylesheet" href=".\styles-updated.css">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<body>
 <h1 id="name">Miranda Amey</h1>
 <div class="row" id="toprow">
 	<div id="miranda" class="toprow col2" onclick="changeDoorState('miranda')">
@@ -11,6 +12,8 @@
 		<h1 id="bio-header" class="behind-text">Bio & Contact</h1>
 		<div id="biooverlay" class="overlay bioclosed">
 			<p id="bio-text">Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny.</p>
+
+			<!--- Miranda: to set this to your own email, place your formspree link in action="__FORMSPREE LINK HERE___"-->
 			<form
 			  action="https://formspree.io/xdowevpw"
 			  method="POST"
@@ -34,12 +37,46 @@
 			<img class="x" src="content/x3.png" onclick="changeDoorState('AboutContact')">
 		</div>
 	</div>
+	<!---- Miranda: to add a video/image to one of your categories, first find the category you want to change <div class="blah blah" id="media"/id="film"/etc>, then either copy/paste a row (from <div class="row"> to the </div> tag that closes the row) or change the details of one of the example rows. Videos go in an <iframe class="video-content" src="__PUT CONTENT LINK HERE___"></iframe>. The description goes in the <p>video description</p>. If it's an image, instead of an <iframe> use an <img class="im-content" src="CONTENT LINK HERE"> 
+
+		To change the frame for any image, just edit the background-image url in <div class="column video-col" style="background-image: url(content/frame1.png);">
+
+
+		example row, with vimeo video:
+		<div class="row">
+			<div class="column video-col" style="background-image: url(content/frame2.png);">
+				<iframe class="video-content" SRC="https://player.vimeo.com/video/425790105?byline=0" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+			</div>
+			<div class="column desc-col">
+				<p>This is the description of the video.</p>
+			</div>
+		</div>
+
+		example row, with youtube video:
+		<div class="row">
+			<div class="column video-col" style="background-image: url(content/frame1.png)";>
+				<iframe class="video-content" SRC="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="column desc-col">
+				<p>This is the description of the video.</p>
+			</div>
+		</div>
+
+		example row, with image:
+		<div class="row">
+			<div class="column video-col" style="background-image: url(content/frame1.png)";>
+				<img class="im-content" SRC="content/self-portrait-cropped.png">
+			</div>
+			<div class="column desc-col">
+				<p>This is the description of the video.</p>
+			</div>
+		</div>
+
+		----->
+
 	<div class="toprow closed col3" id="media">
 		<img id="media-door" class="door" src="doors/IMG_5246.PNG">
 		<h1 class="behind-text">Media</h1>
-
-		<!---- MIRANDA: TO ADD A VIDEO, COPY AND PASTE FROM <video> to </video
-			ADD THE VIDEO URL TO src="" AND ADD THE DESCRIPTION TO <p class="video description"  ----->
 
 		<div id="mediaoverlay" class="overlay closed">
 			<div class="xcontainer">
@@ -326,3 +363,4 @@
 	  catch(e){ return false; }
 	}
 </script>
+</body>

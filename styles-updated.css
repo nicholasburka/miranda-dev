@@ -3,9 +3,15 @@
   transition: none !important;
 }
 
+html {
+  height: 100%;
+  overflow-y: none;
+}
+
 body {
   margin: 0;
   background-color: #02825F;
+  height: 100%;
 }
 
 @font-face {
@@ -99,7 +105,7 @@ h1 {
 /* mixins */
 /* layout */
 .toprow {
-  width: 30vw;
+  width: 20vw;
   height: 45vh;
   float: left;
   position: absolute;
@@ -116,7 +122,7 @@ h1 {
 }
 
 .bottomrow {
-  width: 30vw;
+  width: 20vw;
   height: 45vh;
   float: left;
   position: absolute;
@@ -212,7 +218,7 @@ h1 {
 
 #portrait-wrapper {
   left: 3vh;
-  width: 30vw;
+  width: 20vw;
   height: 33.3vh;
   position: absolute;
   top: 5vh;
