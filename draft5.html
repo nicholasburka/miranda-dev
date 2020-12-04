@@ -149,7 +149,33 @@
 		<div id="artoverlay" class="overlay closed">
 			<div class="xcontainer">
 			<img class="x" src="content/x3.png" onclick="changeDoorState('art')">
-			<div class="row">
+			<div class="gallery">
+				<div id="art-gallery-large">
+					<img id="art-gallery-large-im" class="gallery-large-im" src="">
+				</div>
+				<div id="art-gallery-large-frame-cont">
+					<img id="art-gallery-large-frame" class="gallery-frame" src="content/frame3.png">
+				</div>
+				<div id="art-thumbnails">
+					<div id="art-gallery-thumb1" class="gallery-thumb">
+						<img id="art-gallery-thumb1-im" class="gallery-im" src="">
+					</div>
+						<img id="art-gallery-thumb1-frame" class="gallery-frame" src="content/frame2.png">
+					<div id="art-gallery-thumb2" class="gallery-thumb">
+						<img id="art-gallery-thumb2-im" class="gallery-im" src="">
+					</div>
+					<img id="art-gallery-thumb2-frame" class="gallery-frame" src="content/frame1.png">
+					<div id="art-gallery-thumb3" class="gallery-thumb">
+						<img id="art-gallery-thumb3-im" class="gallery-im" src="">
+					</div>
+					<img id="art-gallery-thumb3-frame" class="gallery-frame" src="content/frame2.png">
+				</div>
+				<img id="gallery-arrow-right" src="content/arrow_right.png" onclick="nextGalleryImage()">
+				<img id="gallery-arrow-left" src="content/arrow_left.png" onclick="prevGalleryImage()">
+			</div>
+
+
+			<!--<div class="row">
 					<div class="column video-col" style="background-image: url(content/frame3.PNG)";>
 						<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
@@ -172,7 +198,7 @@
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
 				</div>
-			</div>
+			</div>-->
 		</div>
 		</div>
 	</div>
@@ -211,7 +237,13 @@
 	</div>
 </div>
 </div>
+<!--<script src='dir.php'></script>-->
 <script>
+	function isMobile() {
+	  try{ document.createEvent("TouchEvent"); return true; }
+	  catch(e){ return false; }
+	};
+
 	window.onload = function() {
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 	//let vh = document.documentElement.clientHeight * 0.01;
@@ -330,7 +362,6 @@
 		}
 
 	};
-
 	function switchClass(element, classAdd) {
 		var el = document.getElementById(element);
 		//console.log(el);
@@ -340,7 +371,6 @@
 			el.className = el.className + " " + classAdd;
 		}
 	};
-
 	function switchClassTwo(element, classRegName, classActivatedName) {
 		function internal(element, classRegName, classActivatedName) {
 			var el = document.getElementById(element);
@@ -358,9 +388,71 @@
 		}
 	};
 
-	function isMobile() {
-	  try{ document.createEvent("TouchEvent"); return true; }
-	  catch(e){ return false; }
+	//Miranda can either
+	//write out the image srcs in a javascript array in this file
+	//or once the site is live use the PHP script to gather all the
+	//images in a folder. They can be sorted by starting each image
+	//src in the folder with the number placement
+	//eg 1selfportrait.png, 2stilllife.png, 3mosaic.png, 4papermache.png, 5quiltedgloves.png
+	//and then this function can sort the files for display
+	var gall_ind = 0;
+	console.log(files);
+	if (!files) {
+		var files = ["content/miranda.jpg", "content/self-portrait-cropped.png", "content/self-portrait.jpeg", "content/self-portrait-cropped.png", "content/miranda.jpg", "content/self-portrait.jpeg"];
 	}
+	function getGalleryImages() {
+		files_indices = files.length;
+		if (gall_ind === files.length) {
+			gall_ind = 0;
+		}
+		else if (gall_ind === -1) {
+			gall_ind = files.length - 1;
+		}
+		gallt1_ind = gall_ind + 1;
+		gallt2_ind = gall_ind + 2;
+		gallt3_ind = gall_ind + 3;
+		if (gallt1_ind >= files.length) {
+			gallt1_ind = gallt1_ind - files.length;
+		}
+		if (gallt2_ind >= files.length) {
+			gallt2_ind = gallt2_ind - files.length;
+		}
+		if (gallt3_ind >= files.length) {
+			gallt3_ind = gallt3_ind - files.length;
+		}
+
+
+		var gallbig = document.getElementById("art-gallery-large-im");
+		gallbig.src = files[gall_ind];
+		var gallt1 = document.getElementById("art-gallery-thumb1-im");
+		gallt1.src = files[gallt1_ind];
+		var gallt2 = document.getElementById("art-gallery-thumb2-im");
+		gallt2.src = files[gallt2_ind];
+		var gallt3 = document.getElementById("art-gallery-thumb3-im");
+		gallt3.src = files[gallt3_ind];
+	};
+	function nextGalleryImage() {
+		console.log("next");
+		console.log(gall_ind);
+		/*if (gall_ind + 3 < files.length) {
+			gall_ind = gall_ind + 1;
+			getGalleryImages();
+		}*/
+		gall_ind = gall_ind + 1;
+		getGalleryImages();
+	};
+	function prevGalleryImage() {
+		console.log("prev");
+		console.log(gall_ind);
+		/*if (gall_ind > 1) {
+			gall_ind = gall_ind - 1;
+			getGalleryImages();
+		}*/
+		gall_ind = gall_ind - 1;
+		getGalleryImages();
+	};
+
+	getGalleryImages();
+
 </script>
 </body>

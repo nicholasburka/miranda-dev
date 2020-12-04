@@ -5,7 +5,7 @@
 
 html {
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: none;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 
 @font-face {
   font-family: "PatchFun";
-  src: url("patchfun.ttf");
+  src: url("PatchFun.ttf");
 }
 h1 {
   font-family: "Patchfun";
@@ -694,6 +694,131 @@ the door moves to the top left and opens all the way
 #art.open > .behind-text {
   opacity: 0;
   transition: all ease-out 0.4s;
+}
+
+#art-gallery-large {
+  position: absolute;
+  display: block;
+  top: 10vh;
+  width: 60vw;
+  left: 20vw;
+  height: 45vh;
+}
+
+#art-gallery-large-im {
+  display: block;
+  max-width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#art-gallery-large-frame {
+  top: 0vh;
+  min-width: 45vw;
+  max-width: 60vw;
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+}
+
+#art-gallery-large-frame-cont {
+  position: absolute;
+  display: block;
+  top: 0vh;
+  left: 20vw;
+  height: 60vh;
+  width: 60vw;
+}
+
+#art-gallery-thumb1 {
+  position: absolute;
+  display: flex;
+  top: 70vh;
+  left: 21vw;
+}
+
+#art-gallery-thumb1-frame {
+  left: 21vw;
+}
+
+#art-gallery-thumb2 {
+  position: absolute;
+  display: flex;
+  top: 70vh;
+  left: 41vw;
+}
+
+#art-gallery-thumb2-frame {
+  left: 41vw;
+}
+
+#art-gallery-thumb3 {
+  position: absolute;
+  display: flex;
+  top: 70vh;
+  left: 61vw;
+}
+
+#art-gallery-thumb3-frame {
+  left: 61vw;
+}
+
+#gallery-arrow-right {
+  position: absolute;
+  top: 30vh;
+  height: 40vh;
+  width: 10vw;
+  left: 85vw;
+}
+
+#gallery-arrow-left {
+  position: absolute;
+  height: 40vh;
+  left: 5vw;
+  width: 10vw;
+  top: 30vh;
+}
+
+.gallery-large-im {
+  align-self: center;
+  align-items: center;
+  object-fit: contain;
+  height: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery-im {
+  align-self: center;
+  align-items: center;
+  object-fit: contain;
+  height: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 13vw;
+}
+
+.gallery-thumb {
+  height: 20vh;
+  top: 70vh;
+  width: 18vw;
+}
+
+.gallery-frame {
+  position: absolute;
+  z-index: 20;
+  top: 60vh;
+  height: 38vh;
+  width: 18vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=styles-updated.css.map */
