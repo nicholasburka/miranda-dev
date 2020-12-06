@@ -88,7 +88,7 @@ $overlay-opacity-time: 2s;
 	z-index: -1;
 }
 
-$row-height: 30vh;
+$row-height: 25vh;
 
 .row {
 	display: flex;
@@ -108,7 +108,7 @@ $row-height: 30vh;
 
 .desc-col {
 	align-items: center;
-	padding-left: 5%;
+	//padding-left: 5%;
 	padding-right: 5%;
 }
 
@@ -118,13 +118,18 @@ $row-height: 30vh;
 	background-position: center center;
 	background-size: auto 100%;
 	align-items: center;
+	width: 60vw;
 }
 
 .video-content {
 	height: 60%; 
-	width: 40%; 
+	width: 35%; 
 	top: 20%; 
+	//left: 10%;
 	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto; //https://stackoverflow.com/users/2533215/ilya-streltsyn a good user, not directly related
 }
 
 .im-content {
@@ -133,6 +138,22 @@ $row-height: 30vh;
 	width: auto;
 	top: 20%;
 	position: relative;
+}
+
+.frame1 {
+	left: 25vw;
+	top: 13%;
+}
+
+.embed-frame {
+	position: absolute;
+	z-index: 20;
+	height: $row-height * .8;
+	width: .55 * 60vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 $video-div-size: 40vh;
@@ -566,12 +587,13 @@ $art-translatex: 250%;
 #AboutContact.open > .overlay {
 	@include overlayopen;
 }
-$bio-text-size: 16pt;
+$bio-text-size: min(5vw,4vh);//16pt;
 #bio-text {
 	text-align: center;
 	top: 5%;
 	margin: 13%;
 	margin-bottom: 3%;
+	margin-top: 5%;
 	color: black;
 	font-size: $bio-text-size;
 }
@@ -882,6 +904,7 @@ $im-h: 100%;
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
 
 /*iframe {
 	z-index: -1;
