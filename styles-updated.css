@@ -4,8 +4,9 @@
 }
 
 html {
-  height: 100%;
-  overflow-y: none;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ h1 {
   color: #fb0446;
   z-index: 9;
   position: relative;
+  font-size: min(7vw, 5vh);
 }
 
 /* All overlay stuff */
@@ -40,6 +42,10 @@ h1 {
   background-color: #03c994;
   opacity: 0;
   z-index: 1;
+}
+
+.overlay.closed {
+  z-index: -1;
 }
 
 .row {
@@ -94,6 +100,25 @@ h1 {
   max-width: 5%;
   height: auto;
   margin-bottom: 2%;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes becomeOpaque {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    z-index: 12;
+  }
+}
+.x.active {
+  animation: becomeOpaque 1.5s 1;
+  animation-fill-mode: forwards;
 }
 
 .xcontainer {
@@ -103,84 +128,148 @@ h1 {
 }
 
 /* mixins */
+.hidden {
+  opacity: 0;
+}
+
 /* layout */
 .toprow {
-  width: 20vw;
+  width: 33vw;
   height: 45vh;
   float: left;
   position: absolute;
-}
-@media (max-width: 600px) and (min-height: 720px) {
-  .toprow {
-    top: 15vh;
-  }
-}
-@media (min-width: 600px) {
-  .toprow {
-    top: 10vh;
-  }
+  /*@media (max-width: $very-small) and (min-height: $small-screen) {
+  	top: $top-pad;
+     }
+     @media (min-width: $very-small) {
+     	top: 10vh;
+     }*/
+  top: 10vh;
 }
 
 .bottomrow {
-  width: 20vw;
+  width: 33vw;
   height: 45vh;
   float: left;
   position: absolute;
   top: 55vh;
 }
 
+@keyframes slideOutAndOver {
+  0% {
+    z-index: -1;
+  }
+  40% {
+    transform: translateX(40%);
+    z-index: -1;
+  }
+  41% {
+    z-index: 10;
+  }
+  100% {
+    transform: translateX(0%);
+    z-index: 10;
+  }
+}
+@keyframes slideOutAndOverLess {
+  0% {
+    z-index: -1;
+  }
+  40% {
+    transform: translateX(30%);
+    z-index: -1;
+  }
+  41% {
+    z-index: 10;
+  }
+  100% {
+    transform: translateX(0%);
+    z-index: 10;
+  }
+}
+.col1 {
+  left: 0vw;
+}
 @media (max-width: 720px) {
   .col1 {
-    left: 0px;
+    left: 0vw;
   }
 }
 @media (min-width: 720px) {
   .col1 {
-    left: 12vw;
+    left: 10vw;
+  }
+}
+@media (min-width: 720px) {
+  .col1 {
+    float: right;
   }
 }
 
-@media (max-width: 720px) {
-  .col2 {
-    left: 35vw;
+@media (min-width: 720px) {
+  .col1.door {
+    float: right;
   }
 }
-@media (min-width: 720px) {
-  .col2 {
-    left: 42vw;
-  }
+
+.col2 {
+  /*@media (max-width: $small-screen) {
+  	left: $second-small;
+     }
+     @media (min-width: $small-screen) {
+     	left: $second;
+     }*/
+  left: 33vw;
 }
 
 @media (max-width: 720px) {
   .col3 {
-    left: 67vw;
+    left: 66vw;
   }
 }
 @media (min-width: 720px) {
   .col3 {
-    left: 70vw;
+    left: 56vw;
+  }
+}
+@media (min-width: 720px) {
+  .col3 {
+    float: left;
+  }
+}
+
+@media (min-width: 720px) {
+  .col3.door {
+    float: left;
   }
 }
 
 .door {
   max-width: 100%;
   max-height: 100%;
-  float: inherit;
   transition: all ease-in-out 0.2s;
-  position: inherit;
-  z-index: 1;
-  float: left;
+  z-index: 3;
   image-orientation: from-image;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  object-fit: contain;
+  position: relative;
 }
 
 .behind-text {
   position: absolute;
   margin-top: 0;
   top: 5%;
-  left: 25%;
-  transition: all ease-in-out 0.6s;
   opacity: 0;
   color: #fb0446;
+  z-index: -1;
+  font-size: min(4vw, 5vh);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  left: 5%;
 }
 
 /* */
@@ -188,16 +277,28 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
 }
 
 .category-text.reveal {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  .category-text.reveal {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  .category-text.reveal {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 /*MIRANDA DIV*/
@@ -205,11 +306,12 @@ h1 {
 #portrait {
   max-width: 60%;
   max-height: 60%;
-  float: inherit;
   transition: all ease-in-out 0.2s;
+  z-index: -3;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   position: relative;
-  z-index: 4;
-  float: left;
 }
 
 #portrait.peek {
@@ -217,8 +319,8 @@ h1 {
 }
 
 #portrait-wrapper {
-  left: 3vh;
-  width: 20vw;
+  left: 2vh;
+  width: 33vw;
   height: 33.3vh;
   position: absolute;
   top: 5vh;
@@ -229,18 +331,15 @@ h1 {
   position: absolute;
 }
 
-#miranda .door {
-  z-index: 5;
-}
-
 #miranda-door:hover {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #miranda.hover:hover > #portrait-wrapper {
-  left: 12vh;
+  left: 9vh;
   transition: all ease-in-out 0.6s;
 }
 
@@ -248,10 +347,11 @@ h1 {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #miranda.ajar > #portrait-wrapper {
-  left: 12vh;
+  left: 9vh;
   transition: all ease-in-out 0.6s;
 }
 
@@ -259,6 +359,7 @@ h1 {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #miranda.depeek > .door {
@@ -268,12 +369,12 @@ h1 {
 }
 
 #portrait-wrapper.peek {
-  left: 12vh;
+  left: 9vh;
   transition: all ease-in-out 0.6s;
 }
 
 #portrait-wrapper.depeek {
-  left: 3vh;
+  left: 2vh;
   transition: all ease-in-out 0.6s;
 }
 
@@ -284,26 +385,40 @@ h1 {
 
 #AboutContact .door {
   left: 0vw;
-  z-index: 7;
 }
 
 #AboutContact-door:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #AboutContact.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #AboutContact.ajar > #Bio-header {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #AboutContact.ajar > #Bio-header {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #AboutContact.ajar > #Bio-header {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #Bio-header {
@@ -317,16 +432,29 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+  left: 14%;
 }
 
 #AboutContact.hover.closed:hover > #Bio-header {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #AboutContact.hover.closed:hover > #Bio-header {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #AboutContact.hover.closed:hover > #Bio-header {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #AboutContact.open {
@@ -400,29 +528,55 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #media.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #media.ajar > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #media.ajar > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #media .behind-text {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
 }
 
 #media.hover.closed:hover > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #media.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #media.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 /*#media-door.door:hover > .behind-text {
@@ -432,6 +586,7 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #media.open {
@@ -475,43 +630,66 @@ h1 {
   position: absolute;
 }
 
-#film .door {
-  z-index: 8;
-}
-
 #film-door:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #film.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #film.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #film.ajar > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #film.ajar > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #film .behind-text {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
 }
 
 #film.hover.closed:hover > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #film.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #film.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 /* when the open class is triggered,
@@ -553,43 +731,66 @@ the door moves to the top left and opens all the way
   transition: all ease-out 0.4s;
 }
 
-#comedy .door {
-  z-index: 6;
-}
-
 #comedy-door:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #comedy.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #comedy.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #comedy.ajar > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #comedy.ajar > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #comedy .behind-text {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
 }
 
 #comedy.hover.closed:hover > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #comedy.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #comedy.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #comedy.open {
@@ -628,43 +829,66 @@ the door moves to the top left and opens all the way
   transition: all ease-out 0.4s;
 }
 
-#art .door {
-  z-index: 4;
-}
-
 #art-door:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #art.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
+  z-index: 0;
 }
 
 #art.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #art.ajar > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #art.ajar > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #art .behind-text {
   position: absolute;
   text-align: center;
   opacity: 0;
-  z-index: 9;
+  left: 8%;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
 }
 
 #art.hover.closed:hover > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-  transition: opacity ease-in-out 0.6s;
+}
+@media (max-width: 720px) {
+  #art.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOver;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 720px) {
+  #art.hover.closed:hover > .behind-text {
+    animation-name: slideOutAndOverLess;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+  }
 }
 
 #art.open {
@@ -706,7 +930,7 @@ the door moves to the top left and opens all the way
 #art-gallery-large {
   position: absolute;
   display: block;
-  top: 10vh;
+  top: 15vh;
   width: 60vw;
   left: 20vw;
   height: 45vh;
@@ -715,15 +939,12 @@ the door moves to the top left and opens all the way
 #art-gallery-large-im {
   display: block;
   max-width: 50vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #art-gallery-large-frame {
   top: 0vh;
   min-width: 45vw;
-  max-width: 60vw;
-  width: auto;
+  max-width: 100%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -734,43 +955,37 @@ the door moves to the top left and opens all the way
 #art-gallery-large-frame-cont {
   position: absolute;
   display: block;
-  top: 0vh;
-  left: 20vw;
+  top: 5vh;
+  left: 22vw;
   height: 60vh;
-  width: 60vw;
+  width: 56vw;
+  transform: rotateZ(1deg);
 }
 
 #art-gallery-thumb1 {
   position: absolute;
   display: flex;
-  top: 70vh;
-  left: 21vw;
-}
-
-#art-gallery-thumb1-frame {
-  left: 21vw;
+  top: 75vh;
+  left: 17vw;
 }
 
 #art-gallery-thumb2 {
   position: absolute;
   display: flex;
-  top: 70vh;
+  top: 75vh;
   left: 41vw;
 }
 
 #art-gallery-thumb2-frame {
-  left: 41vw;
+  top: -26%;
+  left: -9%;
 }
 
 #art-gallery-thumb3 {
   position: absolute;
   display: flex;
-  top: 70vh;
-  left: 61vw;
-}
-
-#art-gallery-thumb3-frame {
-  left: 61vw;
+  top: 75vh;
+  left: 65vw;
 }
 
 #gallery-arrow-right {
@@ -778,13 +993,13 @@ the door moves to the top left and opens all the way
   top: 30vh;
   height: 40vh;
   width: 10vw;
-  left: 85vw;
+  left: 88vw;
 }
 
 #gallery-arrow-left {
   position: absolute;
   height: 40vh;
-  left: 5vw;
+  left: 2vw;
   width: 10vw;
   top: 30vh;
 }
@@ -798,6 +1013,7 @@ the door moves to the top left and opens all the way
   display: block;
   margin-left: auto;
   margin-right: auto;
+  image-orientation: from-image;
 }
 
 .gallery-im {
@@ -809,27 +1025,43 @@ the door moves to the top left and opens all the way
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 13vw;
+  max-width: 16vw;
+  image-orientation: from-image;
 }
 
 .gallery-thumb {
   height: 20vh;
-  top: 70vh;
+  top: 75vh;
   width: 18vw;
+}
+
+.gallery-frame-top {
+  position: absolute;
+  z-index: 20;
+  height: 130%;
+  width: 120%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .gallery-frame {
   position: absolute;
   z-index: 20;
-  top: 60vh;
-  height: 38vh;
-  width: 18vw;
+  top: -25%;
+  height: 150%;
+  max-height: 40vw;
+  left: -10%;
+  width: 120%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-iframe {
-  z-index: 5;
-}
+/*iframe {
+	z-index: -1;
+}*/
 
 /*# sourceMappingURL=styles-updated.css.map */

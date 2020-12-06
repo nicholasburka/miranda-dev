@@ -9,8 +9,9 @@
 	</div>
 	<div id="AboutContact" class="toprow col1 closed">
 		<img id="AboutContact-door" class="door" src="doors/IMG_5245.PNG">
-		<h1 id="bio-header" class="behind-text">Bio & Contact</h1>
-		<div id="biooverlay" class="overlay bioclosed">
+		<h1 id="bio-header" class="behind-text">Bio &<br />Contact</h1>
+		<img id="AboutContact-x" class="x" src="content/x3.png" onclick="changeDoorState('AboutContact')">
+		<div id="biooverlay" class="overlay bio closed">
 			<p id="bio-text">Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny.</p>
 
 			<!--- Miranda: to set this to your own email, place your formspree link in action="__FORMSPREE LINK HERE___"-->
@@ -34,7 +35,6 @@
 
 			  <button type="submit">Send</button>
 			</form>
-			<img class="x" src="content/x3.png" onclick="changeDoorState('AboutContact')">
 		</div>
 	</div>
 	<!---- Miranda: to add a video/image to one of your categories, first find the category you want to change <div class="blah blah" id="media"/id="film"/etc>, then either copy/paste a row (from <div class="row"> to the </div> tag that closes the row) or change the details of one of the example rows. Videos go in an <iframe class="video-content" src="__PUT CONTENT LINK HERE___"></iframe>. The description goes in the <p>video description</p>. If it's an image, instead of an <iframe> use an <img class="im-content" src="CONTENT LINK HERE"> 
@@ -76,15 +76,13 @@
 
 	<div class="toprow closed col3" id="media">
 		<img id="media-door" class="door" src="doors/IMG_5246.PNG">
-		<h1 class="behind-text">Media</h1>
+			<h1 class="behind-text">Media</h1>
 
-		<div id="mediaoverlay" class="overlay closed">
-			<div class="xcontainer">
-				<img class="x" src="content/x3.png" onclick="changeDoorState('media')">
-			</div>
+		<div id="mediaoverlay" class="overlay">
+			<img id="media-x" class="x" src="content/x3.png" onclick="changeDoorState('media')">
 			<div class="row">
 					<div class="column video-col" style="background-image: url(content/frame3.PNG)";>
-						<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe id="mediaembed1" class="video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<div class="column desc-col">
 						<p>This is the description of the video.</p>
@@ -92,7 +90,7 @@
 				</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame1.PNG)";>
-					<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe id="mediaembed2" class="video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
@@ -100,7 +98,7 @@
 			</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame2.PNG);">
-					<iframe class="video-content" src="https://player.vimeo.com/video/425790105?byline=0" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+					<iframe id="mediaembed3" class="video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
@@ -113,12 +111,12 @@
 	<div class="bottomrow closed col1" id="film">
 		<img id="film-door" class="door" src="doors/IMG_5242.PNG">
 		<h1 class="behind-text">Film</h1>
-		<div id="filmoverlay" class="overlay closed">
+		<div id="filmoverlay" class="overlay">
 			<div class="xcontainer">
-			<img class="x" src="content/x3.png" onclick="changeDoorState('film')">
+			<img id="film-x" class="x" src="content/x3.png" onclick="changeDoorState('film')">
 			<div class="row">
 					<div class="column video-col" style="background-image: url(content/frame3.PNG)";>
-						<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe id="filmembed1" class="video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<div class="column desc-col">
 						<p>This is the description of the video.</p>
@@ -126,7 +124,7 @@
 				</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame1.PNG)";>
-					<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe id="filmembed2" class="video-content" src="" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
@@ -134,7 +132,7 @@
 			</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame2.PNG);">
-					<iframe class="video-content" src="https://player.vimeo.com/video/425790105?byline=0" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+					<iframe id="filmembed3" class="video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
@@ -146,71 +144,42 @@
 	<div class="bottomrow closed col3" id="art">
 		<img id="art-door" class="door" src="doors/IMG_5241.PNG">
 		<h1 class="behind-text">Art</h1>
-		<div id="artoverlay" class="overlay closed">
-			<div class="xcontainer">
-			<img class="x" src="content/x3.png" onclick="changeDoorState('art')">
+		<img id="art-x" class="x" src="content/x3.png" onclick="changeDoorState('art')">
+		<div id="artoverlay" class="overlay">
 			<div class="gallery">
 				<div id="art-gallery-large">
 					<img id="art-gallery-large-im" class="gallery-large-im" src="">
 				</div>
 				<div id="art-gallery-large-frame-cont">
-					<img id="art-gallery-large-frame" class="gallery-frame" src="content/frame3.PNG">
+					<img id="art-gallery-large-frame" class="gallery-frame-top" src="content/frame3.PNG">
 				</div>
 				<div id="art-thumbnails">
 					<div id="art-gallery-thumb1" class="gallery-thumb">
 						<img id="art-gallery-thumb1-im" class="gallery-im" src="">
-					</div>
 						<img id="art-gallery-thumb1-frame" class="gallery-frame" src="content/frame2.PNG">
+					</div>
 					<div id="art-gallery-thumb2" class="gallery-thumb">
 						<img id="art-gallery-thumb2-im" class="gallery-im" src="">
+						<img id="art-gallery-thumb2-frame" class="gallery-frame" src="content/frame1.PNG">
 					</div>
-					<img id="art-gallery-thumb2-frame" class="gallery-frame" src="content/frame1.PNG">
 					<div id="art-gallery-thumb3" class="gallery-thumb">
 						<img id="art-gallery-thumb3-im" class="gallery-im" src="">
+						<img id="art-gallery-thumb3-frame" class="gallery-frame" src="content/frame2.PNG">
 					</div>
-					<img id="art-gallery-thumb3-frame" class="gallery-frame" src="content/frame2.PNG">
 				</div>
 				<img id="gallery-arrow-right" src="content/arrow_right.png" onclick="nextGalleryImage()">
 				<img id="gallery-arrow-left" src="content/arrow_left.png" onclick="prevGalleryImage()">
 			</div>
-
-
-			<!--<div class="row">
-					<div class="column video-col" style="background-image: url(content/frame3.PNG)";>
-						<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="column desc-col">
-						<p>This is the description of the video.</p>
-					</div>
-				</div>
-			<div class="row">
-				<div class="column video-col" style="background-image: url(content/frame1.PNG)";>
-					<img class="im-content" src="content/self-portrait-cropped.png">
-				</div>
-				<div class="column desc-col">
-					<p>This is the description of the video.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="column video-col" style="background-image: url(content/frame2.PNG);">
-					<iframe class="video-content" src="https://player.vimeo.com/video/425790105?byline=0" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
-				</div>
-				<div class="column desc-col">
-					<p>This is the description of the video.</p>
-				</div>
-			</div>-->
-		</div>
 		</div>
 	</div>
 	<div class="bottomrow closed col2" id="comedy">
 		<img id="comedy-door" class="door" src="doors/IMG_5243.PNG">
 		<h1 class="behind-text">Comedy</h1>
-		<div id="comedyoverlay" class="overlay closed">
-			<div class="xcontainer">
-			<img class="x" src="content/x3.png" onclick="changeDoorState('comedy')">
+		<img id="comedy-x" class="x" src="content/x3.png" onclick="changeDoorState('comedy')">
+		<div id="comedyoverlay" class="overlay">
 			<div class="row">
 					<div class="column video-col" style="background-image: url(content/frame3.PNG)";>
-						<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe id="comedyembed1" class="video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<div class="column desc-col">
 						<p>This is the description of the video.</p>
@@ -218,7 +187,7 @@
 				</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame1.PNG)";>
-					<iframe class="video-content" src="https://www.youtube.com/embed/DzRCEWtn8fU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe id="comedyembed2" class="video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
@@ -226,19 +195,20 @@
 			</div>
 			<div class="row">
 				<div class="column video-col" style="background-image: url(content/frame2.PNG);">
-					<iframe class="video-content" src="https://player.vimeo.com/video/425790105?byline=0" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+					<iframe id="comedyembed3" class="video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
 				</div>
 				<div class="column desc-col">
 					<p>This is the description of the video.</p>
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
 </div>
 </div>
 <!--<script src='dir.php'></script>-->
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
+	//how to post load the iframes for faster load time?
 	function isMobile() {
 	  try{ document.createEvent("TouchEvent"); return true; }
 	  catch(e){ return false; }
@@ -329,9 +299,10 @@
 	};
 	function changeDoorState(category, reset) {
 		var cat_div = document.getElementById(category);
+		var x = document.getElementById(category + "-x");
 
-		/*console.log(cat_div);
-		console.log(cat_div.className);*/
+		console.log(cat_div);
+		console.log(cat_div.className);
 
 		if (category === "miranda") {
 			cat_div.className = cat_div.className + " " + "ajar";
@@ -352,14 +323,32 @@
 
 		} else {
 			if (cat_div.className.indexOf("closed") >= 0) {
-				/*console.log("changed to open");
-				console.log(cat_div.className.indexOf("closed"));*/
+				console.log("changed to open");
+				//console.log(cat_div.className.indexOf("closed"));
+				x.classList.add("active");
 				cat_div.className = cat_div.className.replace("closed", "open");
 			} else {
-				//console.log("changed to closed");
+				console.log("changed to closed");
+				//x.className = x.className.replace("active", "");
+				x.classList.remove("active");
 				cat_div.className = cat_div.className.replace("open", "closed");
 			}
 		}
+
+		/*if (!(category === "miranda")) {
+			var x = document.getElementById(category + "-x");
+			console.log("x for " + category);
+			console.log(x);
+			if (x.className.indexOf("hidden") < 0) {
+				//setTimeout(() => {x.className = x.className.replace(" hidden", "");}, 50);
+				x.className = x.className + " hidden";
+				console.log(x.className);
+			} else {
+				//setTimeout(() => {x.className = x.className + " hidden";}, 50);
+				x.className = x.className.replace(" hidden", "");
+				console.log(x.className);
+			}
+		}*/
 
 	};
 	function switchClass(element, classAdd) {
@@ -453,6 +442,31 @@
 	};
 
 	getGalleryImages();
+
+	function loadiframes() {
+		mediasrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+		comedysrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+		filmsrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+
+		var ind = 1;
+		mediasrcs.forEach((src) => {
+			document.getElementById("mediaembed" + ind).src = src;
+			ind = ind + 1;
+		});
+		ind = 1;
+		comedysrcs.forEach((src) => {
+			document.getElementById("comedyembed" + ind).src = src;
+			ind = ind + 1;
+		});
+		ind = 1;
+		filmsrcs.forEach((src) => {
+			document.getElementById("filmembed" + ind).src = src;
+			ind = ind + 1;
+		});
+		ind = 1;
+	};
+
+	loadiframes();
 
 </script>
 </body>

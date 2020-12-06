@@ -4,8 +4,9 @@
 }
 
 html {
-	height: 100%;
-	overflow-y: none;
+	height: 100vh;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 body {
@@ -24,20 +25,8 @@ body {
 	transform: $prop;
 }
 
-$portrait-behind-door: 3vh;
-$portrait-peek: 12vh;
-
-$first: 12vw;
-$second: 42vw;
-$second-small: 35vw;
-$third: 70vw;
-$third-small: 67vw;
 
 $text-height-offset: 5vh;
-
-
-$small-screen: 720px;
-$very-small: 600px;
 
 $old-text-color: #ao25cc;
 $old-old-text-color: #d45eff;
@@ -59,6 +48,7 @@ h1 {
 	color: $text-color;
 	z-index: 9;
 	position:relative;
+	font-size: min(7vw, 5vh);
 }
 
 
@@ -93,6 +83,9 @@ $overlay-opacity-time: 2s;
 	background-color:#03c994;// #02825F; //
 	opacity: 0;
 	z-index: 1;
+}
+.overlay.closed {
+	z-index: -1;
 }
 
 $row-height: 30vh;
@@ -173,6 +166,24 @@ $frame3-height: 5261px;
 	max-width: 5%;
 	height: auto;
 	margin-bottom: 2%;
+	z-index: 2;
+	opacity: 0;
+}
+@keyframes becomeOpaque {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		z-index: 12;
+	}
+}
+.x.active {
+	animation: becomeOpaque 1.5s 1;
+	animation-fill-mode: forwards;
 }
 .xcontainer {
 	top: 0;
@@ -187,6 +198,7 @@ $frame3-height: 5261px;
 	transform-origin: 12% center;
 	transform: rotate3d(0, 1, 0, 45deg);
 	transition: all ease-in-out .3s;
+	z-index: 0;
 }
 @mixin door-close {
 	transform-origin: 12% center;
@@ -198,6 +210,7 @@ $frame3-height: 5261px;
 	transform-origin: 1% center;
 	transform: rotate3d(0, 1, 0, 30deg);
 	transition: all ease-in-out .3s;
+	z-index: 0;
 }
 @mixin door-close-less {
 	transform-origin: 1% center;
@@ -223,29 +236,82 @@ $frame3-height: 5261px;
 	transition: z-index 1ms, all ease-in-out 2s;
 	z-index: 10;
 }
-$door-width: 20vw;
+$door-width: 33vw;
 @mixin doordiv {
 	width: $door-width;
 	height: 45vh;
 	float: left;
 	position: absolute;
 }
+.hidden {
+	//visibility: hidden;
+	opacity: 0;
+	//display: none;
+}
 
+
+$portrait-behind-door: 2vh;
+$portrait-peek: 9vh;
+
+$hidden-text-left: 8%;
+
+$first: 0vw;
+$second: 33vw;
+$second-small: 35vw;
+$third: 66vw;
+$third-small: 67vw;
+
+$small-screen: 720px;
+$very-small: 600px;
 /* layout */
 
 $top-pad: 15vh;
 .toprow {
 	@include doordiv;
-	@media (max-width: $very-small) and (min-height: $small-screen) {
+	/*@media (max-width: $very-small) and (min-height: $small-screen) {
 		top: $top-pad;
     }
     @media (min-width: $very-small) {
     	top: 10vh;
-    }
+    }*/
+    top: 10vh;
 }
 .bottomrow {
 	@include doordiv;
 	top: 55vh;
+}
+
+@keyframes slideOutAndOver {
+	0% {
+		z-index: -1;
+	}
+	40% {
+		transform: translateX(40%);
+		z-index: -1;
+	}
+	41% {
+		z-index: 10;
+	}
+	100% {
+		transform: translateX(0%);
+		z-index: 10;
+	}
+}
+@keyframes slideOutAndOverLess {
+	0% {
+		z-index: -1;
+	}
+	40% {
+		transform: translateX(30%);
+		z-index: -1;
+	}
+	41% {
+		z-index: 10;
+	}
+	100% {
+		transform: translateX(0%);
+		z-index: 10;
+	}
 }
 
 
@@ -258,65 +324,108 @@ $zindex-col3-behind: 2;
 
 .col1 {
 	@media (max-width: $small-screen) {
-		left: 0px;
+		left: $first;
     }
     @media (min-width: $small-screen) {
-    	left: $first;
+    	left: $first + 10vw;
+    }
+    @media (min-width: $small-screen) {
+    	float: right;
+    }
+    left: $first;
+}
+.col1.door {
+	@media (min-width: $small-screen) {
+    	float: right;
     }
 }
 
 .col2 {
-	@media (max-width: $small-screen) {
+	/*@media (max-width: $small-screen) {
 		left: $second-small;
     }
     @media (min-width: $small-screen) {
     	left: $second;
-    }
+    }*/
+    left: $second;
 }
 
 .col3 {
 	@media (max-width: $small-screen) {
-		left: $third-small;
+		left: $third;
     }
     @media (min-width: $small-screen) {
-    	left: $third;
+    	left: $third - 10vw;
+    }
+    @media (min-width: $small-screen) {
+    	float: left;
+    }
+}
+.col3.door {
+	@media (min-width: $small-screen) {
+    	float: left;
     }
 }
 
 .door {
 	max-width: 100%;
 	max-height: 100%;
-	float: inherit;
+	//float: inherit;
 	transition: all ease-in-out .2s;
-	position: inherit;
-	z-index: 1;
-	float: left;
+	//position: inherit;
+	z-index: 3;
+	//float: left;
 	image-orientation: from-image;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	object-fit: contain;
+	position: relative;
 }
 
 .behind-text {
 	position: absolute;
 	margin-top: 0;
 	top: 5%;
-	left: 25%;
-	transition: all ease-in-out .6s;
+	//left: 25%;
+	//transition: all ease-in-out .6s;
 	opacity: 0;
 	color: $text-color;
+	z-index: -1;
+	font-size: min(4vw, 5vh);
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	left: 5%;
+	//object-fit: contain;
 }
 
 @mixin reveal-text {
 	z-index: 9;
 	opacity: 100;
 	color: $text-color;
-	transition: opacity ease-in-out .6s;
+	//transition: opacity ease-in-out .6s;
+	//z-index: 9;
+	@media (max-width: $small-screen) {
+		animation-name: slideOutAndOver;
+		animation-duration: .9s;
+		animation-fill-mode: forwards;
+    }
+    @media (min-width: $small-screen) {
+    	animation-name: slideOutAndOverLess;
+    	animation-duration: .9s;
+    	animation-fill-mode: forwards;
+    }
 }
 @mixin hidden-text {
 	position: absolute;
 	text-align: center;
 	opacity: 0;
-	z-index: 9;
+	left: $hidden-text-left;
+	//z-index: 9;
 	color: $text-color;
-	transition: opacity ease-in-out .6s;
+	//transition: opacity ease-in-out .2s;
 }
 /* */
 $bio-translatex: 280%;
@@ -347,11 +456,15 @@ $art-translatex: 250%;
 #portrait {
 	max-width: 60%;
 	max-height: 60%;
-	float: inherit;
+	//float: inherit;
 	transition: all ease-in-out .2s;
+	//position: relative;
+	z-index: -3;//$zindex-col2-behind;
+	//float: left;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 	position: relative;
-	z-index: $zindex-col2-behind;
-	float: left;
 }
 
 #portrait.peek {
@@ -372,7 +485,7 @@ $art-translatex: 250%;
 }
 
 #miranda .door {
-	z-index: $zindex-col2;
+	//z-index: $zindex-col2;
 }
 
 #miranda-door:hover {
@@ -417,7 +530,7 @@ $art-translatex: 250%;
 }
 #AboutContact .door {
 	left: 0vw;
-	z-index: $zindex-col1;
+	//z-index: $zindex-col1;
 }
 
 #AboutContact-door:hover {
@@ -439,6 +552,7 @@ $art-translatex: 250%;
 	color: #a025cc;
 	z-index: $zindex-col1-behind;*/
 	@include hidden-text;
+	left: 14%;
 }
 #AboutContact.hover.closed:hover > #Bio-header {
 	@include reveal-text;
@@ -529,7 +643,7 @@ $bio-text-size: 16pt;
 	position: absolute;
 }
 #film .door {
-	z-index: 8;
+	//z-index: 8;
 }
 #film-door:hover {
 	@include door-open-less;
@@ -568,7 +682,7 @@ the door moves to the top left and opens all the way
 #comedy {
 }
 #comedy .door {
-	z-index: 6;
+	//z-index: 6;
 }
 #comedy-door:hover {
  	@include door-open-less;
@@ -603,7 +717,7 @@ the door moves to the top left and opens all the way
 #art {
 }
 #art .door {
-	z-index: 4;
+	//z-index: 4;
 }
 #art-door:hover {
  	@include door-open-less;
@@ -636,11 +750,11 @@ the door moves to the top left and opens all the way
 
 
 //needs height correction for frames on thin / mobile
-$thumb-top: 70vh;
+$thumb-top: 75vh;
 #art-gallery-large {
 	position: absolute;
 	display: block;
-	top: 10vh;
+	top: 15vh;
 	width: 60vw;
 	left: 20vw;
 	height: 45vh;
@@ -649,14 +763,11 @@ $thumb-top: 70vh;
 #art-gallery-large-im {
 	display: block;
 	max-width: 50vw;
-	margin-left: auto;
-	margin-right: auto;
 }
 #art-gallery-large-frame {
 	top: 0vh;
 	min-width: 45vw;
-	max-width: 60vw;
-	width: auto;
+	max-width: 100%;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -666,12 +777,13 @@ $thumb-top: 70vh;
 #art-gallery-large-frame-cont {
 	position: absolute;
 	display: block;
-	top: 0vh;
-	left: 20vw;
+	top: 5vh;
+	left: 22vw;
 	height: 60vh;
-	width: 60vw;
+	width: 56vw;
+	transform: rotateZ(1deg);
 }
-$thumb1-left: 21vw;
+$thumb1-left: 17vw;
 #art-gallery-thumb1 {
 	position: absolute;
 	display: flex;
@@ -679,7 +791,7 @@ $thumb1-left: 21vw;
 	left: $thumb1-left;
 }
 #art-gallery-thumb1-frame {
-	left: $thumb1-left;
+	//left: $thumb1-left;
 }
 $thumb2-left: 41vw;
 #art-gallery-thumb2 {
@@ -689,9 +801,11 @@ $thumb2-left: 41vw;
 	left: $thumb2-left;
 }
 #art-gallery-thumb2-frame {
-	left: $thumb2-left;
+	//left: $thumb2-left;
+	top: -26%;
+	left: -9%;
 }
-$thumb3-left: 61vw;
+$thumb3-left: 65vw;
 #art-gallery-thumb3 {
 	position: absolute;
 	display: flex;
@@ -699,19 +813,19 @@ $thumb3-left: 61vw;
 	left: $thumb3-left;
 }
 #art-gallery-thumb3-frame {
-	left: $thumb3-left;
+	//left: $thumb3-left;
 }
 #gallery-arrow-right {
 	position: absolute;
 	top: 30vh;
 	height: 40vh;
 	width: 10vw;
-	left: 85vw;
+	left: 88vw;
 }
 #gallery-arrow-left {
 	position: absolute;
 	height: 40vh;
-	left: 5vw;
+	left: 2vw;
 	width: 10vw;
 	top: 30vh;
 }
@@ -724,32 +838,49 @@ $thumb3-left: 61vw;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	image-orientation: from-image;
 }
-$gallery-im-max-width: 13vw;
+$gallery-im-max-width: 16vw;
+$im-h: 100%;
 .gallery-im {
 	align-self: center;
 	align-items: center;
 	object-fit: contain;
-	height: 100%;
+	height: $im-h;
 	width: auto;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: $gallery-im-max-width;
+	image-orientation: from-image;
 }
 .gallery-thumb {
 	height: 20vh;
 	top: $thumb-top;
 	width: 18vw;
 }
+.gallery-frame-top {
+	position: absolute;
+	z-index: 20;
+	height: 130%;
+	width: 120%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
 .gallery-frame {
 	position: absolute;
 	z-index: 20;
-	top: 60vh;
-	height: 38vh;
-	width: 18vw;
+	top: -25%;
+	height: 150%;
+	max-height: $gallery-im-max-width * 2.5;
+	left: -10%;
+	width: 120%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 /*iframe {
