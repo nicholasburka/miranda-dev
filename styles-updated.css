@@ -438,7 +438,6 @@ h1 {
 #miranda.ajar > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #miranda.ajar > #portrait-wrapper {
@@ -482,7 +481,6 @@ h1 {
 #AboutContact.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #AboutContact.ajar > #Bio-header {
@@ -614,7 +612,6 @@ h1 {
 #media.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #media.ajar > .behind-text {
@@ -726,7 +723,6 @@ h1 {
 #film.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #film.ajar > .behind-text {
@@ -827,7 +823,6 @@ the door moves to the top left and opens all the way
 #comedy.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #comedy.ajar > .behind-text {
@@ -926,7 +921,6 @@ the door moves to the top left and opens all the way
 #art.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
 }
 
 #art.ajar > .behind-text {
