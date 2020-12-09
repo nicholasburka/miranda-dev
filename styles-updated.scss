@@ -600,7 +600,7 @@ $art-translatex: 250%;
 }
 
 #miranda.ajar > .door {
-	@include door-open-notransition;
+	//@include door-open-notransition;
 }
 
 #miranda.ajar > #portrait-wrapper {
@@ -640,7 +640,7 @@ $art-translatex: 250%;
 }
 
 #AboutContact.ajar > .door {
-	@include door-open-less-notransition;
+	//@include door-open-less-notransition;
 }
 #AboutContact.ajar > #Bio-header {
 	@include reveal-text;
@@ -709,7 +709,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
  	@include door-open-less;
  }*/
 #media.ajar > .door {
-	@include door-open-less-notransition;
+	//@include door-open-less-notransition;
 }
 #media.ajar > .behind-text {
 	@include reveal-text;
@@ -752,7 +752,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
 	@include door-open-less;
 }
 #film.ajar > .door {
-	@include door-open-less-notransition;
+	//@include door-open-less-notransition;
 }
 #film.ajar > .behind-text {
 	@include reveal-text;
@@ -791,7 +791,7 @@ the door moves to the top left and opens all the way
  	@include door-open-less;
  }
 #comedy.ajar > .door {
- 	@include door-open-less-notransition;
+ 	//@include door-open-less-notransition;
  }
 #comedy.ajar > .behind-text {
 	@include reveal-text;
@@ -827,7 +827,7 @@ the door moves to the top left and opens all the way
  	@include door-open-less;
 }
 #art.ajar > .door {
-	@include door-open-less-notransition;
+	//@include door-open-less-notransition;
 }
 #art.ajar > .behind-text {
 	@include reveal-text;
