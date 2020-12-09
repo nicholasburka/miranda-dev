@@ -209,23 +209,23 @@ h1 {
 .col1 {
   left: 0vw;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   .col1 {
     left: 0vw;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col1 {
     left: 10vw;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col1 {
     float: right;
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col1.door {
     float: right;
   }
@@ -241,23 +241,23 @@ h1 {
   left: 33vw;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   .col3 {
     left: 66vw;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col3 {
     left: 56vw;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col3 {
     float: left;
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .col3.door {
     float: left;
   }
@@ -288,7 +288,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  left: 5%;
+  left: 7%;
 }
 
 /* */
@@ -296,7 +296,7 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
 }
 
@@ -305,14 +305,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   .category-text.reveal {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   .category-text.reveal {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -425,14 +425,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #AboutContact.ajar > #Bio-header {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #AboutContact.ajar > #Bio-header {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -451,7 +451,7 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
   left: 14%;
 }
@@ -461,14 +461,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #AboutContact.hover.closed:hover > #Bio-header {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #AboutContact.hover.closed:hover > #Bio-header {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -556,14 +556,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #media.ajar > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #media.ajar > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -575,7 +575,7 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
 }
 
@@ -584,14 +584,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #media.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #media.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -669,14 +669,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #film.ajar > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #film.ajar > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -688,7 +688,7 @@ h1 {
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
 }
 
@@ -697,14 +697,14 @@ h1 {
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #film.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #film.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -770,14 +770,14 @@ the door moves to the top left and opens all the way
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #comedy.ajar > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #comedy.ajar > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -789,7 +789,7 @@ the door moves to the top left and opens all the way
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
 }
 
@@ -798,14 +798,14 @@ the door moves to the top left and opens all the way
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #comedy.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #comedy.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -868,14 +868,14 @@ the door moves to the top left and opens all the way
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #art.ajar > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #art.ajar > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
@@ -887,7 +887,7 @@ the door moves to the top left and opens all the way
   position: absolute;
   text-align: center;
   opacity: 0;
-  left: 8%;
+  left: 14%;
   color: #fb0446;
 }
 
@@ -896,14 +896,14 @@ the door moves to the top left and opens all the way
   opacity: 100;
   color: #fb0446;
 }
-@media (max-width: 720px) {
+@media (max-width: 820px) {
   #art.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 820px) {
   #art.hover.closed:hover > .behind-text {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
