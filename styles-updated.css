@@ -81,6 +81,7 @@ h1 {
 }
 
 .video-content {
+  z-index: 10;
   height: 25vh;
   width: 30vw;
   position: absolute;
@@ -94,6 +95,7 @@ h1 {
   width: 38vw;
   position: absolute;
   pointer-events: none;
+  z-index: 11;
 }
 
 .mediaembed1 {

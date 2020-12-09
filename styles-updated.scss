@@ -126,6 +126,7 @@ $row-height: 25vh;
 }
 
 .video-content {
+	z-index: 10;
 	height: 25vh; 
 	width: 30vw; 
 	//top: 20%; 
@@ -141,6 +142,7 @@ $row-height: 25vh;
 	width: 38vw;
 	position: absolute;
 	pointer-events: none;
+	z-index: 11;
 }
 
 .mediaembed1 {
