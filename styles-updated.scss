@@ -269,7 +269,7 @@ $frame3-height: 5261px;
 	transform-origin: 12% center;
 	transform: rotate3d(0, 1, 0, 45deg);
 	transition: all ease-in-out .3s;
-	z-index: 0;
+	//z-index: 0;
 }
 @mixin door-close {
 	transform-origin: 12% center;
@@ -281,7 +281,11 @@ $frame3-height: 5261px;
 	transform-origin: 1% center;
 	transform: rotate3d(0, 1, 0, 30deg);
 	transition: all ease-in-out .3s;
-	z-index: 0;
+	//z-index: 0;
+}
+@mixin door-open-less-notransition {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 30deg);
 }
 @mixin door-close-less {
 	transform-origin: 1% center;

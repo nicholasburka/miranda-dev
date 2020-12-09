@@ -428,7 +428,6 @@ h1 {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #miranda.hover:hover > #portrait-wrapper {
@@ -440,7 +439,6 @@ h1 {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #miranda.ajar > #portrait-wrapper {
@@ -452,7 +450,6 @@ h1 {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #miranda.depeek > .door {
@@ -480,14 +477,12 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #AboutContact.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #AboutContact.ajar > #Bio-header {
@@ -620,7 +615,6 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #media.ajar > .behind-text {
@@ -678,7 +672,6 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #media.open {
@@ -728,14 +721,12 @@ h1 {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #film.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #film.ajar > .behind-text {
@@ -831,14 +822,12 @@ the door moves to the top left and opens all the way
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #comedy.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #comedy.ajar > .behind-text {
@@ -932,14 +921,12 @@ the door moves to the top left and opens all the way
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #art.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
-  z-index: 0;
 }
 
 #art.ajar > .behind-text {
