@@ -531,6 +531,24 @@ $zindex-col3-behind: 2;
     	animation-fill-mode: forwards;
     }
 }
+@mixin reveal-text-mobile {
+	z-index: 9;
+	opacity: 100;
+	color: $text-color;
+	transition: opacity ease-in-out .6s;
+	//z-index: 9;
+	/*@media (max-width: $small-screen) {
+		animation-name: slideOutAndOver;
+		animation-duration: .9s;
+		animation-fill-mode: forwards;
+    }
+    @media (min-width: $small-screen) {
+    	animation-name: slideOutAndOverLess;
+    	animation-duration: .9s;
+    	animation-fill-mode: forwards;
+    }*/
+}
+
 $hidden-text-left: 14%;
 @mixin hidden-text {
 	position: absolute;
@@ -654,11 +672,11 @@ $art-translatex: 250%;
 }
 
 #AboutContact.ajar > .door {
-	@include door-open;
+	//@include door-open;
 	//@include door-open-less-notransition;
 }
 #AboutContact.ajar > #Bio-header {
-	@include reveal-text;
+	@include reveal-text-mobile;
 }
 #Bio-header {
 	/*position: absolute;
@@ -725,10 +743,10 @@ $bio-text-size: min(4vw,4vh);//16pt;
  }*/
 #media.ajar > .door {
 	//@include door-open-less-notransition;
-	@include door-open-less;
+	//@include door-open-less;
 }
 #media.ajar > .behind-text {
-	@include reveal-text;
+	@include reveal-text-mobile;
 }
 #media .behind-text {
 	@include hidden-text;
@@ -769,10 +787,10 @@ $bio-text-size: min(4vw,4vh);//16pt;
 }
 #film.ajar > .door {
 	//@include door-open-less-notransition;
-	@include door-open-less;
+	//@include door-open-less;
 }
 #film.ajar > .behind-text {
-	@include reveal-text;
+	@include reveal-text-mobile;
 }
 #film .behind-text {
 	@include hidden-text;
@@ -809,10 +827,10 @@ the door moves to the top left and opens all the way
  }
 #comedy.ajar > .door {
  	//@include door-open-less-notransition;
- 	@include door-open-less;
+ 	//@include door-open-less;
  }
 #comedy.ajar > .behind-text {
-	@include reveal-text;
+	@include reveal-text-mobile;
 }
 #comedy .behind-text{
 	@include hidden-text;
@@ -846,10 +864,10 @@ the door moves to the top left and opens all the way
 }
 #art.ajar > .door {
 	//@include door-open-less-notransition;
-	@include door-open-less;
+	//@include door-open-less;
 }
 #art.ajar > .behind-text {
-	@include reveal-text;
+	@include reveal-text-mobile;
 }
 #art .behind-text {
 	@include hidden-text;

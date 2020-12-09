@@ -491,31 +491,21 @@ h1 {
   transition: all ease-in-out 0.3s;
 }
 
-#AboutContact.ajar > .door {
-  transform-origin: 12% center;
-  transform: rotate3d(0, 1, 0, 45deg);
-  -webkit-transform: rotate3d(0, 1, 0, 45deg);
-  transition: all ease-in-out 0.3s;
-}
-
 #AboutContact.ajar > #Bio-header {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-}
-@media (max-width: 820px) {
-  #AboutContact.ajar > #Bio-header {
-    animation-name: slideOutAndOver;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
-}
-@media (min-width: 820px) {
-  #AboutContact.ajar > #Bio-header {
-    animation-name: slideOutAndOverLess;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
+  transition: opacity ease-in-out 0.6s;
+  /*@media (max-width: $small-screen) {
+  	animation-name: slideOutAndOver;
+  	animation-duration: .9s;
+  	animation-fill-mode: forwards;
+     }
+     @media (min-width: $small-screen) {
+     	animation-name: slideOutAndOverLess;
+     	animation-duration: .9s;
+     	animation-fill-mode: forwards;
+     }*/
 }
 
 #Bio-header {
@@ -625,31 +615,21 @@ h1 {
 /*#media.hover:hover.closed > .door {
  	@include door-open-less;
  }*/
-#media.ajar > .door {
-  transform-origin: 1% center;
-  transform: rotate3d(0, 1, 0, 30deg);
-  -webkit-transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
-}
-
 #media.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-}
-@media (max-width: 820px) {
-  #media.ajar > .behind-text {
-    animation-name: slideOutAndOver;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
-}
-@media (min-width: 820px) {
-  #media.ajar > .behind-text {
-    animation-name: slideOutAndOverLess;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
+  transition: opacity ease-in-out 0.6s;
+  /*@media (max-width: $small-screen) {
+  	animation-name: slideOutAndOver;
+  	animation-duration: .9s;
+  	animation-fill-mode: forwards;
+     }
+     @media (min-width: $small-screen) {
+     	animation-name: slideOutAndOverLess;
+     	animation-duration: .9s;
+     	animation-fill-mode: forwards;
+     }*/
 }
 
 #media .behind-text {
@@ -741,31 +721,21 @@ h1 {
   transition: all ease-in-out 0.3s;
 }
 
-#film.ajar > .door {
-  transform-origin: 1% center;
-  transform: rotate3d(0, 1, 0, 30deg);
-  -webkit-transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
-}
-
 #film.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-}
-@media (max-width: 820px) {
-  #film.ajar > .behind-text {
-    animation-name: slideOutAndOver;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
-}
-@media (min-width: 820px) {
-  #film.ajar > .behind-text {
-    animation-name: slideOutAndOverLess;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
+  transition: opacity ease-in-out 0.6s;
+  /*@media (max-width: $small-screen) {
+  	animation-name: slideOutAndOver;
+  	animation-duration: .9s;
+  	animation-fill-mode: forwards;
+     }
+     @media (min-width: $small-screen) {
+     	animation-name: slideOutAndOverLess;
+     	animation-duration: .9s;
+     	animation-fill-mode: forwards;
+     }*/
 }
 
 #film .behind-text {
@@ -845,31 +815,21 @@ the door moves to the top left and opens all the way
   transition: all ease-in-out 0.3s;
 }
 
-#comedy.ajar > .door {
-  transform-origin: 1% center;
-  transform: rotate3d(0, 1, 0, 30deg);
-  -webkit-transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
-}
-
 #comedy.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-}
-@media (max-width: 820px) {
-  #comedy.ajar > .behind-text {
-    animation-name: slideOutAndOver;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
-}
-@media (min-width: 820px) {
-  #comedy.ajar > .behind-text {
-    animation-name: slideOutAndOverLess;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
+  transition: opacity ease-in-out 0.6s;
+  /*@media (max-width: $small-screen) {
+  	animation-name: slideOutAndOver;
+  	animation-duration: .9s;
+  	animation-fill-mode: forwards;
+     }
+     @media (min-width: $small-screen) {
+     	animation-name: slideOutAndOverLess;
+     	animation-duration: .9s;
+     	animation-fill-mode: forwards;
+     }*/
 }
 
 #comedy .behind-text {
@@ -947,31 +907,21 @@ the door moves to the top left and opens all the way
   transition: all ease-in-out 0.3s;
 }
 
-#art.ajar > .door {
-  transform-origin: 1% center;
-  transform: rotate3d(0, 1, 0, 30deg);
-  -webkit-transform: rotate3d(0, 1, 0, 30deg);
-  transition: all ease-in-out 0.3s;
-}
-
 #art.ajar > .behind-text {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
-}
-@media (max-width: 820px) {
-  #art.ajar > .behind-text {
-    animation-name: slideOutAndOver;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
-}
-@media (min-width: 820px) {
-  #art.ajar > .behind-text {
-    animation-name: slideOutAndOverLess;
-    animation-duration: 0.9s;
-    animation-fill-mode: forwards;
-  }
+  transition: opacity ease-in-out 0.6s;
+  /*@media (max-width: $small-screen) {
+  	animation-name: slideOutAndOver;
+  	animation-duration: .9s;
+  	animation-fill-mode: forwards;
+     }
+     @media (min-width: $small-screen) {
+     	animation-name: slideOutAndOverLess;
+     	animation-duration: .9s;
+     	animation-fill-mode: forwards;
+     }*/
 }
 
 #art .behind-text {
