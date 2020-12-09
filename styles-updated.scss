@@ -270,37 +270,44 @@ $frame3-height: 5261px;
 @mixin door-open {
 	transform-origin: 12% center;
 	transform: rotate3d(0, 1, 0, 45deg);
+	-webkit-transform: rotate3d(0, 1, 0, 45deg);
 	transition: all ease-in-out .3s;
 	//z-index: 0;
 }
 @mixin door-open-notransition {
 	transform-origin: 12% center;
 	transform: rotate3d(0, 1, 0, 45deg);
+	-webkit-transform: rotate3d(0, 1, 0, 45deg);
 }
 @mixin door-close {
 	transform-origin: 12% center;
 	transform: rotate3d(0, 0, 0, 45deg);
+	-webkit-transform: rotate3d(0, 0, 0, 45deg);
 	transition: all ease-in-out .3s;
 }
 
 @mixin door-open-less {
 	transform-origin: 1% center;
 	transform: rotate3d(0, 1, 0, 30deg);
+	-webkit-transform: rotate3d(0, 1, 0, 30deg);
 	transition: all ease-in-out .3s;
 	//z-index: 0;
 }
 @mixin door-open-less-notransition {
 	transform-origin: 1% center;
 	transform: rotate3d(0, 1, 0, 30deg);
+	-webkit-transform: rotate3d(0,1,0, 30deg);
 }
 @mixin door-close-less {
 	transform-origin: 1% center;
 	transform: rotate3d(0, 0, 0, 30deg);
+	-webkit-transform: rotate3d(0, 0, 0, 30deg);
 	transition: all ease-in-out .3s;
 }
 @mixin door-close-less-notransition {
 	transform-origin: 1% center;
 	transform: rotate3d(0, 0, 0, 30deg);
+	-webkit-transform: rotate3d(0, 0, 0, 30deg);
 	//transition: all ease-in-out .3s;
 }
 
@@ -315,6 +322,7 @@ $frame3-height: 5261px;
 	z-index: 12;
 	transform-origin: 1% center;
 	transform: rotate3d(.01, 1, .01, -90deg);
+	-webkit-transform: rotate3d(.01, 1, .01, -90deg);
 }
 @mixin enterdiv {
 	width: 100vw;
@@ -373,6 +381,7 @@ $top-pad: 15vh;
 	}
 	40% {
 		transform: translateX(40%);
+		-webkit-transform: translateX(40%);
 		z-index: -1;
 	}
 	41% {
@@ -380,6 +389,7 @@ $top-pad: 15vh;
 	}
 	100% {
 		transform: translateX(0%);
+		-webkit-transform: translateX(0%);
 		z-index: 10;
 	}
 }
@@ -389,6 +399,7 @@ $top-pad: 15vh;
 	}
 	40% {
 		transform: translateX(30%);
+		-webkit-transform: translateX(30%);
 		z-index: -1;
 	}
 	41% {
@@ -396,6 +407,7 @@ $top-pad: 15vh;
 	}
 	100% {
 		transform: translateX(0%);
+		-webkit-transform: translateX(0%);
 		z-index: 10;
 	}
 }
@@ -571,6 +583,7 @@ $art-translatex: 250%;
 
 #portrait.peek {
 	transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
 }
 
 #portrait-wrapper {
@@ -600,6 +613,7 @@ $art-translatex: 250%;
 }
 
 #miranda.ajar > .door {
+	@include door-open;
 	//@include door-open-notransition;
 }
 
@@ -640,6 +654,7 @@ $art-translatex: 250%;
 }
 
 #AboutContact.ajar > .door {
+	@include door-open;
 	//@include door-open-less-notransition;
 }
 #AboutContact.ajar > #Bio-header {
@@ -710,6 +725,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
  }*/
 #media.ajar > .door {
 	//@include door-open-less-notransition;
+	@include door-open-less;
 }
 #media.ajar > .behind-text {
 	@include reveal-text;
@@ -753,6 +769,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
 }
 #film.ajar > .door {
 	//@include door-open-less-notransition;
+	@include door-open-less;
 }
 #film.ajar > .behind-text {
 	@include reveal-text;
@@ -792,6 +809,7 @@ the door moves to the top left and opens all the way
  }
 #comedy.ajar > .door {
  	//@include door-open-less-notransition;
+ 	@include door-open-less;
  }
 #comedy.ajar > .behind-text {
 	@include reveal-text;
@@ -828,6 +846,7 @@ the door moves to the top left and opens all the way
 }
 #art.ajar > .door {
 	//@include door-open-less-notransition;
+	@include door-open-less;
 }
 #art.ajar > .behind-text {
 	@include reveal-text;
@@ -886,6 +905,7 @@ $thumb-top: 72vh;
 	height: 60vh;
 	width: 56vw;
 	transform: rotateZ(1deg);
+	-webkit-transform: rotateZ(1deg);
 }
 $thumb1-left: 17vw;
 #art-gallery-thumb1 {

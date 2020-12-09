@@ -235,6 +235,7 @@ h1 {
   }
   40% {
     transform: translateX(40%);
+    -webkit-transform: translateX(40%);
     z-index: -1;
   }
   41% {
@@ -242,6 +243,7 @@ h1 {
   }
   100% {
     transform: translateX(0%);
+    -webkit-transform: translateX(0%);
     z-index: 10;
   }
 }
@@ -251,6 +253,7 @@ h1 {
   }
   40% {
     transform: translateX(30%);
+    -webkit-transform: translateX(30%);
     z-index: -1;
   }
   41% {
@@ -258,6 +261,7 @@ h1 {
   }
   100% {
     transform: translateX(0%);
+    -webkit-transform: translateX(0%);
     z-index: 10;
   }
 }
@@ -411,6 +415,7 @@ h1 {
 
 #portrait.peek {
   transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
 }
 
 #portrait-wrapper {
@@ -429,6 +434,7 @@ h1 {
 #miranda-door.hover:hover {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
+  -webkit-transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
@@ -440,6 +446,8 @@ h1 {
 #miranda.ajar > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
+  -webkit-transform: rotate3d(0, 1, 0, 45deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #miranda.ajar > #portrait-wrapper {
@@ -450,12 +458,14 @@ h1 {
 #miranda.peek > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
+  -webkit-transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
 #miranda.depeek > .door {
   transform-origin: 12% center;
   transform: rotate3d(0, 0, 0, 45deg);
+  -webkit-transform: rotate3d(0, 0, 0, 45deg);
   transition: all ease-in-out 0.3s;
 }
 
@@ -477,12 +487,15 @@ h1 {
 #AboutContact-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #AboutContact.ajar > .door {
-  transform-origin: 1% center;
-  transform: rotate3d(0, 1, 0, 30deg);
+  transform-origin: 12% center;
+  transform: rotate3d(0, 1, 0, 45deg);
+  -webkit-transform: rotate3d(0, 1, 0, 45deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #AboutContact.ajar > #Bio-header {
@@ -561,6 +574,7 @@ h1 {
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
+  -webkit-transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
 #AboutContact.open > .overlay {
@@ -614,6 +628,8 @@ h1 {
 #media.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #media.ajar > .behind-text {
@@ -670,6 +686,7 @@ h1 {
 #media-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
@@ -693,6 +710,7 @@ h1 {
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
+  -webkit-transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
 #media.open > .overlay {
@@ -719,12 +737,15 @@ h1 {
 #film-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #film.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #film.ajar > .behind-text {
@@ -798,6 +819,7 @@ the door moves to the top left and opens all the way
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
+  -webkit-transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
 #film.open > .overlay {
@@ -819,12 +841,15 @@ the door moves to the top left and opens all the way
 #comedy-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #comedy.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #comedy.ajar > .behind-text {
@@ -896,6 +921,7 @@ the door moves to the top left and opens all the way
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
+  -webkit-transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
 #comedy.open > .overlay {
@@ -917,12 +943,15 @@ the door moves to the top left and opens all the way
 #art-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
 }
 
 #art.ajar > .door {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
+  -webkit-transform: rotate3d(0, 1, 0, 30deg);
+  transition: all ease-in-out 0.3s;
 }
 
 #art.ajar > .behind-text {
@@ -993,6 +1022,7 @@ the door moves to the top left and opens all the way
   z-index: 12;
   transform-origin: 1% center;
   transform: rotate3d(0.01, 1, 0.01, -90deg);
+  -webkit-transform: rotate3d(0.01, 1, 0.01, -90deg);
 }
 
 #art.open > .overlay {
@@ -1044,6 +1074,7 @@ the door moves to the top left and opens all the way
   height: 60vh;
   width: 56vw;
   transform: rotateZ(1deg);
+  -webkit-transform: rotateZ(1deg);
 }
 
 #art-gallery-thumb1 {
