@@ -424,7 +424,7 @@ h1 {
   position: absolute;
 }
 
-#miranda-door:hover {
+#miranda-door.hover:hover {
   transform-origin: 12% center;
   transform: rotate3d(0, 1, 0, 45deg);
   transition: all ease-in-out 0.3s;
@@ -476,7 +476,7 @@ h1 {
   position: absolute;
 }
 
-#AboutContact-door:hover {
+#AboutContact-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
@@ -674,7 +674,7 @@ h1 {
 /*#media-door.door:hover > .behind-text {
 	@include reveal-text;
 }*/
-#media-door.door:hover {
+#media-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
@@ -724,7 +724,7 @@ h1 {
   position: absolute;
 }
 
-#film-door:hover {
+#film-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
@@ -827,7 +827,7 @@ the door moves to the top left and opens all the way
   transition: all ease-out 0.4s;
 }
 
-#comedy-door:hover {
+#comedy-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;
@@ -928,7 +928,7 @@ the door moves to the top left and opens all the way
   transition: all ease-out 0.4s;
 }
 
-#art-door:hover {
+#art-door.hover:hover {
   transform-origin: 1% center;
   transform: rotate3d(0, 1, 0, 30deg);
   transition: all ease-in-out 0.3s;

@@ -575,7 +575,7 @@ $art-translatex: 250%;
 	//z-index: $zindex-col2;
 }
 
-#miranda-door:hover {
+#miranda-door.hover:hover {
 	@include door-open;
 }
 
@@ -620,7 +620,7 @@ $art-translatex: 250%;
 	//z-index: $zindex-col1;
 }
 
-#AboutContact-door:hover {
+#AboutContact-door.hover:hover {
 	@include door-open-less;
 }
 
@@ -708,7 +708,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
 /*#media-door.door:hover > .behind-text {
 	@include reveal-text;
 }*/
-#media-door.door:hover {
+#media-door.hover:hover {
  	@include door-open-less;
 }
 #media.open {
@@ -733,7 +733,7 @@ $bio-text-size: min(4vw,4vh);//16pt;
 #film .door {
 	//z-index: 8;
 }
-#film-door:hover {
+#film-door.hover:hover {
 	@include door-open-less;
 }
 #film.ajar > .door {
@@ -772,7 +772,7 @@ the door moves to the top left and opens all the way
 #comedy .door {
 	//z-index: 6;
 }
-#comedy-door:hover {
+#comedy-door.hover:hover {
  	@include door-open-less;
  }
 #comedy.ajar > .door {
@@ -808,7 +808,7 @@ the door moves to the top left and opens all the way
 #art .door {
 	//z-index: 4;
 }
-#art-door:hover {
+#art-door.hover:hover {
  	@include door-open-less;
 }
 #art.ajar > .door {
