@@ -33,6 +33,15 @@ h1 {
   top: 1vh;
 }
 
+#loading {
+  position: absolute;
+  left: 40vw;
+  top: 5vw;
+  height: 15vw;
+  width: 15vw;
+  z-index: 50;
+}
+
 /* All overlay stuff */
 /*@mixin overlay {
 	position: absolute;
