@@ -24,6 +24,8 @@ text:
 background color:
 - edit the body { background-color: #02825F; } (line 12)
 
+Technical notes
+
 SCSS file structure:
 - top level css
 - overlays

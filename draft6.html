@@ -80,6 +80,7 @@
 	<div id="miranda" class="toprow col2 closed">
 		<img id="miranda-door" alt="meet miranda door" class="door" src="doors/IMG_5244.PNG">
 		<div id="portrait-wrapper"><img id="portrait" alt="miranda self portrait" src="content/self-portrait-cropped.png" onload="peek()"></div>
+		<img id="miranda-behindtextimage" alt="meet miranda" class="behind-text" src="content/meet_miranda.png">
 		<div id="miranda-overlay" class="overlay miranda closed">
 			<img id="miranda-x" alt="close x" class="x" src="content/x3.png" onclick="changeDoorState('miranda')">
 			<iframe id="meet-miranda-video" loading="lazy" class="meet-miranda-video video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
@@ -425,11 +426,12 @@
 			div_timers[category] = setTimeout(() => {cat_div.className = cat_div.className.replace('ajar', '');}, 1500);
 		}*/
 		if (mobileBrowser || isSafari) {
+			const ajar_time = 2500;
 			if (reset) {
 				cat_div.className = cat_div.className.replace("ajar", "closed");
 			} else if (cat_div.className.indexOf("closed") >= 0) {
 				cat_div.className = cat_div.className.replace("closed", "ajar");
-				div_timers[category] = setTimeout(() => {changeDoorState(category, true)}, 1500);
+				div_timers[category] = setTimeout(() => {changeDoorState(category, true)}, ajar_time);
 			} else if (cat_div.className.indexOf("ajar") >= 0) { 
 				cat_div.className = cat_div.className.replace("ajar", "open");
 				x.classList.add("open");

@@ -26,7 +26,7 @@ $old-text-color: #ao25cc;
 $old-old-text-color: #d45eff;
 //alt #fb0446 #820225;
 $text-color: #fb0446;
-
+// #B20808; 
 @font-face {
 	font-family: "PatchFun";
 	src: url("PatchFun.ttf");
@@ -661,6 +661,27 @@ $art-translatex: 250%;
 #miranda.ajar > #portrait-wrapper {
 	left: $portrait-peek;
 	transition: all ease-in-out .6s;
+}
+#miranda-behindtextimage {
+	max-width: 15vw;
+	height: auto;
+	align-self: center;
+	object-fit: contain;
+	@media (max-width: $tiny) {
+		left: 5vw;
+		top: 20vw;
+		max-width: 25vw;
+	}
+	@media (min-width: $small-screen) {
+		left: 8vw;
+	}
+}
+#miranda.ajar > .behind-text {
+	@include reveal-text-mobile;
+}
+#miranda.hover.closed:hover > .behind-text {
+	@include reveal-text;
+	z-index: 10;
 }
 #miranda.open {
 	@include enterdiv;
