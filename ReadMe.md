@@ -8,6 +8,8 @@ To upload the site
 
 To edit the contact form to go to your email, create an account / form on formspree.io, get a link for your form, and replace the form link in draft6.html (can search FORMSPREE LINK, line 56, link goes on line 58).
 
+To add your social links, replace "instagram link here", "youtube link here" etc in draft6.html with your social links.
+
 To edit the images for the Art gallery, in the file draft6.html, go to the function "getGalleryImages()" - you can also search "gallery images". Above this function is a list of file names. Change the filenames, add to them, etc - the function will automatically load the first four as the opening gallery images and the rest when the visitor cycles through.
 
 To edit the videos displayed in each video gallery, or the "Meet Miranda" video, go the function loadiframes() and edit the list for whichever category (media, comedy, film). These are currently built for three videos apiece. The meet miranda video is a single link in quotes mirandasrc="link". These should be YouTube or Vimeo (or whatever embeddable video player) embed links (YouTube has specific embed links, vimeo might not).
