@@ -1,0 +1,1073 @@
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+html {
+	height: 100vh;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+body {
+	margin: 0;
+	background-color: #02825F;
+	height: 100%;
+}
+
+@mixin transform($prop) {
+	-moz-transform: $prop;
+	-webkit-transform: $prop;
+	-o-transform: $prop;
+	-ms-transform: $prop;
+	transform: $prop;
+}
+
+$text-height-offset: 5vh;
+$old-text-color: #ao25cc;
+$old-old-text-color: #d45eff;
+//alt #fb0446 #820225;
+$text-color: #fb0446;
+
+@font-face {
+	font-family: "PatchFun";
+	src: url("PatchFun.ttf");
+}
+h1 {
+	font-family: "Patchfun";
+}
+#name {
+	text-align:center;
+	height: 10vh;
+	color: $text-color;
+	z-index: 9;
+	position:relative;
+	font-size: min(7vw, 5vh);
+	top: 1vh;
+}
+
+
+/* All overlay stuff */
+$overlay-opacity-time: 2s;
+/*@mixin overlay {
+	position: absolute;
+	z-index: 10;
+	opacity: 100;
+	transition: all ease-in-out 2s;
+	overflow-y: auto;
+}*/
+@mixin overlayopen {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: auto;
+	overflow-y: auto;
+	min-height: 100vh;
+	opacity: 100;
+	transition: opacity ease-out $overlay-opacity-time, left ease-out 3s;
+}
+.overlay {
+	position: absolute;
+	height: 10vh;
+	width: 10vw;
+	top: 0;
+	left: 0;
+	background-color:#03c994;// #02825F; //
+	opacity: 0;
+	z-index: -1;
+	transform-style: flat;
+}
+.overlay.closed {
+	z-index: -1;
+}
+
+$row-height: 25vh;
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: $row-height;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+} //font size for desc
+.desc-col {
+	align-items: center;
+	//padding-left: 5%;
+	padding-right: 5%;
+	position: absolute;
+	font-size: 3vw;
+	width: 30vw;
+}
+.video-col { 
+	//background-image: url(content/frame3.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 100%;
+	align-items: center;
+	//width: 60vw;
+}
+
+/* overlay for meet miranda */
+#meet-miranda-video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+}
+#socials {
+	position: absolute;
+	top: 10vh;
+	height: 10vh;
+	z-index: 20;
+	display: flex;
+}
+$social-width: 7.5vw;
+$frame-width: 2 * $social-width;
+.social {
+	height: $social-width;
+	width: $social-width;
+	position: absolute;
+	top: .5 * $social-width;
+	z-index: 5;
+}
+.socialframe {
+	height: $frame-width;
+	width: $frame-width;
+	position: absolute;
+	z-index: 6;
+}
+#instaframe {
+	left: 10vw;
+}
+#instagram {
+	left: 10vw + (.5* $social-width);
+}
+#youtubeframe {
+	left: 30vw;
+}
+#youtube {
+	left: 30vw + (.5 * $social-width);
+}
+#twitterframe {
+	left: 55vw;
+}
+#twitter {
+	left: 55vw + (.5 * $social-width);
+}
+#venmoframe {
+	left: 75vw;
+}
+#venmo {
+	left: 75vw + (.5 * $social-width);
+}
+
+/* video embed overlays */
+.video-content {
+	z-index: 10;
+	height: 25vh; 
+	width: 30vw; 
+	//top: 20%; 
+	//left: 10%;
+	//position: relative;
+	position: absolute;
+	display: block;
+	margin-left: auto;
+	margin-right: auto; //https://stackoverflow.com/users/2533215/ilya-streltsyn a good user, not directly related
+}
+.video-frame {
+	height: 35vh;
+	width: 38vw;
+	position: absolute;
+	pointer-events: none;
+	z-index: 11;
+}
+
+.mediaembed1 {
+	left: 15vw;
+	top: 8vh;
+}
+.mediaembed1-frame {
+	left: 11vw;
+	top: 3vh;
+}
+.mediaembed1-desc {
+	left: 55vw;
+	top: 13vh;
+}
+
+.mediaembed2 {
+	left: 60vw;
+	top: 38vh;
+}
+.mediaembed2-frame {
+	left: 56vw;
+	top: 33vh;
+}
+.mediaembed2-desc {
+	left: 15vw;
+	top: 43vh;
+}
+
+.mediaembed3 {
+	left: 15vw;
+	top: 68vh;
+}
+.mediaembed3-frame {
+	left: 11vw;
+	top: 63vh;
+}
+.mediaembed3-desc {
+	left: 55vw;
+	top: 73vh;
+}
+
+/* art gallery overlay */
+.im-content {
+	height: 60%;
+	max-height: $row-height;
+	width: auto;
+	top: 20%;
+	position: relative;
+}
+
+.frame1 {
+	left: 25vw;
+	top: 13%;
+}
+.embed-frame {
+	position: absolute;
+	z-index: 20;
+	height: $row-height * .8;
+	width: .55 * 60vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+$video-div-size: 40vh;
+$player-size: 80%;
+$frame1-left: 732px;
+$frame1-right: 970px;
+$frame1-top: 1000px;
+$frame1-bottom: 930px;
+$frame1-width: 6119px;
+$frame1-height: 5331px;
+$frame2-left: 955px;
+$frame2-right: 953px;
+$frame2-toaugustp: 1346px;
+$frame2-bottom: 991px;
+$frame2-width: 5972px;
+$frame2-height: 5354px;
+$frame3-left: 981px;
+$frame3-right: 930px;
+$frame3-top: 1080px;
+$frame3-bottom: 940px;
+$frame3-width: 6263px;
+$frame3-height: 5261px;
+
+.player {
+	
+}
+.x {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	max-width: 5%;
+	height: auto;
+	margin-bottom: 2%;
+	z-index: 2;
+	opacity: 0;
+}
+@keyframes becomeOpaque {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		z-index: 12;
+	}
+}
+.x.open {
+	animation: becomeOpaque 1.5s 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	//z-index: 12;
+	//transition: z-index 
+}
+.xcontainer {
+	top: 0;
+	width: 100%;
+	height: 10vh;
+}
+
+
+/* mixins */
+@mixin door-open {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 1, 0, 45deg);
+	-webkit-transform: rotate3d(0, 1, 0, 45deg);
+	transition: all ease-in-out .3s;
+	//z-index: 0;
+}
+@mixin door-open-notransition {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 1, 0, 45deg);
+	-webkit-transform: rotate3d(0, 1, 0, 45deg);
+}
+@mixin door-close {
+	transform-origin: 12% center;
+	transform: rotate3d(0, 0, 0, 45deg);
+	-webkit-transform: rotate3d(0, 0, 0, 45deg);
+	transition: all ease-in-out .3s;
+}
+@mixin door-open-less {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 30deg);
+	-webkit-transform: rotate3d(0, 1, 0, 30deg);
+	transition: all ease-in-out .3s;
+	//z-index: 0;
+}
+@mixin door-open-less-notransition {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 1, 0, 30deg);
+	-webkit-transform: rotate3d(0,1,0, 30deg);
+}
+@mixin door-close-less {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 0, 0, 30deg);
+	-webkit-transform: rotate3d(0, 0, 0, 30deg);
+	transition: all ease-in-out .3s;
+}
+@mixin door-close-less-notransition {
+	transform-origin: 1% center;
+	transform: rotate3d(0, 0, 0, 30deg);
+	-webkit-transform: rotate3d(0, 0, 0, 30deg);
+	//transition: all ease-in-out .3s;
+}
+
+@mixin enterdoor {
+	width: auto;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	margin-left: 0;
+	margin-right: 0;
+	transition: z-index 1ms, left ease-out 3s, all ease-out 3s;
+	z-index: 30;
+	transform-origin: 1% center;
+	transform: rotate3d(.01, 1, .01, -90deg);
+	-webkit-transform: rotate3d(.01, 1, .01, -90deg);
+}
+@mixin enterdiv {
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transition: z-index 1ms, all ease-out 3s;
+	z-index: 10;
+}
+$door-width: 22.5vw;
+@mixin doordiv {
+	width: $door-width;
+	height: 45vh;
+	float: left;
+	position: absolute;
+}
+.hidden {
+	//visibility: hidden;
+	opacity: 0;
+	//display: none;
+}
+
+$portrait-behind-door: 2vh;
+$portrait-peek: 9vh;
+
+$first: 50vw - ($door-width*2);
+$second: 50vw - ($door-width/2);//38.75vw;
+$second-small: 35vw;
+$third: 50vw + ($door-width);
+$third-small: 67vw;
+
+$small-screen: 820px;
+$very-small: 740px;
+
+/* layout */
+$top-pad: 15vh;
+.toprow {
+	@include doordiv;
+	/*@media (max-width: $very-small) and (min-height: $small-screen) {
+		top: $top-pad;
+    }
+    @media (min-width: $very-small) {
+    	top: 10vh;
+    }*/
+    top: 10vh;
+}
+.bottomrow {
+	@include doordiv;
+	top: 55vh;
+}
+@keyframes slideOutAndOver {
+	0% {
+		z-index: -1;
+	}
+	40% {
+		transform: translateX(40%);
+		-webkit-transform: translateX(40%);
+		z-index: -1;
+	}
+	41% {
+		z-index: 10;
+	}
+	100% {
+		transform: translateX(0%);
+		-webkit-transform: translateX(0%);
+		z-index: 10;
+	}
+}
+@keyframes slideOutAndOverLess {
+	0% {
+		z-index: -1;
+	}
+	40% {
+		transform: translateX(30%);
+		-webkit-transform: translateX(30%);
+		z-index: -1;
+	}
+	41% {
+		z-index: 10;
+	}
+	100% {
+		transform: translateX(0%);
+		-webkit-transform: translateX(0%);
+		z-index: 10;
+	}
+}
+
+
+$zindex-col1: 7;
+$zindex-col1-behind: 6;
+$zindex-col2: 5;
+$zindex-col2-behind: 4;
+$zindex-col3: 3;
+$zindex-col3-behind: 2;
+
+.col1 {
+	@media (max-width: $very-small) {
+		left: 0vw;
+    }
+	@media (min-width: $very-small) and (max-width: $small-screen) {
+		left: $first;
+    }
+    @media (min-width: $small-screen) {
+    	left: $first + 10vw;
+    }
+    @media (min-width: $small-screen) {
+    	float: right;
+    }
+    left: $first;
+}
+.col1.door {
+	@media (min-width: $small-screen) {
+    	float: right;
+    }
+}
+
+.col2 {
+	/*@media (max-width: $small-screen) {
+		left: $second-small;
+    }
+    @media (min-width: $small-screen) {
+    	left: $second;
+    }*/
+    @media (max-width: $very-small) {
+		left: $second - 5vw;
+    }
+     @media (min-width: $very-small) {
+    	left: $second;
+    }
+}
+
+.col3 {
+	@media (max-width: $very-small) {
+		left: 100vw - $door-width - 10vw;
+    }
+	@media (min-width: $very-small) and (max-width: $small-screen) {
+		left: $third;
+    }
+    @media (min-width: $small-screen) {
+    	left: $third - 10vw;
+    }
+    @media (min-width: $small-screen) {
+    	float: left;
+    }
+}
+.col3.door {
+	@media (min-width: $small-screen) {
+    	float: left;
+    }
+}
+
+.door {
+	image-orientation: from-image;
+	position: relative;
+	display: block;
+	max-width: 150%;
+	max-height: 100%;
+	width: auto;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	transition: all ease-in-out .2s;
+	z-index: 3;
+	transform-style: flat;
+}
+.behind-text {
+	position: absolute;
+	display: block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	top: 20%;
+	left: 11%;
+	opacity: 0;
+	color: $text-color;
+	z-index: -1;
+	font-size: min(4vw, 5vh);
+	pointer-events: none;
+}
+@mixin reveal-text {
+	z-index: 9;
+	opacity: 100;
+	color: $text-color;
+	//transition: opacity ease-in-out .6s;
+	//z-index: 9;
+	@media (max-width: $small-screen) {
+		animation-name: slideOutAndOver;
+		animation-duration: .9s;
+		animation-fill-mode: forwards;
+    }
+    @media (min-width: $small-screen) {
+    	animation-name: slideOutAndOverLess;
+    	animation-duration: .9s;
+    	animation-fill-mode: forwards;
+    }
+}
+@mixin reveal-text-mobile {
+	z-index: 9;
+	opacity: 100;
+	color: $text-color;
+	transition: opacity ease-in-out .6s;
+	//z-index: 9;
+	/*@media (max-width: $small-screen) {
+		animation-name: slideOutAndOver;
+		animation-duration: .9s;
+		animation-fill-mode: forwards;
+    }
+    @media (min-width: $small-screen) {
+    	animation-name: slideOutAndOverLess;
+    	animation-duration: .9s;
+    	animation-fill-mode: forwards;
+    }*/
+}
+$hidden-text-left: 14%;
+@mixin hidden-text {
+	position: absolute;
+	text-align: center;
+	opacity: 0;
+	left: $hidden-text-left;
+	//z-index: 9;
+	color: $text-color;
+	//transition: opacity ease-in-out .2s;
+}
+/* */
+$bio-translatex: 280%;
+$media-translatex: 140%;
+$comedy-translatex: 110%;
+$art-translatex: 250%;
+@mixin old-hidden-text {
+	top: 8vh;
+}
+@mixin old-reveal-text($translatex) {
+	@include transform(translate($translatex, 0px));
+	opacity: 100;
+	transition: all ease-in-out .6s;
+}
+.category-text {
+	@include hidden-text;
+}
+.category-text.reveal {
+	@include reveal-text;
+}
+
+
+/*MIRANDA DIV*/
+
+#portrait {
+	max-width: 63%;
+	max-height: 63%;
+	//float: inherit;
+	transition: all ease-in-out .2s;
+	//position: relative;
+	z-index: -3;//$zindex-col2-behind;
+	//float: left;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	position: relative;
+}
+#portrait.peek {
+	transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+}
+#portrait-wrapper {
+	left: $portrait-behind-door;
+	width: $door-width;
+	height: 33.3vh;
+	position: absolute;
+	top: 5vh;
+	transition: all ease-in-out .6s;
+}
+#miranda {
+	position: absolute;
+	transform-style: flat;
+}
+#miranda .door {
+	//z-index: $zindex-col2;
+}
+#miranda-door.hover:hover {
+	@include door-open;
+}
+#miranda.hover:hover > #portrait-wrapper {
+	left: $portrait-peek;
+	transition: all ease-in-out .6s;
+}
+#miranda.ajar > .door.notmobile {
+	@include door-open;
+	//@include door-open-notransition;
+}
+#miranda.ajar > #portrait-wrapper {
+	left: $portrait-peek;
+	transition: all ease-in-out .6s;
+}
+#miranda.open {
+	@include enterdiv;
+}
+#miranda.open > .overlay {
+	@include overlayopen;
+}
+#miranda.open > .door {
+	@include enterdoor;
+}
+#miranda.peek > .door.notmobile {
+	@include door-open;
+}
+#miranda.depeek > .door {
+	@include door-close;
+}
+#portrait-wrapper.peek {
+	@media (max-width: 440px) {
+		left: 20vw;
+		transition: all ease-in-out .6s;
+    }
+    @media (min-width: 440px) {
+    	left: $portrait-peek;
+    	transition: all ease-in-out .6s;
+    }
+}
+#portrait-wrapper.depeek {
+	left: $portrait-behind-door;
+	transition: all ease-in-out .6s;
+}
+
+/*ABOUT/CONTACT DIV*/
+
+#AboutContact {
+	position: absolute;
+	transform-style: flat;
+}
+#AboutContact .door {
+	//left: 0vw;
+	//z-index: $zindex-col1;
+}
+
+#AboutContact-door.hover:hover {
+	@include door-open-less;
+}
+
+#AboutContact.ajar > .door {
+	//@include door-open;
+	//@include door-open-less-notransition;
+}
+#AboutContact.ajar > #Bio-header {
+	@include reveal-text-mobile;
+}
+#Bio-header {
+	/*position: absolute;
+	z-index: 0;
+	top: 8vh;
+	left: .5vw;
+	transition: all ease-in-out .6s;
+	color: #a025cc;
+	z-index: $zindex-col1-behind;*/
+	@include hidden-text;
+	left: 20%;
+}
+#AboutContact.hover.closed:hover > #Bio-header {
+	@include reveal-text;
+}
+#AboutContact.open {
+	@include enterdiv;
+}
+#AboutContact.open > .door {
+	@include enterdoor;
+}
+#AboutContact.open > .overlay {
+	@include overlayopen;
+}
+$bio-text-size: min(4vw,4vh);//16pt;
+#bio-text {
+	text-align: center;
+	top: 5%;
+	margin: 13%;
+	margin-bottom: 3%;
+	margin-top: 5%;
+	color: black;
+	font-size: $bio-text-size;
+}
+#AboutContact.open > #bio-text {
+	opacity: 100;
+	transition: all ease-in .6s;
+}
+#contact {
+	text-align: center;
+	top: 0%;
+	color: black;
+	width: 50%;
+	margin: auto;
+	font-size: $bio-text-size;
+	margin-bottom: 5vh;
+}
+#AboutContact.open > #contact {
+	opacity: 100;
+	transition: all ease-in .6s;
+}
+
+
+
+
+
+#media {
+	transform-style: flat;
+}
+#media .door {
+	z-index: $zindex-col3;
+}
+/*#media.hover:hover.closed > .door {
+ 	@include door-open-less;
+ }*/
+#media.ajar > .door {
+	//@include door-open-less-notransition;
+	//@include door-open-less;
+}
+#media.ajar > .behind-text {
+	@include reveal-text-mobile;
+}
+#media .behind-text {
+	@include hidden-text;
+}
+#media.hover.closed:hover > .behind-text {
+	@include reveal-text;
+}
+/*#media-door.door:hover > .behind-text {
+	@include reveal-text;
+}*/
+#media-door.hover:hover {
+ 	@include door-open-less;
+}
+#media.open {
+	@include enterdiv;
+}
+#media.open > .door {
+	@include enterdoor;
+}
+#media.open > .overlay {
+	@include overlayopen;
+}
+#media.open > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+/* BOTTOM ROW */
+
+#film {
+	position: absolute;
+	transform-style: flat;
+}
+#film .door {
+	//z-index: 8;
+}
+#film-door.hover:hover {
+	@include door-open-less;
+}
+#film.ajar > .door {
+	//@include door-open-less-notransition;
+	//@include door-open-less;
+}
+#film.ajar > .behind-text {
+	@include reveal-text-mobile;
+}
+#film .behind-text {
+	@include hidden-text;
+}
+#film.hover.closed:hover > .behind-text {
+	@include reveal-text;
+}
+
+/* when the open class is triggered,
+the door moves to the top left and opens all the way
+ */
+#film.open {
+	@include enterdiv;
+}
+#film.open > .door {
+	@include enterdoor;
+}
+#film.open > .overlay {
+	@include overlayopen;
+}
+#film.open > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+
+#comedy {
+	transform-style: flat;
+}
+#comedy .door {
+	//z-index: 6;
+}
+#comedy-door.hover:hover {
+ 	@include door-open-less;
+ }
+#comedy.ajar > .door {
+ 	//@include door-open-less-notransition;
+ 	//@include door-open-less;
+ }
+#comedy.ajar > .behind-text {
+	@include reveal-text-mobile;
+}
+#comedy .behind-text{
+	@include hidden-text;
+	left: 20%;
+}
+#comedy.hover.closed:hover > .behind-text {
+	@include reveal-text;
+}
+#comedy.open {
+	@include enterdiv;
+}
+#comedy.open > .door {
+	@include enterdoor;
+}
+#comedy.open > .overlay  {
+	@include overlayopen;
+}
+#comedy.open > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+
+#art {
+	transform-style: flat;
+}
+#art .door {
+	//z-index: 4;
+}
+#art-door.hover:hover {
+ 	@include door-open-less;
+}
+#art.ajar > .door {
+	//@include door-open-less-notransition;
+	//@include door-open-less;
+}
+#art.ajar > .behind-text {
+	@include reveal-text-mobile;
+}
+#art .behind-text {
+	@include hidden-text;
+}
+#art.hover.closed:hover > .behind-text {
+	@include reveal-text;
+}
+#art.open {
+	@include enterdiv;
+}
+#art.open > .door {
+	@include enterdoor;
+}
+#art.open > .overlay  {
+	@include overlayopen;
+}
+#art.open > .behind-text {
+	opacity: 0;
+	transition: all ease-out .4s;
+}
+
+
+//needs height correction for frames on thin / mobile
+$thumb-top: 72vh;
+#art-gallery-large {
+	position: absolute;
+	display: block;
+	top: 15vh;
+	width: 60vw;
+	left: 20vw;
+	height: 45vh;
+
+}
+#art-gallery-large-im {
+	display: block;
+	max-width: 50vw;
+}
+#art-gallery-large-frame {
+	top: 0vh;
+	min-width: 45vw;
+	max-width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	position: relative;
+}
+#art-gallery-large-frame-cont {
+	position: absolute;
+	display: block;
+	top: 5vh;
+	left: 22vw;
+	height: 60vh;
+	width: 56vw;
+	transform: rotateZ(1deg);
+	-webkit-transform: rotateZ(1deg);
+}
+$thumb1-left: 17vw;
+#art-gallery-thumb1 {
+	position: absolute;
+	display: flex;
+	top: $thumb-top;
+	left: $thumb1-left;
+}
+#art-gallery-thumb1-frame {
+	//left: $thumb1-left;
+}
+$thumb2-left: 41vw;
+#art-gallery-thumb2 {
+	position: absolute;
+	display: flex;
+	top: $thumb-top;
+	left: $thumb2-left;
+}
+#art-gallery-thumb2-frame {
+	//left: $thumb2-left;
+	top: -26%;
+	left: -9%;
+}
+$thumb3-left: 65vw;
+#art-gallery-thumb3 {
+	position: absolute;
+	display: flex;
+	top: $thumb-top;
+	left: $thumb3-left;
+}
+#art-gallery-thumb3-frame {
+	//left: $thumb3-left;
+}
+#gallery-arrow-right {
+	position: absolute;
+	top: 30vh;
+	height: 40vh;
+	width: 10vw;
+	left: 88vw;
+}
+#gallery-arrow-left {
+	position: absolute;
+	height: 40vh;
+	left: 2vw;
+	width: 10vw;
+	top: 30vh;
+}
+.gallery-large-im {
+	align-self: center;
+	align-items: center;
+	object-fit: contain;
+	height: 100%;
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	image-orientation: from-image;
+}
+$gallery-im-max-width: 16vw;
+$im-h: 100%;
+.gallery-im {
+	align-self: center;
+	align-items: center;
+	object-fit: contain;
+	height: $im-h;
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $gallery-im-max-width;
+	image-orientation: from-image;
+}
+.gallery-thumb {
+	height: 20vh;
+	top: $thumb-top;
+	width: 18vw;
+}
+.gallery-frame-top {
+	position: absolute;
+	z-index: 20;
+	height: 130%;
+	width: 120%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.gallery-frame {
+	position: absolute;
+	z-index: 20;
+	top: -25%;
+	height: 150%;
+	max-height: $gallery-im-max-width * 2.5;
+	left: -10%;
+	width: 120%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+/*iframe {
+	z-index: -1;
+}*/ // doesn't work because then covered by the div / unclickable
+
+
+

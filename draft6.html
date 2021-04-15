@@ -1,0 +1,503 @@
+<html>
+<head>
+<link rel="stylesheet" href=".\styles-draft6.css">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Miranda Amey</title>
+<script>
+	function peek() {
+		var depeek_time = 1400;
+		  //miranda peekout
+		  console.log("peek")
+		  setTimeout(() => {switchClass('portrait-wrapper', 'peek')}, 300);
+		  setTimeout(() => {switchClass('miranda', 'peek')}, 300);
+		  setTimeout(() => {switchClassTwo('portrait-wrapper', 'peek', 'depeek')}, depeek_time);
+		  setTimeout(() => {switchClassTwo('miranda', 'peek', 'depeek')}, depeek_time);
+		  setTimeout(() => {switchClass('portrait-wrapper', 'depeek')}, 1600);
+		  setTimeout(() => {switchClass('miranda', 'depeek')}, 1600);
+	}
+</script>
+</head>
+<body>
+<h1 id="name">Miranda Amey</h1>
+<div class="row" id="toprow">
+	<div id="miranda" class="toprow col2 closed" onclick="changeDoorState('miranda')">
+		<img id="miranda-door" class="door" src="doors/IMG_5244.PNG">
+		<div id="portrait-wrapper"><img id="portrait" src="content/self-portrait-cropped.png" onload="peek()"></div>
+		<div id="miranda-overlay" class="overlay miranda closed">
+			<img id="miranda-x" class="x" src="content/x3.png" onclick="changeDoorState('miranda')">
+			<iframe id="meet-miranda-video" loading="lazy" class="meet-miranda-video video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
+			<div id="socials" class="row">
+				<a href="instagram link here">
+					<img id="instaframe" class="socialframe" src="content/frame4.png">
+					<img id="instagram" class="social" src="content/insta.png">
+				</a>
+				<a href="youtube link here">
+					<img id="youtubeframe" class="socialframe" src="content/frame4.png">
+					<img id="youtube" class="social" src="content/youtube.png">
+				</a>
+				<a href="twitter link here">
+					<img id="twitterframe" class="socialframe" src="content/frame4.png">
+					<img id="twitter" class="social" src="content/twitter.png">
+				</a>
+				<a href="venmo link here">
+					<img id="venmoframe" class="socialframe" src="content/frame4.png">
+					<img id="venmo" class="social" src="content/venmo.png">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="AboutContact" class="toprow col1 closed">
+		<img id="AboutContact-door" class="door" src="doors/IMG_5245.PNG">
+		<h1 id="bio-header" class="behind-text">Bio &<br />Contact</h1>
+		<img id="AboutContact-x" class="x" src="content/x3.png" onclick="changeDoorState('AboutContact')">
+		<div id="biooverlay" class="overlay bio closed">
+			<p id="bio-text">Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny. Miranda is an artist, game-changer with lots of experience and is very funny.</p>
+
+			<!--- Miranda: to set this to your own email, replace the link below action="__FORMSPREE LINK HERE___"-->
+			<form
+			  action="https://formspree.io/xdowevpw"
+			  method="POST"
+			  id="contact"
+			>
+			  <label>
+			    Your email:
+			    <input type="text" name="email_address">
+			  </label>
+			  <br><br>
+			  <label>
+			    Your message:
+			    <textarea name="message"></textarea>
+			  </label>
+			  <br><br>
+			  <!-- your other form fields go here -->
+			  <input type="hidden" name="_next" value="/" />
+
+			  <button type="submit">Send</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="toprow closed col3" id="media">
+		<img id="media-door" class="door" src="doors/IMG_5246.PNG">
+			<h1 class="behind-text">Media</h1>
+
+		<div id="mediaoverlay" class="overlay">
+			<img id="media-x" class="x" src="content/x3.png" onclick="changeDoorState('media')">
+			<div class="row" style="margin-top:3%">
+					<div class="video-col">
+						<iframe id="mediaembed1" loading="lazy" class="mediaembed1 video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<img class="video-frame mediaembed1-frame" src="content/frame2.PNG">
+					</div>
+					<div class="column desc-col mediaembed1-desc">
+						<p>This is the description of the video.</p>
+					</div>
+				</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="mediaembed2" loading="lazy" class="mediaembed2 video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<img class="video-frame mediaembed2-frame" src="content/frame1.PNG">
+				</div>
+				<div class="column desc-col mediaembed2-desc">
+					<p>This is the description of the video.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="mediaembed3" loading="lazy" class="mediaembed3 video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
+					<img class="video-frame mediaembed3-frame" src="content/frame3.PNG">
+				</div>
+				<div class="column desc-col mediaembed3-desc">
+					<p>This is the description of the video.</p>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="row" id="bottomrow">
+<div id="bottomrow-div">
+	<div class="bottomrow closed col1" id="film">
+		<img id="film-door" class="door" src="doors/IMG_5242.PNG">
+		<h1 class="behind-text">Film</h1>
+		<div id="filmoverlay" class="overlay">
+			<div class="xcontainer">
+			<img id="film-x" class="x" src="content/x3.png" onclick="changeDoorState('film')">
+			<div class="row" style="margin-top:3%">
+					<div class="video-col">
+						<iframe id="filmembed1" loading="lazy" class="mediaembed1 video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<img class="video-frame mediaembed1-frame" src="content/frame3.PNG">
+					</div>
+					<div class="column desc-col mediaembed1-desc">
+						<p>This is the description of the video.</p>
+					</div>
+				</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="filmembed2" loading="lazy" class="mediaembed2 video-content" src="" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<img class="video-frame mediaembed2-frame" src="content/frame1.PNG">
+				</div>
+				<div class="column desc-col mediaembed2-desc">
+					<p>This is the description of the video.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="filmembed3" loading="lazy"  class="mediaembed3 video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
+					<img class="video-frame mediaembed3-frame" src="content/frame2.PNG">
+				</div>
+				<div class="column desc-col mediaembed3-desc">
+					<p>This is the description of the video.</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="bottomrow closed col3" id="art">
+		<img id="art-door" class="door" src="doors/IMG_5241.PNG">
+		<h1 class="behind-text">Art</h1>
+		<img id="art-x" class="x" src="content/x3.png" onclick="changeDoorState('art')">
+		<div id="artoverlay" class="overlay">
+			<div class="gallery">
+				<div id="art-gallery-large">
+					<img id="art-gallery-large-im" class="gallery-large-im" src="">
+				</div>
+				<div id="art-gallery-large-frame-cont">
+					<img id="art-gallery-large-frame" class="gallery-frame-top" src="content/frame3.PNG">
+				</div>
+				<div id="art-thumbnails">
+					<div id="art-gallery-thumb1" class="gallery-thumb">
+						<img id="art-gallery-thumb1-im" class="gallery-im" src="">
+						<img id="art-gallery-thumb1-frame" class="gallery-frame" src="content/frame2.PNG">
+					</div>
+					<div id="art-gallery-thumb2" class="gallery-thumb">
+						<img id="art-gallery-thumb2-im" class="gallery-im" src="">
+						<img id="art-gallery-thumb2-frame" class="gallery-frame" src="content/frame1.PNG">
+					</div>
+					<div id="art-gallery-thumb3" class="gallery-thumb">
+						<img id="art-gallery-thumb3-im" class="gallery-im" src="">
+						<img id="art-gallery-thumb3-frame" class="gallery-frame" src="content/frame2.PNG">
+					</div>
+				</div>
+				<img id="gallery-arrow-right" src="content/arrow_right.png" onclick="nextGalleryImage()">
+				<img id="gallery-arrow-left" src="content/arrow_left.png" onclick="prevGalleryImage()">
+			</div>
+		</div>
+	</div>
+	<div class="bottomrow closed col2" id="comedy">
+		<img id="comedy-door" class="door" src="doors/IMG_5243.PNG">
+		<h1 class="behind-text">Comedy</h1>
+		<div id="comedyoverlay" class="overlay">
+			<img id="comedy-x" class="x" src="content/x3.png" onclick="changeDoorState('comedy')">
+			<div class="row" style="margin-top:3%">
+					<div class="video-col">
+						<iframe id="comedyembed1" loading="lazy" class="mediaembed1 video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<img class="video-frame mediaembed1-frame" src="content/frame1.PNG">
+					</div>
+					<div class="column desc-col mediaembed1-desc">
+						<p>This is the description of the video.</p>
+					</div>
+				</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="comedyembed2" loading="lazy" class="mediaembed2 video-content" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<img class="video-frame mediaembed2-frame" src="content/frame3.PNG">
+				</div>
+				<div class="column desc-col mediaembed2-desc">
+					<p>inThis is the description of the video.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="video-col">
+					<iframe id="comedyembed3" loading="lazy" class="mediaembed3 video-content" src="" frameborder="0" allow="autoplay; fullscreen allowfullscreen"></iframe>
+					<img class="video-frame mediaembed3-frame" src="content/frame2.PNG">
+				</div>
+				<div class="column desc-col mediaembed3-desc">
+					<p>This is the description of the video.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--<script src='dir.php'></script>-->
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+	//how to post load the iframes for faster load time?
+	function isMobile() {
+	  try{ document.createEvent("TouchEvent"); return true; }
+	  catch(e){ return false; }
+	};
+	const isSafari = (navigator.vendor === "Apple Computer, Inc.")
+
+	window.onload = function() {
+		console.log("loaded")
+
+	mobileBrowser = isMobile();
+	console.log("browser is mobile: " + mobileBrowser);
+	console.log("browser is made by apple: " + isSafari);
+	//safari cannot handle the door ajar 3d rotation
+	if (!(mobileBrowser || isSafari)) {
+		//console.log("adding hover");
+		addHover();
+		document.getElementById('miranda-door').classList.add('notmobile');
+	} 
+
+
+	/* "gallery images" */	
+	  var gall_ind = 0;
+	  console.log(files);
+	  if (!files) {
+	  	var files = ["content/miranda.jpg", "content/self-portrait-cropped.png", "content/self-portrait.jpeg", "content/self-portrait-cropped.png", "content/miranda.jpg", "content/self-portrait.jpeg"];
+	  }
+	  function getGalleryImages() {
+	  	files_indices = files.length;
+	  	if (gall_ind === files.length) {
+	  		gall_ind = 0;
+	  	}
+	  	else if (gall_ind === -1) {
+	  		gall_ind = files.length - 1;
+	  	}
+	  	gallt1_ind = gall_ind + 1;
+	  	gallt2_ind = gall_ind + 2;
+	  	gallt3_ind = gall_ind + 3;
+	  	if (gallt1_ind >= files.length) {
+	  		gallt1_ind = gallt1_ind - files.length;
+	  	}
+	  	if (gallt2_ind >= files.length) {
+	  		gallt2_ind = gallt2_ind - files.length;
+	  	}
+	  	if (gallt3_ind >= files.length) {
+	  		gallt3_ind = gallt3_ind - files.length;
+	  	}
+
+
+	  	var gallbig = document.getElementById("art-gallery-large-im");
+	  	gallbig.src = files[gall_ind];
+	  	var gallt1 = document.getElementById("art-gallery-thumb1-im");
+	  	gallt1.src = files[gallt1_ind];
+	  	var gallt2 = document.getElementById("art-gallery-thumb2-im");
+	  	gallt2.src = files[gallt2_ind];
+	  	var gallt3 = document.getElementById("art-gallery-thumb3-im");
+	  	gallt3.src = files[gallt3_ind];
+	  };
+	  function nextGalleryImage() {
+	  	console.log("next");
+	  	console.log(gall_ind);
+	  	/*if (gall_ind + 3 < files.length) {
+	  		gall_ind = gall_ind + 1;
+	  		getGalleryImages();
+	  	}*/
+	  	gall_ind = gall_ind + 1;
+	  	getGalleryImages();
+	  };
+	  function prevGalleryImage() {
+	  	console.log("prev");
+	  	console.log(gall_ind);
+	  	/*if (gall_ind > 1) {
+	  		gall_ind = gall_ind - 1;
+	  		getGalleryImages();
+	  	}*/
+	  	gall_ind = gall_ind - 1;
+	  	getGalleryImages();
+	  };
+
+	  function loadiframes() {
+	  	mediasrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+	  	comedysrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+	  	filmsrcs = ["https://www.youtube.com/embed/DzRCEWtn8fU", "https://www.youtube.com/embed/DzRCEWtn8fU", "https://player.vimeo.com/video/425790105?byline=0"];
+	  	mirandasrc = "https://player.vimeo.com/video/425790105?byline=0";
+
+	  	var ind = 1;
+	  	mediasrcs.forEach((src) => {
+	  		document.getElementById("mediaembed" + ind).src = src;
+	  		ind = ind + 1;
+	  	});
+	  	ind = 1;
+	  	comedysrcs.forEach((src) => {
+	  		document.getElementById("comedyembed" + ind).src = src;
+	  		ind = ind + 1;
+	  	});
+	  	ind = 1;
+	  	filmsrcs.forEach((src) => {
+	  		document.getElementById("filmembed" + ind).src = src;
+	  		ind = ind + 1;
+	  	});
+	  	ind = 1;
+	  	document.getElementById("meet-miranda-video").src = mirandasrc;
+	  };
+
+	  //load after 2 seconds (peek time + a little)
+	  setTimeout(function() {
+	  	getGalleryImages();
+	  	loadiframes();
+	  }, 2000)
+
+	};
+
+	let resizeTimer;
+	window.addEventListener("resize", () => {
+		console.log('resize')
+	  document.body.classList.add("resize-animation-stopper");
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(() => {
+	  	console.log('end resize timer')
+	    document.body.classList.remove("resize-animation-stopper");
+	  }, 400);
+	});
+
+	var divs = {
+		'miranda': document.getElementById('miranda'),
+		'AboutContact': document.getElementById('AboutContact'),
+		'media': document.getElementById('media'),
+		'film': document.getElementById('film'),
+		'art': document.getElementById('art'),
+		'comedy': document.getElementById('comedy')
+	};
+	var doors = {
+		'miranda': document.getElementById('miranda-door'),
+		'AboutContact': document.getElementById('AboutContact-door'),
+		'media': document.getElementById('media-door'),
+		'film': document.getElementById('film-door'),
+		'art': document.getElementById('art-door'),
+		'comedy': document.getElementById('comedy-door')
+	};
+	for (div in divs) {
+		//console.log(divs[div]);
+		doors[div].addEventListener("click", function( e ) {
+    		e = window.event || e; 
+    		console.log("this");
+    		console.log(this);
+    		console.log("e");
+    		console.log(e);
+    		console.log("e.target");
+    		console.log(e.target);
+    		var div_id = e.target.id.substr(0, e.target.id.length - 5);
+    		//if the click is targeting the div, or if the div isn't open (and the x button isn't being clicked, which can close the div before this listener fires, thus reopening it)
+    		if (this === e.target || ((!(divs[div_id].className.indexOf('open') >= 0)) && (!(e.target.className === "x")))) {
+    			//console.log("passed");
+       			changeDoorState(div_id);
+   			}
+		});
+	}
+
+	mobileStates = ["closed", "ajar", "open"];
+
+
+	function addHover() {
+		var divs = {
+			'miranda': document.getElementById('miranda'),
+			'AboutContact': document.getElementById('AboutContact'),
+			'media': document.getElementById('media'),
+			'film': document.getElementById('film'),
+			'art': document.getElementById('art'),
+			'comedy': document.getElementById('comedy')
+		};
+		var doors = {
+			'miranda': document.getElementById('miranda-door'),
+			'AboutContact': document.getElementById('AboutContact-door'),
+			'media': document.getElementById('media-door'),
+			'film': document.getElementById('film-door'),
+			'art': document.getElementById('art-door'),
+			'comedy': document.getElementById('comedy-door')
+		};
+		for (div in divs) {
+			divs[div].className = divs[div].className + " " + "hover";
+			doors[div].classList.add("hover");
+		}
+	};
+
+	div_timers = {
+		'miranda': '',
+		'AboutContact': '',
+		'media': '',
+		'film': '',
+		'art': '',
+		'comedy': ''
+	};
+	function changeDoorState(category, reset) {
+		var cat_div = document.getElementById(category);
+		var x = document.getElementById(category + "-x");
+
+		console.log(cat_div);
+		console.log(cat_div.className);
+
+		/*if (category === "miranda") {
+			cat_div.className = cat_div.className + " " + "ajar";
+			div_timers[category] = setTimeout(() => {cat_div.className = cat_div.className.replace('ajar', '');}, 1500);
+		}*/
+		if (mobileBrowser || isSafari) {
+			if (reset) {
+				cat_div.className = cat_div.className.replace("ajar", "closed");
+			} else if (cat_div.className.indexOf("closed") >= 0) {
+				cat_div.className = cat_div.className.replace("closed", "ajar");
+				div_timers[category] = setTimeout(() => {changeDoorState(category, true)}, 1500);
+			} else if (cat_div.className.indexOf("ajar") >= 0) { 
+				cat_div.className = cat_div.className.replace("ajar", "open");
+				x.classList.add("open");
+				clearTimeout(div_timers[category]);
+			} else if (cat_div.className.indexOf("open") >= 0) {
+				x.classList.remove("open");
+				cat_div.className = cat_div.className.replace("open", "closed");
+			}
+
+		} else {
+			if (cat_div.className.indexOf("closed") >= 0) {
+				console.log("changed to open");
+				//console.log(cat_div.className.indexOf("closed"));
+				x.classList.add("open");
+				cat_div.className = cat_div.className.replace("closed", "open");
+			} else {
+				console.log("changed to closed");
+				//x.className = x.className.replace("open", "");
+				x.classList.remove("open");
+				cat_div.className = cat_div.className.replace("open", "closed");
+			}
+		}
+
+		/*if (!(category === "miranda")) {
+			var x = document.getElementById(category + "-x");
+			console.log("x for " + category);
+			console.log(x);
+			if (x.className.indexOf("hidden") < 0) {
+				//setTimeout(() => {x.className = x.className.replace(" hidden", "");}, 50);
+				x.className = x.className + " hidden";
+				console.log(x.className);
+			} else {
+				//setTimeout(() => {x.className = x.className + " hidden";}, 50);
+				x.className = x.className.replace(" hidden", "");
+				console.log(x.className);
+			}
+		}*/
+
+	};
+	function switchClass(element, classAdd) {
+		var el = document.getElementById(element);
+		//console.log(el);
+		if (el.className.indexOf(classAdd) >= 0) {
+			el.className = el.className.replace(classAdd, '');
+		} else {
+			el.className = el.className + " " + classAdd;
+		}
+	};
+	function switchClassTwo(element, classRegName, classActivatedName) {
+		function internal(element, classRegName, classActivatedName) {
+			var el = document.getElementById(element);
+			if (el.className.indexOf(classRegName) >= 0) {
+				el.className = el.className.replace(classRegName, classActivatedName);
+			} else {
+				el.className = el.className.replace(classActivatedName, classRegName);
+			}
+		};
+
+		if (element.forEach !== undefined) {
+			element.forEach((el) => {internal(el, classRegName, classActivatedName);});
+		} else {
+			internal(element, classRegName, classActivatedName);
+		}
+	};
+
+	
+
+</script>
+</body>
+
+
+</html>
