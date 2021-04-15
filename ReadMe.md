@@ -6,6 +6,8 @@ To upload the site
 - change the name of "styles-draft6.css" to "styles.css" and also, in line 3 of draft6.html
 - upload index.html, styles.css, PatchFun.ttf, the doors folder and the content folder all to the same directory (might be public_html) of the site hosting service
 
+To change your bio, search bio-text within draft6.html and change the text there.
+
 To edit the contact form to go to your email, create an account / form on formspree.io, get a link for your form, and replace the form link in draft6.html (can search FORMSPREE LINK, line 56, link goes on line 58).
 
 To add your social links, replace "instagram link here", "youtube link here" etc in draft6.html with your social links.
