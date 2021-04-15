@@ -100,7 +100,7 @@ $row-height: 25vh;
 	//padding-left: 5%;
 	padding-right: 5%;
 	position: absolute;
-	font-size: 3vw;
+	font-size: min(3vw,5.5vh);
 	width: 30vw;
 }
 .video-col { 
@@ -373,7 +373,7 @@ $frame3-height: 5261px;
 	height: 100vh;
 	top: 0;
 	left: 0;
-	transition: z-index 1ms, all ease-out 3s;
+	transition: z-index 1ms, all ease-in-out 3s;
 	z-index: 10;
 }
 $door-width: 22.5vw;
@@ -664,6 +664,9 @@ $art-translatex: 250%;
 }
 #miranda.open {
 	@include enterdiv;
+}
+#miranda.open > #portrait-wrapper {
+	display: none
 }
 #miranda.open > .overlay {
 	@include overlayopen;

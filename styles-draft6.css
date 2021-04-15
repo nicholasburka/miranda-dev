@@ -77,7 +77,7 @@ h1 {
   align-items: center;
   padding-right: 5%;
   position: absolute;
-  font-size: 3vw;
+  font-size: min(3vw, 5.5vh);
   width: 30vw;
 }
 
@@ -536,8 +536,12 @@ h1 {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
+}
+
+#miranda.open > #portrait-wrapper {
+  display: none;
 }
 
 #miranda.open > .overlay {
@@ -673,7 +677,7 @@ h1 {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
 }
 
@@ -809,7 +813,7 @@ h1 {
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
 }
 
@@ -915,7 +919,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
 }
 
@@ -1016,7 +1020,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
 }
 
@@ -1117,7 +1121,7 @@ the door moves to the top left and opens all the way
   height: 100vh;
   top: 0;
   left: 0;
-  transition: z-index 1ms, all ease-out 3s;
+  transition: z-index 1ms, all ease-in-out 3s;
   z-index: 10;
 }
 
