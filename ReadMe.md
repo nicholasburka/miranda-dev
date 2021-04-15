@@ -4,7 +4,7 @@ Notes
 To upload the site
 - change the name of "draft6.html" to "index.html"
 - change the name of "styles-draft6.css" to "styles.css" and also, in line 3 of draft6.html
-- upload index.html, styles.css, PatchFun.ttf and the content folder to the same directory (might be public_html) of the site hosting service
+- upload index.html, styles.css, PatchFun.ttf, the doors folder and the content folder all to the same directory (might be public_html) of the site hosting service
 
 To edit the contact form to go to your email, create an account / form on formspree.io, get a link for your form, and replace the form link in draft6.html (can search FORMSPREE LINK, line 56, link goes on line 58).
 
