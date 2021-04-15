@@ -400,6 +400,7 @@ $third-small: 67vw;
 
 $small-screen: 820px;
 $very-small: 740px;
+$tiny: 450px;
 
 /* layout */
 $top-pad: 15vh;
@@ -722,7 +723,10 @@ $art-translatex: 250%;
 	color: #a025cc;
 	z-index: $zindex-col1-behind;*/
 	@include hidden-text;
-	left: 20%;
+	@media (max-width: $tiny) {
+		left: 6%;
+	}
+	top: 32%;
 }
 #AboutContact.hover.closed:hover > #Bio-header {
 	@include reveal-text;
@@ -786,6 +790,10 @@ $bio-text-size: min(4vw,4vh);//16pt;
 }
 #media .behind-text {
 	@include hidden-text;
+	@media (max-width: $tiny) {
+		left: 26%;
+	}
+	top: 38%;
 }
 #media.hover.closed:hover > .behind-text {
 	@include reveal-text;
@@ -831,6 +839,10 @@ $bio-text-size: min(4vw,4vh);//16pt;
 }
 #film .behind-text {
 	@include hidden-text;
+	@media (max-width: $tiny) {
+		left: 25%;
+	}
+	top: 35%;
 }
 #film.hover.closed:hover > .behind-text {
 	@include reveal-text;
@@ -872,7 +884,10 @@ the door moves to the top left and opens all the way
 }
 #comedy .behind-text{
 	@include hidden-text;
-	left: 20%;
+	@media (max-width: $tiny) {
+		left: 15%;
+	}
+	top: 35%;
 }
 #comedy.hover.closed:hover > .behind-text {
 	@include reveal-text;
@@ -910,6 +925,10 @@ the door moves to the top left and opens all the way
 }
 #art .behind-text {
 	@include hidden-text;
+	@media (max-width: $tiny) {
+		left: 25%;
+	}
+	top: 35%;
 }
 #art.hover.closed:hover > .behind-text {
 	@include reveal-text;

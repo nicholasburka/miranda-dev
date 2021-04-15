@@ -640,7 +640,12 @@ h1 {
   opacity: 0;
   left: 14%;
   color: #fb0446;
-  left: 20%;
+  top: 32%;
+}
+@media (max-width: 450px) {
+  #Bio-header {
+    left: 6%;
+  }
 }
 
 #AboutContact.hover.closed:hover > #Bio-header {
@@ -761,6 +766,12 @@ h1 {
   opacity: 0;
   left: 14%;
   color: #fb0446;
+  top: 38%;
+}
+@media (max-width: 450px) {
+  #media .behind-text {
+    left: 26%;
+  }
 }
 
 #media.hover.closed:hover > .behind-text {
@@ -868,6 +879,12 @@ h1 {
   opacity: 0;
   left: 14%;
   color: #fb0446;
+  top: 35%;
+}
+@media (max-width: 450px) {
+  #film .behind-text {
+    left: 25%;
+  }
 }
 
 #film.hover.closed:hover > .behind-text {
@@ -966,7 +983,12 @@ the door moves to the top left and opens all the way
   opacity: 0;
   left: 14%;
   color: #fb0446;
-  left: 20%;
+  top: 35%;
+}
+@media (max-width: 450px) {
+  #comedy .behind-text {
+    left: 15%;
+  }
 }
 
 #comedy.hover.closed:hover > .behind-text {
@@ -1062,6 +1084,12 @@ the door moves to the top left and opens all the way
   opacity: 0;
   left: 14%;
   color: #fb0446;
+  top: 35%;
+}
+@media (max-width: 450px) {
+  #art .behind-text {
+    left: 25%;
+  }
 }
 
 #art.hover.closed:hover > .behind-text {
