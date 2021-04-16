@@ -1,10 +1,11 @@
 Notes
 - hoping these will be useful to either Miranda or whoever finishes/alters the site
+- live version of the site: https://nicholasburka.github.io/miranda-dev/draft6.html
 
 To upload the site
 - change the name of "draft6.html" to "index.html"
 - change the name of "styles-draft6.css" to "styles.css" and also, in line 3 of draft6.html
-- upload index.html, styles.css, PatchFun.ttf, the doors folder and the content folder all to the same directory (might be public_html) of the site hosting service
+- upload index.html, styles.css, PatchFun.ttf, and the img folder all to the same directory (might be public_html) of the site hosting service
 
 To change your bio, search bio-text within draft6.html and change the text there.
 
