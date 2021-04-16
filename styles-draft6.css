@@ -27,7 +27,7 @@ h1 {
   text-align: center;
   height: 10vh;
   color: #fb0446;
-  z-index: 9;
+  z-index: 0;
   position: relative;
   font-size: min(7vw, 5vh);
   top: 1vh;
@@ -64,6 +64,10 @@ h1 {
 
 .overlay.closed {
   z-index: -1;
+}
+
+.otheroverlayactive {
+  pointer-events: none;
 }
 
 .row {
@@ -681,7 +685,7 @@ h1 {
   transition: all ease-in-out 0.3s;
 }
 
-#AboutContact.ajar > #Bio-header {
+#AboutContact.ajar > #bio-header {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
@@ -698,7 +702,7 @@ h1 {
      }*/
 }
 
-#Bio-header {
+#bio-header {
   /*position: absolute;
   z-index: 0;
   top: 8vh;
@@ -714,25 +718,25 @@ h1 {
   top: 32%;
 }
 @media (max-width: 450px) {
-  #Bio-header {
+  #bio-header {
     left: 6%;
   }
 }
 
-#AboutContact.hover.closed:hover > #Bio-header {
+#AboutContact.hover.closed:hover > #bio-header {
   z-index: 9;
   opacity: 100;
   color: #fb0446;
 }
 @media (max-width: 820px) {
-  #AboutContact.hover.closed:hover > #Bio-header {
+  #AboutContact.hover.closed:hover > #bio-header {
     animation-name: slideOutAndOver;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;
   }
 }
 @media (min-width: 820px) {
-  #AboutContact.hover.closed:hover > #Bio-header {
+  #AboutContact.hover.closed:hover > #bio-header {
     animation-name: slideOutAndOverLess;
     animation-duration: 0.9s;
     animation-fill-mode: forwards;

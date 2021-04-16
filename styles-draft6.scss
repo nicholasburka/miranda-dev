@@ -38,7 +38,7 @@ h1 {
 	text-align:center;
 	height: 10vh;
 	color: $text-color;
-	z-index: 9;
+	z-index: 0;
 	position:relative;
 	font-size: min(7vw, 5vh);
 	top: 1vh;
@@ -84,6 +84,9 @@ $overlay-opacity-time: 2s;
 }
 .overlay.closed {
 	z-index: -1;
+}
+.otheroverlayactive {
+	pointer-events: none;
 }
 
 $row-height: 25vh;
@@ -743,10 +746,10 @@ $art-translatex: 250%;
 	//@include door-open;
 	//@include door-open-less-notransition;
 }
-#AboutContact.ajar > #Bio-header {
+#AboutContact.ajar > #bio-header {
 	@include reveal-text-mobile;
 }
-#Bio-header {
+#bio-header {
 	/*position: absolute;
 	z-index: 0;
 	top: 8vh;
@@ -760,7 +763,7 @@ $art-translatex: 250%;
 	}
 	top: 32%;
 }
-#AboutContact.hover.closed:hover > #Bio-header {
+#AboutContact.hover.closed:hover > #bio-header {
 	@include reveal-text;
 }
 #AboutContact.open {
