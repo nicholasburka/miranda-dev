@@ -30,7 +30,8 @@ h1 {
   z-index: 0;
   position: relative;
   font-size: min(7vw, 5vh);
-  top: 1vh;
+  top: 2vh;
+  margin: 0;
 }
 
 #loading {
